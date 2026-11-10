@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 560" width="640" height="560">
+ <!-- Segnaposto disegnato per Esterno · Quadrupede non buono: segugio infernale. Da sostituire con l'illustrazione ufficiale. -->
+ <defs>
+  <radialGradient id="carta" cx="50%" cy="45%" r="70%"><stop offset="0" stop-color="#efe2c2"/><stop offset=".75" stop-color="#e6d6b4"/><stop offset="1" stop-color="#e2d3b2"/></radialGradient>
+  <filter id="grana" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="5"/><feColorMatrix values="0 0 0 0 .45  0 0 0 0 .32  0 0 0 0 .18  0 0 0 .18 0"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+  <filter id="tratto"><feTurbulence type="turbulence" baseFrequency=".03" numOctaves="2" seed="13"/><feDisplacementMap in="SourceGraphic" scale="2.6"/></filter>
+  <filter id="sfuma"><feGaussianBlur stdDeviation="6"/></filter>
+  <linearGradient id="nero" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a302c"/><stop offset="1" stop-color="#17110f"/></linearGradient>
+  <linearGradient id="nero2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4a3c36"/><stop offset="1" stop-color="#211816"/></linearGradient>
+  <radialGradient id="brace" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ffe08a"/><stop offset=".5" stop-color="#f08a24"/><stop offset="1" stop-color="#b8321a"/></radialGradient>
+  <linearGradient id="fiamma" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#b8321a"/><stop offset=".6" stop-color="#f08a24"/><stop offset="1" stop-color="#ffd36a"/></linearGradient>
+ </defs>
+ <rect width="640" height="560" fill="url(#carta)"/>
+ <rect width="640" height="560" fill="#000" filter="url(#grana)"/>
+ <!-- fumo -->
+ <g fill="#5d5450" opacity=".35" filter="url(#sfuma)"><ellipse cx="470" cy="190" rx="90" ry="40"/><ellipse cx="540" cy="140" rx="60" ry="30"/><ellipse cx="130" cy="150" rx="70" ry="30"/></g>
+ <ellipse cx="330" cy="540" rx="230" ry="14" fill="#8a6a40" opacity=".3"/>
+ <g filter="url(#tratto)" stroke="#1a120c" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+  <!-- coda fiammeggiante -->
+  <path d="M500 260 C540 240 560 200 552 150 C580 190 584 250 540 290 Z" fill="url(#nero2)"/>
+  <path d="M552 150 C548 120 566 100 560 70 C584 100 590 130 572 160 Z" fill="url(#fiamma)" stroke-width="2"/>
+  <!-- zampe posteriori -->
+  <path d="M440 300 C470 340 466 400 450 440 L470 520 L430 526 L420 446 C410 410 402 370 400 330 Z" fill="url(#nero)"/>
+  <path d="M488 290 C520 330 520 400 506 444 L528 518 L494 522 L478 450 C470 410 462 360 456 320 Z" fill="url(#nero2)"/>
+  <!-- corpo -->
+  <path d="M190 250 C220 210 300 196 380 204 C450 210 510 240 512 290 C514 340 470 370 400 372 C320 376 240 360 210 330 C190 312 182 280 190 250 Z" fill="url(#nero)"/>
+  <path d="M250 330 C270 344 300 350 330 350 M380 352 C410 350 440 344 462 330" fill="none" stroke="#5a4a42" stroke-width="2"/>
+  <!-- costole incandescenti -->
+  <path d="M300 300 C310 320 312 336 308 350 M330 296 C338 318 340 336 336 352 M360 296 C366 318 368 336 364 352" fill="none" stroke="#e0662a" stroke-width="3"/>
+  <!-- cresta di fiamme sulla schiena -->
+  <path d="M260 214 L270 180 L284 208 L298 168 L312 202 L330 160 L344 198 L362 166 L376 202 L394 174 L404 206 L422 184 L428 214 Z" fill="url(#fiamma)" stroke-width="2"/>
+  <!-- zampe anteriori -->
+  <path d="M230 320 C226 370 230 420 236 450 L222 522 L264 524 L270 452 C272 410 270 360 272 330 Z" fill="url(#nero2)"/>
+  <path d="M290 330 C292 380 296 420 300 452 L296 524 L334 522 L336 450 C334 410 326 370 322 340 Z" fill="url(#nero)"/>
+  <path d="M216 522 L226 510 L234 522 L242 510 L250 522 L258 510 L268 524 Z M290 524 L300 512 L308 524 L316 512 L324 524 L332 512 L340 522 Z" fill="#c7b9a0" stroke-width="2"/>
+  <!-- collo e testa -->
+  <path d="M190 252 C176 220 170 190 176 160 L250 150 C262 180 260 220 248 250 Z" fill="url(#nero)"/>
+  <path d="M110 170 C110 130 140 104 182 102 C222 100 254 120 258 156 C262 186 238 206 206 210 L150 214 C124 214 110 196 110 170 Z" fill="url(#nero2)"/>
+  <!-- orecchie -->
+  <path d="M182 108 L176 54 L214 98 Z M222 112 L238 62 L250 124 Z" fill="#2a201c"/>
+  <!-- muso aperto con fiamme -->
+  <path d="M110 168 C86 170 60 178 50 194 C70 200 96 198 116 192 Z" fill="url(#nero2)"/>
+  <path d="M116 196 C96 204 72 214 62 230 C86 234 120 224 150 214 Z" fill="url(#nero)"/>
+  <path d="M54 196 L66 206 L74 196 L84 206 L92 196 L102 204 L110 196" fill="#f2ead6" stroke-width="1.6"/>
+  <path d="M64 226 L74 214 L84 224 L94 212 L104 222 L114 210" fill="#f2ead6" stroke-width="1.6"/>
+  <path d="M52 204 C30 196 14 200 4 210 C20 214 26 222 18 236 C36 228 46 226 60 220 Z" fill="url(#fiamma)" stroke-width="2"/>
+  <circle cx="58" cy="182" r="6" fill="#1a120c"/>
+  <!-- occhio di brace -->
+  <path d="M150 140 C162 128 182 130 188 142 C176 150 160 150 150 140 Z" fill="url(#brace)"/>
+  <circle cx="170" cy="141" r="3" fill="#1a120c" stroke="none"/>
+  <path d="M144 128 C160 118 180 120 192 132" fill="none" stroke-width="3.6"/>
+ </g>
+</svg>
