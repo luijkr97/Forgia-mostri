@@ -1,0 +1,69 @@
+{
+  "modelli": [
+    {
+      "file": "elf-warrior-with-cape.glb",
+      "nome": "Elf-Warrior-With-Cape",
+      "voce": "Mezzelfo",
+      "slot": 1,
+      "autore": "Leonardo Carvalho",
+      "urlAutore": "https://sketchfab.com/livrosparacriancas",
+      "url": "https://sketchfab.com/3d-models/none-f121e6514d02489191b2aa764a051d67",
+      "licenza": "CC Attribution",
+      "facce": 6580,
+      "byte": 10949364,
+      "miniatura": "https://media.sketchfab.com/models/f121e6514d02489191b2aa764a051d67/thumbnails/8108f919cd6f483186c8dd7b44392e0a/f02da2a68b844d40a1a4500e28326b39.jpeg"
+    },
+    {
+      "file": "elf-male.glb",
+      "nome": "elf-male",
+      "voce": "Elfo",
+      "slot": 2,
+      "autore": "milakpro",
+      "urlAutore": "https://sketchfab.com/milakpro",
+      "url": "https://sketchfab.com/3d-models/none-31ca301635074a5fbad1035c5f2f5fee",
+      "licenza": "CC Attribution",
+      "facce": 50000,
+      "byte": 16446580,
+      "miniatura": "https://media.sketchfab.com/models/31ca301635074a5fbad1035c5f2f5fee/thumbnails/9ea4c625859948abb1342d4073fd2ac8/311e3e6ce85843d8897454be1ae933e7.jpeg"
+    },
+    {
+      "file": "girl-elf.glb",
+      "nome": "Girl elf",
+      "voce": "Elfo",
+      "slot": 1,
+      "autore": "username11420",
+      "urlAutore": "https://sketchfab.com/username11420",
+      "url": "https://sketchfab.com/3d-models/none-3411204cf3d74c229836b4221c858ed6",
+      "licenza": "CC Attribution",
+      "facce": 214542,
+      "byte": 13715888,
+      "miniatura": "https://media.sketchfab.com/models/3411204cf3d74c229836b4221c858ed6/thumbnails/49f1e74642ac4d83aa17cc46ca02abf1/5014ccc520aa44af8e8de08bf815cabb.jpeg"
+    },
+    {
+      "file": "dwarf-warrior.glb",
+      "nome": "Dwarf Warrior",
+      "voce": "Nano",
+      "slot": 1,
+      "autore": "Northcliffe",
+      "urlAutore": "https://sketchfab.com/Northcliffe",
+      "url": "https://sketchfab.com/3d-models/none-b9fcc240bc0642649d39a8ca845b56aa",
+      "licenza": "CC Attribution",
+      "facce": 15432,
+      "byte": 4720576,
+      "miniatura": "https://media.sketchfab.com/models/b9fcc240bc0642649d39a8ca845b56aa/thumbnails/418ea4a3f7a047839cb94c0e90d9eca2/9924cc071ee3477e810c4c71a5acf521.jpeg"
+    },
+    {
+      "file": "forest-warrior.glb",
+      "nome": "Forest warrior",
+      "voce": "Umano",
+      "slot": 1,
+      "autore": "annclid",
+      "urlAutore": "https://sketchfab.com/annclid",
+      "url": "https://sketchfab.com/3d-models/none-527429928e0349168aa7c29e14a8c1c8",
+      "licenza": "CC Attribution",
+      "facce": 49180,
+      "byte": 12470176,
+      "miniatura": "https://media.sketchfab.com/models/527429928e0349168aa7c29e14a8c1c8/thumbnails/089b59d88977483eb95348a6b156b660/018b105fbcd24ac294b96ddf6ed581e6.jpeg"
+    }
+  ]
+}
