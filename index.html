@@ -18,7 +18,7 @@ header span{color:var(--mute);font-size:14px}
 .viewer{position:relative;height:min(52vh,520px);min-height:300px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#1a1613}
 @media(min-width:900px){.viewer{height:min(78vh,720px)}}
 .viewer canvas{width:100%;height:100%;display:block;touch-action:none;cursor:grab}
-.vbtns{position:absolute;right:8px;bottom:8px;display:flex;gap:6px}
+.vbtns{position:absolute;right:30px;bottom:8px;display:flex;gap:6px}
 .vbtns button,.vtag{background:rgba(20,17,15,.78);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:7px 10px;font:inherit;font-size:14px;backdrop-filter:blur(4px)}
 .vbtns button.on{border-color:var(--gold);color:var(--gold)}
 .vtag{position:absolute;left:8px;top:8px;pointer-events:none;font-size:13px}
@@ -79,7 +79,7 @@ h2:first-child{margin-top:0}
 .sheet .ab{padding:7px 0;border-bottom:1px solid #d7c9a9}
 .sheet .ab div{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
 .sheet .ab b{font-size:18px;color:#7a3312}
-.sheet .ab span{font-size:14px;font-style:italic;color:#6b5040}
+.sheet .ab span:not(.gv){font-size:14px;font-style:italic;color:#6b5040}
 .sheet .descr{font-style:italic;color:#3e2c20}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px}
 .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
@@ -122,7 +122,7 @@ body{background:radial-gradient(900px 420px at 28% -80px,#3a2212 0,transparent 7
 .big:active,.btn:active,.vbtns button:active{transform:translateY(1px)}
 :focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 /* velocità della rotazione automatica */
-.vspeed{position:absolute;right:8px;bottom:60px;flex-direction:row;align-items:center;gap:8px;min-height:44px;padding:0 12px;border:1px solid var(--line);border-radius:10px;background:rgba(20,17,15,.78);color:var(--ink);font-size:13px;backdrop-filter:blur(4px)}
+.vspeed{position:absolute;right:30px;bottom:60px;flex-direction:row;align-items:center;gap:8px;min-height:44px;padding:0 12px;border:1px solid var(--line);border-radius:10px;background:rgba(20,17,15,.78);color:var(--ink);font-size:13px;backdrop-filter:blur(4px)}
 .vspeed input{width:120px;height:44px;margin:0;accent-color:var(--gold);cursor:pointer}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 /* sezione Scultura */
@@ -285,6 +285,79 @@ abbr.sg{text-decoration:underline dotted;text-decoration-thickness:1px;text-unde
 .nuv.on{opacity:1;transform:none}
 .nuv b{font-family:Cinzel,serif;color:var(--gold);margin-right:4px}
 @media (prefers-reduced-motion:reduce){.nuv{transition:none}}
+.tg [data-gv]{cursor:help}
+.nuv.voce b{margin:0}
+.nuv.fissa{border-width:2px;box-shadow:0 8px 28px rgba(0,0,0,.6)}
+.gv{font:inherit;cursor:help;color:#8a3412;text-decoration:underline dotted;text-decoration-thickness:1px;text-underline-offset:3px}
+.nuv .gv{color:var(--gold)}
+.nuv.fissa{pointer-events:auto}
+/* capacità della Guidata: "?" di aiuto, niente menu con la pressione lunga */
+.aiuto{display:inline-grid;place-items:center;width:20px;height:20px;margin-left:6px;border:1px solid var(--gold);border-radius:50%;color:var(--gold);font:600 13px/1 system-ui,sans-serif;cursor:help;vertical-align:middle}
+.chips .chip{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+/* impostazioni */
+.ingr{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--line);border-radius:11px;background:var(--panel);color:var(--ink)}
+.ingr:hover{color:var(--gold);border-color:var(--gold)}
+.ingr svg.ic{width:22px;height:22px}
+.dimp{width:min(420px,calc(100vw - 24px))}
+.dimp h3{font-family:Cinzel,serif;color:var(--gold);font-size:15px;margin:14px 0 6px}
+.dimp .chk{display:flex;align-items:center;gap:8px;min-height:44px}
+.dimp .btn{margin-top:4px}
+body.no3d .sezioni,body.no3d .vmodo,body.no3d #vImp,body.no3d #gAsp{display:none!important}
+body.no3d header .ingr{margin-left:auto}
+body.testogrande .sheet,body.testogrande .card{zoom:1.12}
+/* maniglia per ridimensionare il visore */
+.vgrip{position:absolute;right:0;bottom:0;z-index:4;width:28px;height:28px;display:flex;align-items:flex-end;justify-content:flex-end;padding:4px;cursor:nwse-resize;touch-action:none;color:var(--mute)}
+.vgrip:hover{color:var(--gold)}
+.vgrip svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round}
+/* Diario: Party e Bestiario */
+.dsw{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px}
+.dsw button{min-height:44px;border:1px solid var(--line);border-radius:10px;background:#15110e;color:var(--ink);font:inherit;font-weight:600}
+.dsw button.on{background:var(--gold);border-color:var(--gold);color:#14110f}
+.pglista{display:grid;gap:6px;margin-bottom:8px}
+.pgit{display:flex;align-items:center;gap:10px;min-height:56px;padding:6px 10px;border:1px solid var(--line);border-radius:10px;background:#15110e;color:var(--ink);font:inherit;text-align:left}
+.pgit.on{border-color:var(--gold)}
+.pgit>span:last-child{display:flex;flex-direction:column}
+.pgfoto{flex:none;width:42px;height:42px;border-radius:50%;background:#2a221b center/cover;border:1px solid var(--line)}
+.pgaz{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.pgdlg{width:min(720px,calc(100vw - 24px))}
+.pgdlg fieldset{border:1px solid var(--line);border-radius:10px;margin:0 0 10px;padding:8px 10px}
+.pgdlg legend{font-family:Cinzel,serif;color:var(--gold);padding:0 6px}
+.pgdlg label{display:flex;flex-direction:column;gap:3px;font-size:14px;color:var(--mute)}
+.pgdlg .pgtx{margin-bottom:8px}
+.pgdlg textarea{width:100%;font:inherit;font-size:16px;background:#15110e;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:6px 8px}
+.pgfile{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:10px}
+.pgliv{width:min(460px,calc(100vw - 24px))}
+.pgliv ul{margin:4px 0 10px;padding-left:20px}
+.pgliv h4{margin:10px 0 2px;font-family:Cinzel,serif;color:var(--gold)}
+.sheet .pgritr{display:block;width:132px;height:132px;margin:0 auto 8px;border-radius:50%;object-fit:cover;border:3px solid #b9a988}
+body.vistapg .acts{display:none}
+.pgfile .btn{flex-direction:row;cursor:pointer;color:var(--ink);min-height:44px;box-sizing:border-box;position:relative}
+.pgfile input{position:absolute;width:1px;height:1px;opacity:0}
+.pgfile label:focus-within{outline:2px solid var(--gold)}
+body.diario-party:not(.vistapg) #sheet,body.diario-party .acts{display:none}
+.btn.conf{border-color:var(--red);color:#f6eedc;background:var(--red)}
+.pgnuovo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pgnuovo .big{margin:0}
+.pgfile1{position:relative;display:flex;align-items:center;justify-content:center;cursor:pointer;box-sizing:border-box}
+.pgfile1 input{position:absolute;width:1px;height:1px;opacity:0}
+.pgfile1:focus-within{outline:2px solid var(--ink)}
+#pgStato{margin-top:6px;color:var(--gold)}
+.pgdlg .letto{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.sheet .pgarma b{font-family:Cinzel,serif;font-size:16px}
+.sheet .pgarma .dm{font-size:15.5px;line-height:1.45}
+.sheet .pgarma .dm i{font-style:normal;font-family:Cinzel,serif;font-size:12px;letter-spacing:.04em;color:#6b4a30}
+/* glossario personale */
+.nuvscrivi{display:block;margin-top:8px;padding:6px 10px;min-height:36px;border:1px solid var(--gold);border-radius:8px;background:transparent;color:var(--gold);font:inherit;font-size:14px;cursor:pointer}
+.sheet .tg span.senza{border-style:dashed;background:transparent}
+.glodlg{width:min(460px,calc(100vw - 24px))}
+.glodlg textarea{width:100%;box-sizing:border-box;margin:6px 0 10px;font:inherit;font-size:16px;background:#15110e;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px}
+.glolista summary{cursor:pointer;min-height:36px;display:flex;align-items:center;color:var(--gold)}
+.glovoce{display:grid;grid-template-columns:1fr auto;gap:2px 8px;align-items:start;padding:6px 0;border-bottom:1px solid var(--line);font-size:14px}
+.glovoce b{grid-column:1;color:var(--ink)}
+.glovoce .btn{grid-column:2;grid-row:1/3;min-height:36px}
+.globtn{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.globtn label{position:relative;cursor:pointer;color:var(--ink);box-sizing:border-box}
+.globtn input{position:absolute;width:1px;height:1px;opacity:0}
 
 </style>
 </head>
@@ -304,10 +377,12 @@ abbr.sg{text-decoration:underline dotted;text-decoration-thickness:1px;text-unde
  <symbol id="i-rotolo" viewBox="0 0 24 24"><path d="M7 3h11a2 2 0 0 1 2 2v2h-4"/><path d="M16 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2h9v2"/><path d="M7 3a2 2 0 0 0-2 2v12M9 8h4M9 12h4"/></symbol>
  <symbol id="i-penna" viewBox="0 0 24 24"><path d="M4 20l1-5L16 4l4 4L9 19z"/><path d="M13.5 6.5l4 4"/></symbol>
  <symbol id="i-segno" viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4.5L6 21z"/></symbol>
+ <symbol id="i-ingranaggio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="6.5"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></symbol>
  <symbol id="i-copia" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="1.5"/><path d="M15 5.5V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h.5"/></symbol>
 </defs></svg>
 <header><h1>Forgia dei Mostri</h1><span>Pathfinder 1ª edizione · regole di creazione dei mostri per GS</span>
  <nav class="sezioni" aria-label="Sezioni"><button id="navF" class="on" aria-pressed="true">Generatore</button><button id="navS" aria-pressed="false">Scultura 3D</button></nav>
+ <button class="ingr" id="bImp" type="button" aria-label="Impostazioni" title="Impostazioni"><svg class="ic" aria-hidden="true"><use href="#i-ingranaggio"/></svg></button>
 </header>
 <section id="scultura" class="scultura hidden" aria-label="Scultura dei modelli 3D">
  <div class="scvista">
@@ -364,13 +439,14 @@ abbr.sg{text-decoration:underline dotted;text-decoration-thickness:1px;text-unde
     <button id="bReset" title="Ripristina vista"><svg class="ic" aria-hidden="true"><use href="#i-cornice"/></svg><span>Ripristina</span></button>
     <button id="bLook" title="Nuovo aspetto"><svg class="ic" aria-hidden="true"><use href="#i-maschera"/></svg><span>Aspetto</span></button>
    </div>
+   <div class="vgrip" id="vGrip" title="Trascina per ridimensionare · doppio clic per ripristinare"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M14 4L4 14M14 8.5L8.5 14M14 13L13 14"/></svg></div>
    <div class="nogl" id="nogl">Il visore 3D non è disponibile su questo dispositivo (WebGL non attivo). La scheda del mostro funziona comunque.</div>
   </div>
   <div class="b2 hidden" id="v2dBar"><span class="m2" id="v2dM" role="status"></span><label class="btn"><span id="v2dCarT">Carica immagine</span><input type="file" id="v2dFile" accept="image/*"></label><button class="btn hidden" id="v2dVolto" type="button"><span>Imposta volto</span></button><button class="btn hidden" id="v2dVia" type="button"><span id="v2dViaT">Rimuovi</span></button></div>
   <div class="vimp" id="vImp"><div class="vmod" role="group" aria-label="Modello 3D"><span>Modello 3D</span><button type="button" data-mod="F">F</button><button type="button" data-mod="1">1</button><button type="button" data-mod="2">2</button></div><label class="chk hidden" id="vTintaBox"><input type="checkbox" id="vTinta"> Applica il colore del mostro</label><div class="small" id="vCredito"></div></div>
  </div>
  <div>
-  <div class="tabs"><button id="tR" class="on"><svg class="ic" aria-hidden="true"><use href="#i-dado"/></svg>Casuale</button><button id="tG"><svg class="ic" aria-hidden="true"><use href="#i-martello"/></svg>Guidata</button><button id="tS"><svg class="ic" aria-hidden="true"><use href="#i-rotolo"/></svg>Bestiario</button></div>
+  <div class="tabs"><button id="tR" class="on"><svg class="ic" aria-hidden="true"><use href="#i-dado"/></svg>Casuale</button><button id="tG"><svg class="ic" aria-hidden="true"><use href="#i-martello"/></svg>Guidata</button><button id="tS"><svg class="ic" aria-hidden="true"><use href="#i-rotolo"/></svg>Diario</button></div>
 
   <div class="card" id="pR">
    <h2>Generazione casuale</h2>
@@ -410,22 +486,32 @@ abbr.sg{text-decoration:underline dotted;text-decoration-thickness:1px;text-unde
    <h2>Caratteristiche</h2>
    <div class="small" style="margin-bottom:6px">Lascia vuoto per il calcolo automatico; scrivi «-» per una caratteristica assente (es. Cos dei non morti).</div>
    <div class="abil" id="gAb"></div>
-   <h2>Capacità speciali</h2>
+   <h2>Capacità speciali <span class="aiuto" data-gv="Come leggerle" data-txt="Tieni il mouse fermo su una capacità per leggerla. Cmd+clic (Ctrl+clic su Windows) la tiene aperta; il clic semplice la seleziona. Sul telefono tieni premuto.">?</span></h2>
    <div class="small" style="margin-bottom:6px">Nessuna selezionata = scelte in base a tipo e GS.</div>
    <div class="chips" id="gChips"></div>
    <label class="chk" style="margin-top:8px"><input type="checkbox" id="gCompleta" checked> Aggiungi altre capacità casuali adatte al GS</label>
-   <h2>Aspetto 3D</h2>
+   <div id="gAsp"><h2>Aspetto 3D</h2>
    <div class="grid">
     <label>Forma del corpo<select id="gForma"></select></label>
     <label>Ali<select id="gAli"><option value="">Casuale</option><option value="si">Sì</option><option value="no">No</option></select></label>
     <label>Corna<select id="gCorna"><option value="">Casuale</option><option value="si">Sì</option><option value="no">No</option></select></label>
     <label>Coda<select id="gCoda"><option value="">Casuale</option><option value="si">Sì</option><option value="no">No</option></select></label>
     <label>Colore<div class="row"><input type="color" id="gCol" value="#6b4a2f" style="width:52px;height:44px;border:0;background:none;padding:0"><label class="chk"><input type="checkbox" id="gColAuto" checked> automatico</label></div></label>
-   </div>
+   </div></div>
    <button class="big" id="goG">Forgia il mostro</button>
   </div>
 
   <div class="card hidden" id="pS">
+   <div class="dsw" role="group" aria-label="Parte del diario"><button type="button" id="dP" class="on" aria-pressed="true">Party</button><button type="button" id="dB" aria-pressed="false">Bestiario</button></div>
+   <div id="dParty">
+    <h2>Personaggi del party</h2>
+    <div class="pglista" id="pgLista"></div>
+    <div class="pgaz hidden" id="pgAz"><button class="btn" id="pgModifica" type="button"><span>Modifica</span></button><button class="btn" id="pgSali" type="button"><span>Sali di livello</span></button><button class="btn hidden" id="pgAnnulla" type="button"><span>Annulla livello</span></button><button class="btn" id="pgElimina" type="button"><span>Elimina</span></button></div>
+    <div class="pgnuovo"><label class="big pgfile1"><span>Leggi scheda PDF</span><input type="file" id="pgLeggi" accept="application/pdf,image/*"></label><button class="big" id="pgNuovo" type="button">Compila a mano</button></div>
+    <div class="small" id="pgStato" role="status"></div>
+    <div class="small" style="margin-top:6px">Scheda Pathfinder (Wyrd) compilata al computer: si legge tutta. Scansioni e foto: si legge poco, il resto va scritto a mano. Il PDF non viene conservato; i personaggi restano in questo browser.</div>
+   </div>
+   <div id="dBes" class="hidden">
    <h2>Bestiario salvato</h2>
    <div class="small" id="savedInfo" style="margin-bottom:8px">I mostri salvati restano in questo browser.</div>
    <div class="saved" id="savedList"></div>
@@ -439,6 +525,18 @@ abbr.sg{text-decoration:underline dotted;text-decoration-thickness:1px;text-unde
     <div class="imantetop"><strong id="cPdfT"></strong><button class="btn" id="cPdfX" type="button" aria-label="Chiudi anteprima">✕</button></div>
     <iframe id="cPdfF" title="Anteprima del PDF"></iframe>
     <div class="imantebase"><div class="small" id="cPdfM" role="status"></div><button class="btn" id="cPdfOk" type="button"><span>Scarica PDF</span></button></div>
+   </dialog>
+   </div>
+   <dialog class="imante pgdlg" id="pgMod" aria-labelledby="pgModT">
+    <div class="imantetop"><strong id="pgModT"></strong><button class="btn" id="pgModX" type="button" aria-label="Chiudi senza salvare">✕</button></div>
+    <div class="pgfile"><label class="btn"><span id="pgImgT">Carica immagine</span><input type="file" id="pgImg" accept="image/*"></label><label class="btn"><span>Aggiorna dalla scheda PDF</span><input type="file" id="pgLeggiF" accept="application/pdf,image/*"></label><span class="small" id="pgFileM" role="status"></span></div>
+    <div id="pgCampi"></div>
+    <div class="imantebase"><span class="small">Lascia vuoto ciò che non sai.</span><button class="btn" id="pgModOk" type="button"><span>Salva</span></button></div>
+   </dialog>
+   <dialog class="imante pgdlg pgliv" id="pgLiv" aria-labelledby="pgLivT">
+    <div class="imantetop"><strong id="pgLivT"></strong><button class="btn" id="pgLivX" type="button" aria-label="Annulla">✕</button></div>
+    <div id="pgLivC"></div>
+    <div class="imantebase"><span class="small">Dopo la conferma si apre la scheda per aggiornare il resto.</span><button class="btn" id="pgLivOk" type="button"><span>Sali di livello</span></button></div>
    </dialog>
   </div>
 
@@ -455,6 +553,27 @@ abbr.sg{text-decoration:underline dotted;text-decoration-thickness:1px;text-unde
  <div class="imantetop"><strong id="vVoltoT">Tocca il centro del volto</strong><button class="btn" id="vVoltoX" type="button" aria-label="Chiudi">✕</button></div>
  <div class="vvcorpo"><div class="vvimg" id="vVoltoW"><img id="vVoltoI" alt="Immagine della creatura"><div class="vvseg" id="vVoltoS"></div></div></div>
  <div class="imantebase"><label class="vvr">Grandezza<input type="range" id="vVoltoR" min="0.1" max="1" step="0.02"></label><button class="btn" id="vVoltoOk" type="button"><span>Salva</span></button></div>
+</dialog>
+<dialog class="imante dimp" id="dImp" aria-labelledby="dImpT">
+ <div class="imantetop"><strong id="dImpT">Impostazioni</strong><button class="btn" id="dImpX" type="button" aria-label="Chiudi">✕</button></div>
+ <h3>Generale</h3>
+ <label class="chk"><input type="checkbox" id="sNuv"> Nuvolette di spiegazione</label>
+ <label class="chk"><input type="checkbox" id="sTesto"> Testo della scheda più grande</label>
+ <button class="btn" id="sDim" type="button"><span>Ripristina la dimensione del visore</span></button>
+ <h3>Grafica</h3>
+ <label class="chk"><input type="checkbox" id="s3d"> Visore 3D e Scultura 3D</label>
+ <div class="small">Spento: resta solo la vista 2D, senza il selettore 2D/3D. La pagina è più leggera e occupa meno spazio.</div>
+ <h3>Glossario personale</h3>
+ <div class="small">Le descrizioni che scrivi dalle nuvolette (✎): <span id="sGloN"></span>. Restano in questo browser; esportale per passarle al master o al telefono.</div>
+ <details class="glolista"><summary>Mostra le voci</summary><div id="sGloLista"></div></details>
+ <div class="globtn"><button class="btn" id="sGloEsp" type="button"><span>Esporta glossario</span></button><label class="btn"><span>Importa glossario</span><input type="file" id="sGloImp" accept=".json,application/json"></label></div>
+ <div class="small" id="sGloM" role="status"></div>
+</dialog>
+<dialog class="imante glodlg" id="gloDlg" aria-labelledby="gloNome">
+ <div class="imantetop"><strong id="gloNome"></strong><button class="btn" type="button" aria-label="Chiudi senza salvare" onclick="this.closest('dialog').close()">✕</button></div>
+ <label class="small" for="gloTesto">Descrizione (vuota = quella dell'app)</label>
+ <textarea id="gloTesto" rows="5"></textarea>
+ <div class="imantebase"><span class="small">Vale anche nelle schede future.</span><button class="btn" id="gloOk" type="button"><span>Salva</span></button></div>
 </dialog>
 <div class="toast" id="toast"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -506,7 +625,7 @@ const TYPES={
  'Folletto':{hd:6,bab:.5,good:['Rifl','Vol'],ab:[8,17,11,12,13,16],shapes:['bipede'],sensi:['vista crepuscolare'],lang:['Silvano','Comune'],traits:'',skills:['Acrobazia','Furtività','Raggirare','Percezione','Artista della Fuga','Conoscenze (natura)','Intrattenere']},
  'Umanoide':{hd:8,bab:.75,good:['Rifl'],ab:[13,12,12,10,10,9],shapes:['bipede'],sensi:[],lang:['Comune'],traits:'',skills:['Percezione','Furtività','Intimidire','Sopravvivenza','Scalare']},
  'Umanoide mostruoso':{hd:10,bab:1,good:['Rifl','Vol'],ab:[16,13,14,9,12,9],shapes:['bipede','bipede','serpentino'],sensi:['scurovisione 18 m'],lang:['Comune'],traits:'',skills:['Furtività','Percezione','Intimidire','Scalare','Sopravvivenza','Nuotare']},
- 'Melma':{hd:8,bab:.75,good:[],ab:[14,1,16,null,1,1],shapes:['melma'],sensi:['percezione cieca 18 m'],lang:[],traits:'tratti delle melme (cieca, immune a colpi critici, influenza mentale, veleno, sonno, paralisi, stordimento e metamorfosi)',skills:[]},
+ 'Melma':{hd:8,bab:.75,good:[],ab:[14,1,16,null,1,1],shapes:['melma'],sensi:['vista cieca 18 m'],lang:[],traits:'tratti delle melme (cieca, immune a colpi critici, influenza mentale, veleno, sonno, paralisi, stordimento e metamorfosi)',skills:[]},
  'Esterno':{hd:10,bab:1,good:['Rifl','Vol'],ab:[15,14,14,12,13,14],shapes:['bipede','bipede','quadrupede'],sensi:['scurovisione 18 m'],lang:['Comune'],traits:'',skills:['Percezione','Intimidire','Raggirare','Conoscenze (piani)','Volare','Sapienza Magica','Intuizione','Diplomazia']},
  'Vegetale':{hd:8,bab:.75,good:['Temp'],ab:[17,8,16,null,11,2],shapes:['vegetale'],sensi:['vista crepuscolare'],lang:[],traits:'tratti dei vegetali (immune a influenza mentale, paralisi, veleno, metamorfosi, sonno e stordimento)',skills:['Furtività','Percezione']},
  'Non morto':{hd:8,bab:.75,good:['Vol'],ab:[14,12,null,8,12,14],shapes:['bipede','bipede','quadrupede','tentacolare'],sensi:['scurovisione 18 m'],lang:['Comune'],traits:'tratti dei non morti (immune a influenza mentale, veleno, sonno, paralisi, stordimento, malattia e morte)',skills:['Percezione','Furtività','Intimidire','Acrobazia']},
@@ -579,6 +698,10 @@ const vociModelli=()=>({razze:RAZZA_LIST.slice(),tipi:Object.keys(TYPES).filter(
 const FEATS=['Arma Focalizzata','Attacco Poderoso','Iniziativa Migliorata','Riflessi in Combattimento','Robustezza','Volontà di Ferro','Riflessi Fulminei','Tempra Possente','Schivare','Mobilità','Arma Naturale Migliorata','Allerta','Critico Migliorato','Spingere Migliorato','Sbilanciare Migliorato','Incalzare','Abilità Focalizzata (Percezione)','Abilità Focalizzata (Furtività)'];
 const FEATS_CASTER=['Incantare in Combattimento','Capacità Magica Rapida','Iniziativa Migliorata','Volontà di Ferro','Schivare','Capacità Magica Potenziata','Robustezza'];
 const FEATS_FLY=['Fluttuare','Attacco in Volo'];
+// dadi dell'arma per taglia (Minuscola…Colossale) dal dado dell'arma Media: Manuale di Gioco tab. 6–5 (p. 151) e tabella delle armi per la Piccola; oltre la Grande si sale di un passo per taglia
+const DADI_ARMA={6:['1d3','1d4','1d6','1d8','2d6','3d6','4d6'],8:['1d4','1d6','1d8','2d6','3d6','4d6','6d6'],10:['1d6','1d8','1d10','2d8','3d8','4d8','6d8'],12:['1d8','1d10','1d12','3d6','4d6','6d6','8d6']};
+// modificatori razziali (Manuale di Gioco cap. 2, pp. 19-25; Orco e Goblin dal Bestiario); 'scelta' = +2 a un punteggio
+const CAR_RAZZA={Umano:'scelta',Mezzelfo:'scelta',Mezzorco:'scelta',Nano:[0,0,2,0,2,-2],Elfo:[0,2,-2,2,0,0],Gnomo:[-2,0,2,0,0,2],Halfling:[-2,2,0,0,0,2],Orco:[4,0,0,-2,-2,-2],Goblin:[-2,4,0,0,0,-2]};
 const WEAPONS=[['spada lunga',8,1],['ascia bipenne',12,1.5],['falcione',10,1.5],['lancia',8,1.5],['mazza pesante',8,1],['scimitarra',6,1],['tridente',8,1]];
 
 const DSTEP=[['1d2',1.5],['1d3',2],['1d4',2.5],['1d6',3.5],['1d8',4.5],['2d6',7],['2d8',9],['3d8',13.5],['4d8',18],['6d8',27],['8d8',36]];
@@ -618,7 +741,7 @@ const ABILITIES=[
   const e=m.energia;const line=(e==='acido'||e==='elettricità');const n=Math.max(2,Math.round(m.crN));
   const area=line?'linea di '+(m.sizeIdx>=3?'24':'18')+' m':'cono di '+(m.sizeIdx>=4?'12':'9')+' m';
   m.attSpec.push(`arma a soffio (${area}, ${n}d6 ${e}, Riflessi CD ${m.dcP} dimezza, ogni 1d4 round)`);
-  return `Come azione standard soffia un ${area} che infligge ${n}d6 danni da ${e} (Riflessi CD ${m.dcP} dimezza). Dopo l'uso deve attendere 1d4 round. La CD è basata sulla Costituzione.`;}},
+  return `Come azione standard soffia ${line?"una":"un"} ${area} che infligge ${n}d6 danni da ${e} (Riflessi CD ${m.dcP} dimezza). Dopo l'uso deve attendere 1d4 round. La CD è basata sulla Costituzione.`;}},
  {id:'veleno',nome:'Veleno',k:'Str',types:['Animale','Parassita','Aberrazione','Umanoide mostruoso','Drago','Bestia magica','Vegetale'],min:0.5,w:3,g(m,r){
   const st=r.pick(['For','Des','Cos']);const d=m.crN>=8?'1d4':(m.crN>=3?'1d3':'1d2');const a=m.primaryAttack;
   if(a)a.extra.push('veleno');
@@ -647,9 +770,9 @@ const ABILITIES=[
   m.aura.push(`presenza terrificante (9 m, CD ${m.dcS})`);return `Quando attacca o carica, le creature entro 9 m con meno DV devono superare un TS Volontà CD ${m.dcS} o restare scosse per 5d6 round.`;}},
  {id:'magia',nome:'Capacità magiche',k:'Mag',types:['Esterno','Folletto','Drago','Aberrazione','Non morto','Umanoide mostruoso'],min:0.5,w:3,g(m,r){
   const av=SPELLS.filter(t=>m.crN>=t.cr);const top=av[av.length-1];const low=av.slice(0,Math.max(1,av.length-1)).flatMap(t=>t.s);
-  const atw=r.shuffle(low).slice(0,2);const d3=av.length>2?r.shuffle(av[av.length-2].s).slice(0,2):r.shuffle(top.s).slice(0,1);const d1=r.shuffle(top.s).filter(x=>!d3.includes(x)).slice(0,1);
+  const atw=r.shuffle(low).slice(0,2);let d3=av.length>2?r.shuffle(av[av.length-2].s).slice(0,2):r.shuffle(top.s).slice(0,1);const d1=r.shuffle(top.s).filter(x=>!d3.includes(x)).slice(0,1).filter(x=>!atw.includes(x));d3=d3.filter(x=>!atw.includes(x)); // ogni incantesimo una sola volta, alla frequenza più alta
   const lvl=Math.max(1,Math.round(m.crN));const stat=Math.max(mod(m.ab[5]),mod(m.ab[4]));
-  m.spells=`Capacità Magiche (LI ${lvl}°; concentrazione ${sgn(lvl+stat)})\n  A volontà—${atw.join(', ')}\n  3/giorno—${d3.join(', ')}`+(d1.length&&av.length>1?`\n  1/giorno—${d1.join(', ')}`:'');
+  m.spells=`Capacità Magiche (LI ${lvl}°; concentrazione ${sgn(lvl+stat)})\n  A volontà—${atw.join(', ')}`+(d3.length?`\n  3/giorno—${d3.join(', ')}`:'')+(d1.length&&av.length>1?`\n  1/giorno—${d1.join(', ')}`:'');
   return `Può usare capacità magiche come un incantatore di ${lvl}° livello (CD ${m.dcS} + livello dell'incantesimo, basata sul Carisma).`;}},
  {id:'risucchio',nome:'Risucchio di energia',k:'Sop',types:['Non morto'],min:4,w:3,g(m){const a=m.primaryAttack;if(a)a.extra.push('risucchio di energia');return `Ogni colpo con ${a?'il suo '+a.nome:'il tocco'} conferisce 1 livello negativo (Tempra CD ${m.dcP} per rimuoverlo dopo 24 ore).`;}},
  {id:'paralisi',nome:'Paralisi',k:'Str',types:['Non morto','Aberrazione','Parassita'],min:1,w:2,g(m){const a=m.primaryAttack;if(a)a.extra.push('paralisi');return `Chi viene colpito deve superare un TS Tempra CD ${m.dcP} o restare paralizzato per 1d4+1 round. Gli elfi sono immuni se l'origine è un non morto.`;}},
@@ -760,6 +883,7 @@ function applicaDebolezze(m,r){
  const incorporeo=m.def.extra.includes('incorporeo');
  if(m.energia!=='fuoco'&&((m.tipo==='Vegetale'&&r.chance(.4))||(m.tipo==='Non morto'&&r.chance(.15))))m.def.vuln.push('vulnerabilità al fuoco');
  if(m.tipo==='Umanoide'&&m.env==='Sotterranei'&&r.chance(.5))m.def.vuln.push(r.pick(['sensibilità alla luce (abbagliato in piena luce solare o in luce diurna)','cecità alla luce (accecato 1 round dalla luce intensa, poi abbagliato)']));
+ if(m.tipo==='Drago'&&OPPOSTO[m.energia]&&m.def.imm.includes(m.energia))m.def.vuln.push('vulnerabilità al '+OPPOSTO[m.energia]); // immune a fuoco o freddo: vulnerabile all'opposto (Manuale p. 592)
  if(incorporeo&&!m.opts.vecchieImm)m.def.imm.push('colpi critici','danni di precisione');
  if(incorporeo){if(r.chance(.5))m.def.vuln.push('debolezza alla luce del sole (non può attaccare ed è barcollante)');if(r.chance(.3))m.def.vuln.push('vulnerabilità alla resurrezione');}
 }
@@ -843,6 +967,9 @@ function generateMonster(opts){
  const hdWanted=Math.round((m.hp-conBonus)/perHD);
  m.hd=opts.vecchiDV?Math.max(lo,Math.min(hi,hdWanted)):dvManuale(m.tipo,m.crN); // vecchiDV: i mostri salvati prima delle tabelle del Bestiario non cambiano
  if((m.hd!==hdWanted||Math.abs(Math.floor(m.hd*dieAvg)+m.hd*conLike-m.hp)>m.hp*.15)&&m.tipo!=='Costrutto'&&!(opts.ab&&opts.ab[conI])){conLike=Math.round(m.hp/m.hd-dieAvg);m.ab[conI]=Math.max(1,10+conLike*2+(m.ab[conI]%2));if(conI===5)CAR=mod(m.ab[5]);else COS=mod(m.ab[2]);conLike=conI===5?CAR:COS;}
+ // modificatori razziali di caratteristica (+2 a scelta: sul punteggio più alto); i valori dati dall'utente restano
+ if(m.razza){const hi=m.ab.indexOf(Math.max(...m.ab.filter(x=>x!=null))),cr=CAR_RAZZA[m.razza]==='scelta'?m.ab.map((_,i)=>i===hi?2:0):CAR_RAZZA[m.razza];
+  m.ab=m.ab.map((v,i)=>v==null||(opts.ab&&opts.ab[i]!=null&&opts.ab[i]!=='')?v:Math.max(1,v+cr[i]));[FOR,DES,COS,INT,SAG,CAR]=m.ab.map(mod);conLike=COS;}
  m.hp=Math.max(m.hd,Math.floor(m.hd*dieAvg)+m.hd*conLike+conBonus);
  const hpF=()=>{const b=m.hp-Math.floor(m.hd*dieAvg);m.hpFormula=`${m.hd}d${die}${b?(b>0?'+':'−')+Math.abs(b):''}`;};hpF();
  m.bab=Math.floor(m.hd*T.bab);
@@ -854,7 +981,9 @@ function generateMonster(opts){
  if(m.tipo==='Umanoide')goodSaves=[r.pick(['Temp','Rifl','Vol'])];
  if(m.tipo==='Esterno')goodSaves=r.shuffle(['Temp','Rifl','Vol']).slice(0,2);
  m.saves={};
- ['Temp','Rifl','Vol'].forEach(s=>m.saves[s]=goodSaves.includes(s)?good:poor);
+ // TS base del Bestiario: buono 2 + DV/2, scarso DV/3; Temp usa Cos (Car per i non morti, nulla per i costrutti), Rifl Des, Vol Sag. good/poor della tabella restano solo come riferimento
+ const modTS={Temp:m.tipo==='Non morto'?CAR:m.tipo==='Costrutto'?0:COS,Rifl:DES,Vol:SAG};
+ ['Temp','Rifl','Vol'].forEach(s=>m.saves[s]=(goodSaves.includes(s)?2+Math.floor(m.hd/2):Math.floor(m.hd/3))+modTS[s]);
 
  // CA
  const dexAC=DES;
@@ -918,7 +1047,7 @@ function generateMonster(opts){
  const totW=atks.reduce((s,a)=>s+a.n*a.w*(a.iter||1),0);
  atks.forEach(a=>{
   const avg=m.dmgTot*a.w/totW;const sb=Math.floor(Math.max(0,FOR)*a.str);
-  if(a.weapon){const cnt=[1,1,1,2,3,4,6][m.sizeIdx];const die=m.sizeIdx<=1?Math.max(4,a.die-2):a.die;const da=cnt*(die+1)/2;const bb=Math.round(avg-da);a.dmg=`${cnt}d${die}`+(bb?(bb>0?'+':'-')+Math.abs(bb):'');}else a.dmg=natDice(a.nome,m.sizeIdx,avg);a.bonus=a.sec?m.atk-5:m.atk;a.extra=[];
+  if(a.weapon){const dd=DADI_ARMA[a.die][m.sizeIdx],[cnt,die]=dd.split('d').map(Number);const da=cnt*(die+1)/2;const bb=Math.round(avg-da);a.dmg=dd+(bb?(bb>0?'+':'-')+Math.abs(bb):'');}else a.dmg=natDice(a.nome,m.sizeIdx,avg);a.bonus=a.sec?m.atk-5:m.atk;a.extra=[];
  });
  m.attacks=atks;m.primaryAttack=atks[0];
 
@@ -941,7 +1070,18 @@ function generateMonster(opts){
  chosen.slice().forEach(a=>{if(a.req&&!chosen.find(c=>c.id===a.req)){const q=ABILITIES.find(c=>c.id===a.req);chosen.splice(chosen.indexOf(a),0,q);}});
  const order=['afferrare','stritolare','inghiottire'];
  chosen.sort((a,b)=>(order.indexOf(a.id)+1||99)-(order.indexOf(b.id)+1||99));
+ // incorporeo (come nel Bestiario): Car e, se serve, Des alti perché deviazione + Des + taglia si avvicinino alla CA della tabella; solo tocco incorporeo
+ if(chosen.some(a=>a.id==='incorporeo')){const N=m.ac-10-S.ac,ut=i=>opts.ab&&opts.ab[i]!=null&&opts.ab[i]!=='',c0=CAR,d0=DES;
+  const dv=Math.max(1,CAR,Math.min(Math.ceil(N/2),CAR+Math.floor(row[0]*.25/m.hd)));/* Car al massimo +25% dei pf della tabella, il resto a Des */if(!ut(5)&&dv>CAR)m.ab[5]=10+2*dv;CAR=mod(m.ab[5]);
+  const dd=N-Math.max(1,CAR);if(!ut(1)&&dd>DES)m.ab[1]=10+2*dd;DES=mod(m.ab[1]);
+  m.saves.Temp+=CAR-c0;m.saves.Rifl+=DES-d0;m.hp=Math.max(m.hd,Math.floor(m.hd*dieAvg)+m.hd*CAR+conBonus);
+  m.attacks=[{nome:'tocco incorporeo',n:1,w:1,str:0,dmg:natDice('tocco',m.sizeIdx,m.dmgTot),bonus:m.atk,extra:[]}];m.primaryAttack=m.attacks[0];
+  // niente RD: le armi non lo colpiscono comunque; la sostituisce una capacità da non morto coerente
+  const iRD=chosen.findIndex(a=>a.id==='rd');if(iRD>=0){const sost=['rescanalare','disperazione','risucchio','progenie'].map(id=>ABILITIES.find(a=>a.id===id)).find(a=>eligible(a)&&!chosen.includes(a));if(sost)chosen[iRD]=sost;else chosen.splice(iRD,1);}}
  chosen.forEach(a=>m.specials.push({id:a.id,nome:a.nome,k:a.k,desc:a.g(m,r)}));
+ // incorporeo: niente For né armatura naturale, deviazione pari al mod. Car (minimo +1), BMC e DMC con Des
+ m.deviazione=0;
+ if(m.def.extra.includes('incorporeo')){m.ab[0]=null;FOR=0;m.nat=0;m.deviazione=Math.max(1,CAR);m.touch=10+DES+S.ac+m.deviazione;m.ac=m.touch;m.ff=m.ac-Math.max(0,DES);m.cmb=m.bab+DES+S.cmb;m.cmd=10+m.bab+DES+S.cmb;}
 
  // talenti
  const nf=Math.max(1,Math.ceil(m.hd/2));
@@ -949,11 +1089,11 @@ function generateMonster(opts){
  if(m.ab[3]==null)fp=[];
  // prerequisiti dei talenti
  const SC=m.ab.map(v=>v==null?0:v),nat=!m.primaryAttack.weapon,mag=!!m.spells;
- const REQ={'Attacco Poderoso':SC[0]>=13&&m.bab>=1,'Incalzare':SC[0]>=13&&m.bab>=1,'Spingere Migliorato':SC[0]>=13&&m.bab>=1,'Schivare':SC[1]>=13,'Mobilità':SC[1]>=13,'Sbilanciare Migliorato':SC[3]>=13,'Critico Migliorato':m.bab>=8,'Arma Focalizzata':m.bab>=1,'Arma Naturale Migliorata':m.bab>=4&&nat,'Capacità Magica Rapida':mag&&m.crN>=10,'Capacità Magica Potenziata':mag&&m.crN>=6,'Incantare in Combattimento':mag};
- const DEP={'Mobilità':'Schivare','Incalzare':'Attacco Poderoso','Spingere Migliorato':'Attacco Poderoso'};
+ const REQ={'Attacco Poderoso':SC[0]>=13&&m.bab>=1,'Incalzare':SC[0]>=13&&m.bab>=1,'Spingere Migliorato':SC[0]>=13&&m.bab>=1,'Schivare':SC[1]>=13,'Mobilità':SC[1]>=13,'Sbilanciare Migliorato':SC[3]>=13,'Maestria in Combattimento':SC[3]>=13,'Critico Migliorato':m.bab>=8,'Arma Focalizzata':m.bab>=1,'Arma Naturale Migliorata':m.bab>=4&&nat,'Capacità Magica Rapida':mag&&m.crN>=10,'Capacità Magica Potenziata':mag&&m.crN>=6,'Incantare in Combattimento':mag};
+ const DEP={'Mobilità':'Schivare','Incalzare':'Attacco Poderoso','Spingere Migliorato':'Attacco Poderoso','Sbilanciare Migliorato':'Maestria in Combattimento'};
  fp=[...new Set(fp)].filter(f=>REQ[f]===undefined||REQ[f]);
  const fq=r.shuffle(fp),fs=[];
- for(const f of fq){if(fs.length>=nf)break;if(fs.includes(f))continue;const d=DEP[f];if(d&&!fs.includes(d)){if(fs.length+2>nf||!fp.includes(d))continue;fs.push(d);}fs.push(f);}
+ for(const f of fq){if(fs.length>=nf)break;if(fs.includes(f))continue;const d=DEP[f];if(d&&!fs.includes(d)){if(fs.length+2>nf||!(fp.includes(d)||REQ[d]))continue;fs.push(d);}fs.push(f);}
  m.feats=fs.sort();
  if(m.feats.includes('Arma Focalizzata'))m.feats[m.feats.indexOf('Arma Focalizzata')]=`Arma Focalizzata (${m.primaryAttack.nome})`;
  if(m.feats.includes('Arma Naturale Migliorata'))m.feats[m.feats.indexOf('Arma Naturale Migliorata')]=`Arma Naturale Migliorata (${m.primaryAttack.nome})`;
@@ -961,6 +1101,7 @@ function generateMonster(opts){
  if(m.feats.includes('Riflessi Fulminei'))m.saves.Rifl+=2;
  if(m.feats.includes('Tempra Possente'))m.saves.Temp+=2;
  if(m.feats.includes('Volontà di Ferro'))m.saves.Vol+=2;
+ if(m.razza==='Halfling')['Temp','Rifl','Vol'].forEach(s=>m.saves[s]++); // fortuna halfling
  if(m.feats.includes('Robustezza'))m.hp+=Math.max(3,m.hd);
  if(m.feats.includes('Schivare')){m.ac++;m.touch++;m.cmd++;m.dodgeFeat=true;}
  hpF();
@@ -972,17 +1113,17 @@ function generateMonster(opts){
  if(extra.some(e=>e.startsWith('nuotare'))&&!sk.includes('Nuotare'))sk.push('Nuotare');
  if(extra.some(e=>e.startsWith('scalare'))&&!sk.includes('Scalare'))sk.push('Scalare');
  // gradi per DV del tipo + mod. Int (minimo 1); le creature senza mente non hanno gradi
- const SKP={'Aberrazione':4,'Animale':2,'Bestia magica':6,'Costrutto':2,'Drago':6,'Esterno':6,'Folletto':6,'Melma':2,'Non morto':4,'Parassita':2,'Umanoide':2,'Umanoide mostruoso':4,'Vegetale':2};
+ const SKP={'Aberrazione':4,'Animale':2,'Bestia magica':2,'Costrutto':2,'Drago':6,'Esterno':6,'Folletto':6,'Melma':2,'Non morto':4,'Parassita':2,'Umanoide':2,'Umanoide mostruoso':4,'Vegetale':2};
  const ns=m.ab[3]==null?0:Math.min(sk.length,Math.max(1,SKP[m.tipo]+INT));
  const keep=sk.filter(s=>s==='Percezione');
  sk=ns?keep.concat(r.shuffle(sk.filter(s=>s!=='Percezione')).slice(0,Math.max(0,ns-keep.length))):[];
  m.skills=sk.map(s=>{
   const i=abIdx[s]??4;let v=m.hd+3+mod(m.ab[i]);
   if(s==='Furtività')v+=S.st+m.racialStealth;
-  if(s==='Volare')v+=Math.round(S.st/2);
+  if(s==='Volare')v+=Math.round(S.st/2)+({maldestra:-8,scarsa:-4,buona:4,perfetta:8}[(/volare [^(]*\((\w+)\)/.exec(m.speed)||[])[1]]||0); // manovrabilità
   if((s==='Nuotare'&&extra.some(e=>e.startsWith('nuotare')))||(s==='Scalare'&&extra.some(e=>e.startsWith('scalare'))))v+=8;
-  if(m.feats.includes('Abilità Focalizzata ('+s+')'))v+=3;
-  if(s==='Percezione'&&m.feats.includes('Allerta'))v+=2;
+  if(m.feats.includes('Abilità Focalizzata ('+s+')'))v+=m.hd>=10?6:3; // +6 con 10 gradi
+  if((s==='Percezione'||s==='Intuizione')&&m.feats.includes('Allerta'))v+=m.hd>=10?4:2; // +4 con 10 gradi
   return [s,v];
  }).sort((a,b)=>a[0].localeCompare(b[0]));
  m.perc=(m.skills.find(s=>s[0]==='Percezione')||[0,SAG])[1];
@@ -1004,6 +1145,10 @@ function generateMonster(opts){
  if(m.def.res.length===0&&m.tipo==='Drago')m.def.imm.push(m.energia);
  if(m.tipo==='Esterno'&&m.env==='Piani esterni'&&!m.def.res.length&&r.chance(.6)){m.def.res.push(`${m.energia} 10`);}
  if(m.tipo==='Melma')m.def.imm.push('acido');
+ // tratti razziali semplici (Manuale cap. 2; Orco dal Bestiario)
+ if(m.razza==='Elfo'||m.razza==='Mezzelfo')m.def.imm.push('sonno magico');
+ if(m.razza==='Mezzorco')m.def.extra.push('ferocia degli orchi');
+ if(m.razza==='Orco'){m.def.extra.push('ferocia');m.def.vuln.push('sensibilità alla luce (abbagliato in piena luce solare o in luce diurna)');}
  applicaDebolezze(m,rd);normalizzaDifese(m);
 
  // ecologia
@@ -1058,11 +1203,11 @@ function statText(m){
  L.push(`Iniz ${sgn(m.init)}; Sensi ${m.sensi.length?m.sensi.join(', ')+'; ':''}Percezione ${sgn(m.perc)}`);
  if(m.aura.length)L.push(`Aura ${m.aura.join(', ')}`);
  L.push('','DIFESA');
- const acParts=[];if(mod(m.ab[1]))acParts.push(`${sgn(mod(m.ab[1]))} Des`);if(m.nat)acParts.push(`+${m.nat} naturale`);if(SIZES[m.sizeIdx].ac)acParts.push(`${sgn(SIZES[m.sizeIdx].ac)} taglia`);if(m.dodgeFeat)acParts.push('+1 schivare');
+ const acParts=[];if(mod(m.ab[1]))acParts.push(`${sgn(mod(m.ab[1]))} Des`);if(m.nat)acParts.push(`+${m.nat} naturale`);if(m.deviazione)acParts.push(`+${m.deviazione} deviazione`);if(SIZES[m.sizeIdx].ac)acParts.push(`${sgn(SIZES[m.sizeIdx].ac)} taglia`);if(m.dodgeFeat)acParts.push('+1 schivare');
  L.push(`CA ${m.ac}, contatto ${m.touch}, colto alla sprovvista ${m.ff}${acParts.length?' ('+acParts.join(', ')+')':''}`);
  L.push(`pf ${m.hp} (${m.hpFormula})${m.def.reg?'; '+m.def.reg:''}`);
  L.push(`Temp ${sgn(m.saves.Temp)}, Rifl ${sgn(m.saves.Rifl)}, Vol ${sgn(m.saves.Vol)}`);
- const dl=[];if(m.def.extra.length)dl.push('Capacità Difensive '+m.def.extra.join(', '));if(m.def.rd)dl.push('RD '+m.def.rd);dl.push('Immunità '+(immunita(m).join(', ')||'nessuna'));if(m.def.res.length)dl.push('Resistenze '+m.def.res.join(', '));if((m.def.vuln||[]).length)dl.push('Punti deboli '+m.def.vuln.join(', '));if(m.def.ri)dl.push('RI '+m.def.ri);
+ const dl=[];if(m.def.extra.length)dl.push('Capacità Difensive '+m.def.extra.join(', '));if(m.def.rd)dl.push('RD '+m.def.rd);if(immunita(m).length)dl.push('Immunità '+immunita(m).join(', '));if(m.def.res.length)dl.push('Resistenze '+m.def.res.join(', '));if((m.def.vuln||[]).length)dl.push('Punti deboli '+m.def.vuln.join(', '));if(m.def.ri)dl.push('RI '+m.def.ri);
  if(dl.length)L.push(dl.join('; '));
  if(T.traits)L.push(`Tratti ${T.traits}`);
  L.push('','OFFESA');
@@ -1089,6 +1234,136 @@ function statText(m){
  return L.join('\n');
 }
 function plural(n){const p={'artiglio':'artigli','morso':'morsi','schianto':'schianti','tentacolo':'tentacoli','ala':'ali','pugnale':'pugnali','tocco':'tocchi'};return p[n]||n;}
+
+// ===== Personaggi del party: classi base del Manuale di Gioco (cap. 3) =====
+// dv: dado vita; bab: progressione (1, 3/4, 1/2); ts: TS buoni (T, R, V); gr: gradi di abilità per livello
+const CLASSI={Barbaro:{dv:12,bab:1,ts:'T',gr:4},Bardo:{dv:8,bab:.75,ts:'RV',gr:6},Chierico:{dv:8,bab:.75,ts:'TV',gr:2},Druido:{dv:8,bab:.75,ts:'TV',gr:4},
+ Guerriero:{dv:10,bab:1,ts:'T',gr:2},Ladro:{dv:8,bab:.75,ts:'R',gr:8},Mago:{dv:6,bab:.5,ts:'V',gr:2},Monaco:{dv:8,bab:.75,ts:'TRV',gr:4},
+ Paladino:{dv:10,bab:1,ts:'TV',gr:2},Ranger:{dv:10,bab:1,ts:'TR',gr:6},Stregone:{dv:6,bab:.5,ts:'V',gr:2}};
+const classeDi=pg=>Object.keys(CLASSI).find(k=>new RegExp(k,'i').test(pg.classe||''));
+const modC=v=>v===''||v==null||isNaN(v)?0:Math.floor((+v-10)/2);
+// valori derivati della scheda: modificatori, TS totali, BMC, DMC, iniziativa (taglia Piccola: −1 a BMC/DMC)
+function pgCalcola(pg){const c=pg.car||{},M={};['For','Des','Cos','Int','Sag','Car'].forEach(k=>M[k]=modC(c[k]));
+ const b=+pg.bab||0,pic=/piccol/i.test(pg.taglia||'')?-1:0,ts=pg.ts||{};
+ return{M,ts:{Temp:(+ts.Temp||0)+M.Cos,Rifl:(+ts.Rifl||0)+M.Des,Vol:(+ts.Vol||0)+M.Sag},bmc:b+M.For+pic,dmc:10+b+M.For+M.Des+pic,init:M.Des+(+pg.initVar||0)};}
+// capacità di classe per livello (Manuale di Gioco, cap. 3): [livelli, nome, descrizione breve o funzione (L, mod.)]
+// gli stessi nomi ai livelli successivi aggiornano la riga già presente sulla scheda (es. Percepire trappole +1 → +2)
+const pgOgni=(a,p,b=20)=>L=>L>=a&&L<=b&&(L-a)%p===0,pgAi=(...a)=>L=>a.includes(L),pgV=n=>n===1?'1 volta':n+' volte';
+const PG_ARTIGLI=en=>(L,M)=>`2 artigli ${L>=7?'1d6':'1d4'}${L>=5?' magici':''}${L>=11?' +1d6 '+en:''}, ${3+M.Car} round al giorno`;
+const PG_POZZO=L=>`vicino alle ombre si nasconde anche osservato e scambia posto con un alleato, ${pgV(L>=20?3:L>=17?2:1)} al giorno`;
+const PROG_CLASSI={
+ Barbaro:[[pgOgni(1,1),'Ira',(L,M)=>`${4+M.Cos+2*(L-1)} round al giorno, +${L>=20?8:L>=11?6:4} For e Cos, +${L>=20?4:L>=11?3:2} Volontà, −2 CA`],[pgAi(1),'Movimento veloce','+3 m di velocità senza armatura pesante'],
+  [pgAi(2),"Poteri d'ira",'un potere nuovo ogni 2 livelli, usabile in ira'],[pgAi(2),'Schivare prodigioso','mai colto alla sprovvista dagli avversari che non vede'],
+  [pgOgni(3,3),'Percepire trappole',L=>`+${Math.floor(L/3)} a Riflessi e CA contro le trappole`],[pgAi(5),'Schivare prodigioso migliorato','non può essere attaccato ai fianchi (salvo da ladri di 4 livelli più alti)'],
+  [pgOgni(7,3),'Riduzione del danno',L=>`RD ${(L-4)/3}/—`],[pgAi(11),'Ira superiore','in ira +6 For e Cos, +3 Volontà'],[pgAi(14),'Volontà indomita','+4 Volontà contro gli ammaliamenti in ira'],
+  [pgAi(17),'Ira infaticabile','non è più affaticato quando l\'ira finisce'],[pgAi(20),'Ira possente','in ira +8 For e Cos, +4 Volontà']],
+ Bardo:[[pgOgni(1,1),'Esibizione bardica',(L,M)=>`${4+M.Car+2*(L-1)} round al giorno`],[pgAi(1),'Conoscenze bardiche',L=>`+${Math.max(1,Math.floor(L/2))} a tutte le Conoscenze, usabili senza addestramento`],
+  [pgAi(1),'Controcanto','annulla effetti sonori o di linguaggio'],[pgAi(1),'Distrazione','annulla illusioni visive'],[pgAi(1),'Affascinare','affascina le creature che lo ascoltano'],
+  [pgAi(1,5,11,17),'Ispirare coraggio',L=>`+${L>=17?4:L>=11?3:L>=5?2:1} morale a colpire, danni e TS contro paura e charme`],[pgOgni(2,2),'Conoscenze bardiche',L=>`+${Math.floor(L/2)} a tutte le Conoscenze`],
+  [pgAi(2),'Avvezzo','+4 ai TS contro le esibizioni bardiche, i suoni e gli effetti linguistici'],[pgOgni(2,4,18),'Esecuzione versatile','un tipo di Intrattenere sostituisce due abilità collegate'],
+  [pgOgni(3,4),'Ispirare competenza',L=>`+${2+Math.floor((L-3)/4)} di competenza alle prove di un'abilità di un alleato`],[pgOgni(5,6),'Maestro del sapere',L=>`prendere 10 alle Conoscenze, prendere 20 ${pgV(L>=17?3:L>=11?2:1)} al giorno`],
+  [pgAi(6),'Suggestione','suggestione su una creatura affascinata'],[pgAi(8),'Ispirare terrore','i nemici entro 9 m sono scossi'],[pgAi(9),'Ispirare grandezza','alleati: 2 DV bonus, +2 a colpire, +1 Tempra'],
+  [pgAi(10),'Eclettico','usa tutte le abilità senza addestramento'],[pgAi(12),'Musica lenitiva','cure con esibizione ad area'],[pgAi(14),'Accordo spaventoso','spavento con la musica'],
+  [pgAi(15),'Ispirare eroismo','+4 morale ai TS e +4 schivare alla CA a un alleato'],[pgAi(18),'Suggestione di massa','suggestione su tutte le creature affascinate'],[pgAi(20),'Musica mortale','la musica può uccidere chi ascolta']],
+ Chierico:[[pgOgni(1,2),'Incanalare energia',(L,M)=>`${Math.ceil(L/2)}d6, ${3+M.Car} volte al giorno, raggio 9 m`],[pgAi(1),'Aura','aura del suo allineamento e della divinità'],
+  [pgAi(1),'Domini','due domini con i loro poteri e gli incantesimi di dominio'],[pgAi(1),'Lancio spontaneo','scambia un incantesimo preparato con una cura (o infliggi)']],
+ Druido:[[pgAi(1),'Legame con la natura','compagno animale o un dominio della natura'],[pgAi(1),'Senso della natura','+2 a Conoscenze (natura) e Sopravvivenza'],[pgAi(1),'Empatia selvatica','influenza gli animali come con Diplomazia'],
+  [pgAi(2),'Andatura nel bosco','attraversa il sottobosco senza rallentare'],[pgAi(3),'Passo senza tracce','non lascia tracce in natura'],[pgAi(4),'Resistenza al richiamo della natura','+4 ai TS contro le capacità dei folletti'],
+  [pgOgni(4,2,18),'Forma selvatica',L=>`${pgV((L-2)/2)} al giorno${L>=12?', fino a elementali Enormi':L>=10?', anche elementali Grandi e vegetali':L>=8?', anche Enormi e Minuscoli':L>=6?', anche Piccoli, Grandi ed elementali':''}`],
+  [pgAi(20),'Forma selvatica','a volontà'],[pgAi(9),'Immunità ai veleni','immune ai veleni'],[pgAi(13),'Mille volti','cambia aspetto a volontà'],[pgAi(15),'Corpo senza tempo','nessuna penalità per l\'età']],
+ Guerriero:[[pgOgni(2,4),'Audacia',L=>`+${1+Math.floor((L-2)/4)} ai TS su Volontà contro la paura`],[pgOgni(3,4,15),'Addestramento nelle armature',L=>`grado ${1+Math.floor((L-3)/4)}: −${1+Math.floor((L-3)/4)} penalità di armatura, +${1+Math.floor((L-3)/4)} Des massima`],
+  [pgOgni(5,4,17),'Addestramento nelle armi',L=>{const g=1+Math.floor((L-5)/4);return `${g} ${g>1?'gruppi':'gruppo'} di armi con bonus`;}],[pgAi(19),'Padronanza dell\'armatura','RD 5/— con armatura o scudo'],[pgAi(20),'Padronanza dell\'arma','un\'arma: critici confermati sempre, non può essere disarmato']],
+ Ladro:[[pgOgni(1,2),'Attacco furtivo',L=>`+${Math.ceil(L/2)}d6`],[pgAi(1),'Scoprire trappole',L=>`+${Math.max(1,Math.floor(L/2))} a Percezione e Disattivare Congegni contro le trappole`],[pgOgni(2,2),'Scoprire trappole',L=>`+${Math.floor(L/2)} contro le trappole`],
+  [pgAi(2),'Eludere','nessun danno se supera un TS su Riflessi per dimezzare'],[pgOgni(3,3),'Percepire trappole',L=>`+${Math.floor(L/3)} a Riflessi e CA contro le trappole`],
+  [pgAi(4),'Schivare prodigioso','mai colto alla sprovvista dagli avversari che non vede'],[pgAi(8),'Schivare prodigioso migliorato','non può essere attaccato ai fianchi'],[pgAi(20),'Colpo da maestro','3 volte al giorno un attacco furtivo può addormentare, paralizzare o uccidere']],
+ Mago:[[pgAi(1),'Legame arcano','oggetto legato o famiglio'],[pgAi(1),'Scuola arcana','scuola specializzata (o universalista) con i suoi poteri'],[pgAi(1),'Scrivere Pergamene','talento bonus']],
+ Monaco:[[pgAi(1,4,8,12,16,20),'Colpo senz\'armi',L=>`danno ${['1d6','1d8','1d10','2d6','2d8','2d10'][Math.floor(L/4)]} (taglia Media)`],[pgAi(1),'Raffica di colpi','attacchi extra senz\'armi col BAB pari al livello −2'],
+  [pgOgni(1,1),'Pugno stordente',L=>`${pgV(L)} al giorno${L>=16?', anche paralizzato':L>=12?', anche frastornato':L>=8?', anche infermo':L>=4?', anche affaticato':''}`],[pgAi(1,4,8,12,16,20),'Bonus alla CA',(L,M)=>`+${M.Sag} Sag +${Math.floor(L/4)} alla CA e alla DMC senza armatura`],
+  [pgAi(2),'Eludere','nessun danno se supera un TS su Riflessi per dimezzare'],[pgOgni(3,3),'Movimento veloce',L=>`+${Math.floor(L/3)*3} m di velocità`],[pgAi(3),'Addestramento alle manovre','BMC con il livello da monaco come BAB'],
+  [pgAi(3),'Mente lucida','+2 ai TS contro gli ammaliamenti'],[pgOgni(4,1),'Riserva ki',(L,M)=>`${Math.floor(L/2)+M.Sag} punti${L>=16?', colpi adamantini':L>=10?', colpi legali':', colpi magici'}`],
+  [pgOgni(4,2,18),'Caduta lenta',L=>`riduce le cadute di ${Math.floor(L/2)*3} m vicino a una parete`],[pgAi(20),'Caduta lenta','qualsiasi distanza'],[pgAi(5),'Purezza del corpo','immune alle malattie'],
+  [pgAi(5),'Salto sublime','+livello ad Acrobazia per saltare, 1 ki per +20'],[pgAi(7),'Integrità del corpo',L=>`cura ${L} PF con 2 punti ki`],[pgAi(9),'Eludere migliorato','metà danni anche se fallisce il TS su Riflessi'],
+  [pgAi(11),'Corpo adamantino','immune ai veleni'],[pgAi(12),'Passo abbondante','porta dimensionale con 2 punti ki'],[pgOgni(13,1),'Anima adamantina',L=>`RI ${10+L}`],
+  [pgAi(15),'Palmo tremante','1 volta al giorno, un colpo che può uccidere in seguito'],[pgAi(17),'Corpo senza tempo','nessuna penalità per l\'età'],[pgAi(17),'Lingua del sole e della luna','parla con qualsiasi creatura vivente'],
+  [pgAi(19),'Corpo vuoto','etereo con 3 punti ki'],[pgAi(20),'Perfezione interiore','esterno, RD 10/caotico']],
+ Paladino:[[pgAi(1),'Aura di bene','aura di bene pari al livello'],[pgAi(1),'Individuazione del male','a volontà'],[pgOgni(1,3),'Punire il male',L=>`${pgV(Math.floor((L+2)/3))} al giorno`],
+  [pgAi(2),'Grazia divina','Car ai TS'],[pgOgni(2,2),'Imposizione delle mani',(L,M)=>`${Math.floor(L/2)}d6, ${Math.floor(L/2)+M.Car} volte al giorno`],[pgAi(3),'Aura di coraggio','immune alla paura, alleati entro 3 m +4 contro la paura'],
+  [pgAi(3),'Salute divina','immune alle malattie'],[pgAi(4),'Incanalare energia positiva','2 usi di imposizione delle mani per incanalare'],[pgAi(5),'Legame divino','arma sacra o cavalcatura celestiale'],
+  [pgAi(8),'Aura di fermezza','immune agli charme, alleati +4'],[pgAi(11),'Aura di giustizia','gli alleati entro 3 m condividono punire il male'],[pgAi(14),'Aura di fede','le armi degli alleati contano come buone'],
+  [pgAi(17),'Aura di rettitudine','RD 5/male, immune alle compulsioni'],[pgAi(20),'Campione sacro','RD 10/male, punire il male può esiliare']],
+ Ranger:[[pgAi(1,5,10,15,20),'Nemico prescelto',L=>`${1+Math.floor(L/5)} ${L<5?'tipo':'tipi'} di nemico, +2 a colpire e danni (ogni nuovo nemico dà +2 a uno vecchio)`],[pgAi(1),'Seguire tracce',L=>`+${Math.max(1,Math.floor(L/2))} a Sopravvivenza per seguire tracce`],[pgOgni(2,2),'Seguire tracce',L=>`+${Math.floor(L/2)} a Sopravvivenza per seguire tracce`],
+  [pgAi(1),'Empatia selvatica','influenza gli animali come con Diplomazia'],[pgOgni(2,4),'Stile di combattimento',L=>`talento di stile n. ${1+Math.floor((L-2)/4)} (tiro con l'arco o due armi)`],[pgAi(3),'Resistenza Fisica','talento bonus'],
+  [pgOgni(3,5),'Ambiente prescelto',L=>`${1+Math.floor((L-3)/5)} ${L<8?'ambiente':'ambienti'}, +2 a iniziativa e abilità`],[pgAi(4),'Legame del cacciatore','compagno animale o legame con gli alleati'],[pgAi(7),'Andatura nel bosco','attraversa il sottobosco senza rallentare'],
+  [pgAi(8),'Rapido segugio','segue tracce a velocità normale'],[pgAi(9),'Eludere','nessun danno se supera un TS su Riflessi per dimezzare'],[pgAi(11),'Preda','un bersaglio: segue tracce prendendo 10, +2 a colpire'],
+  [pgAi(12),'Mimetismo','Furtività senza copertura negli ambienti prescelti'],[pgAi(16),'Eludere migliorato','metà danni anche se fallisce il TS'],[pgAi(17),'Nascondersi in piena vista','Furtività anche osservato negli ambienti prescelti'],
+  [pgAi(19),'Preda migliorata','preda come azione gratuita, +4 a colpire'],[pgAi(20),'Maestro cacciatore','uccide o stordisce un nemico prescelto con un colpo']],
+ Stregone:[[pgAi(1),'Escludere Materiali','talento bonus']]};
+// scelte da fare: [livelli, promemoria]
+const SCELTE_CLASSI={Barbaro:[[pgOgni(2,2),"Scegli un nuovo potere d'ira"]],Chierico:[[pgAi(6,8),'Il secondo potere di alcuni domini arriva a questo livello (6° o 8°)']],
+ Druido:[[pgAi(6,8),'Il secondo potere del dominio, se lo hai, arriva al 6° o all\'8°']],Guerriero:[[L=>L%2===0,'Talento bonus da guerriero (talento di combattimento)'],[pgAi(5,9,13,17),'Nuovo gruppo di armi; quelli vecchi salgono di +1']],
+ Ladro:[[pgOgni(2,2),'Scegli una nuova dote da ladro'],[pgAi(10),'Da ora le doti da ladro possono essere doti avanzate']],Mago:[[pgAi(5,10,15,20),'Talento bonus da mago (metamagia, creazione oggetto o Padronanza degli Incantesimi)'],[pgAi(6,8),'Controlla il secondo potere della scuola arcana (6° o 8°)']],
+ Monaco:[[pgAi(2,6,10,14,18),'Talento bonus da monaco']],Paladino:[[pgOgni(3,3),"Scegli un'indulgenza"]],Ranger:[[pgOgni(5,5),'Nuovo nemico prescelto; +2 a uno di quelli vecchi'],[pgOgni(2,4),'Talento bonus dello stile di combattimento'],[pgOgni(3,5),'Nuovo ambiente prescelto; +2 a uno di quelli vecchi']]};
+// stirpi dello stregone (Manuale di Gioco, cap. 3; Stirpe dell'Ombra dalla wiki): abilità di classe, incantesimi bonus dal 3° (uno ogni 2 livelli), talenti bonus (7°, 13°, 19°), arcano, poteri
+const STIRPI={
+ Aberrante:{ab:'Conoscenze (dungeon)',inc:['ingrandire persone','vedere invisibilità','linguaggi','tentacoli neri','regressione mentale','velo','spostamento planare','vuoto mentale','trasformazione'],
+  tal:['Abilità Focalizzata (Conoscenze [dungeon])','Colpo Senz\'Armi Migliorato','Disarmare Migliorato','Incantare in Combattimento','Incantesimi Silenziosi','Iniziativa Migliorata','Lottare Migliorato','Volontà di Ferro'],
+  arc:'gli incantesimi di metamorfosi durano il 50% in più',pot:[[1,'Raggio acido',(L,M)=>`1d6+${Math.floor(L/2)} acido, ${3+M.Car} volte al giorno`],[3,'Arti lunghi','+1,5 m di portata negli attacchi di contatto'],[9,'Anatomia insolita','25% di ignorare critici e attacchi furtivi'],[11,'Arti lunghi','+3 m di portata negli attacchi di contatto'],[13,'Anatomia insolita','50% di ignorare critici e attacchi furtivi'],[15,'Resistenza aliena',L=>`RI ${10+L}`],[17,'Arti lunghi','+4,5 m di portata negli attacchi di contatto'],[20,'Forma aberrante','immune ai colpi critici, immune agli attacchi furtivi, vista cieca 18 m, RD 5/—']]},
+ Abissale:{ab:'Conoscenze (piani)',inc:['incuti paura','forza del toro','ira','pelle di pietra','congedo','trasformazione','teletrasporto superiore','aura sacrilega','evoca mostri IX'],
+  tal:['Abilità Focalizzata (Conoscenze [piani])','Attacco Poderoso','Aumentare Evocazione','Incalzare','Incantesimi Potenziati','Spezzare Migliorato','Spingere Migliorato','Tempra Possente'],
+  arc:'le creature evocate hanno RD/bene pari a metà livello',pot:[[1,'Artigli',PG_ARTIGLI('fuoco')],[3,'Resistenze demoniache','resistenza all\'elettricità 5, +2 ai TS contro il veleno'],[5,'Artigli',PG_ARTIGLI('fuoco')],[7,'Artigli',PG_ARTIGLI('fuoco')],[9,'Resistenze demoniache','resistenza all\'elettricità 10, +4 ai TS contro il veleno'],[9,'Forza dell\'Abisso','+2 intrinseco a For'],[11,'Artigli',PG_ARTIGLI('fuoco')],[13,'Forza dell\'Abisso','+4 intrinseco a For'],[15,'Evocazioni aggiuntive','una creatura in più con evoca mostri'],[17,'Forza dell\'Abisso','+6 intrinseco a For'],[20,'Potenza demoniaca','immune all\'elettricità, immune al veleno, resistenza 10 ad acido, freddo e fuoco, telepatia 18 m']]},
+ Arcana:{ab:'Conoscenze (qualsiasi)',inc:['identificare','invisibilità','dissolvi magie','porta dimensionale','volo giornaliero','visione del vero','teletrasporto superiore','parola del potere, stordire','desiderio'],
+  tal:['Abilità Focalizzata (Conoscenze [arcane])','Controincantesimi Migliorato','Incantare in Combattimento','Incantesimi Focalizzati','Incantesimi Immobili','Iniziativa Migliorata','Scrivere Pergamene','Volontà di Ferro'],
+  arc:'+1 alla CD quando un talento di metamagia alza il livello dello slot',pot:[[1,'Legame arcano','famiglio o oggetto legato come un mago'],[3,'Adepto di metamagia',L=>`metamagia senza allungare il lancio, ${pgV(1+Math.floor((L-3)/4))} al giorno`],[7,'Adepto di metamagia','metamagia senza allungare il lancio, 2 volte al giorno'],[11,'Adepto di metamagia','metamagia senza allungare il lancio, 3 volte al giorno'],[15,'Adepto di metamagia','metamagia senza allungare il lancio, 4 volte al giorno'],[19,'Adepto di metamagia','metamagia senza allungare il lancio, 5 volte al giorno'],[9,'Nuovi arcani','un incantesimo conosciuto in più dalla lista del mago'],[13,'Nuovi arcani','2 incantesimi conosciuti in più dalla lista del mago'],[17,'Nuovi arcani','3 incantesimi conosciuti in più dalla lista del mago'],[15,'Potere della scuola','+2 alla CD di una scuola'],[20,'Apoteosi arcana','ricarica gli oggetti magici con gli slot']]},
+ Celestiale:{ab:'Guarire',inc:['benedizione','resistere all\'energia','cerchio magico contro il male','rimuovi maledizione','colpo infuocato','dissolvi magie superiore','esilio','esplosione solare','portale'],
+  tal:['Schivare','Incantesimi Estesi','Volontà di Ferro','Mobilità','Combattere in Sella','Attacco in Sella','Abilità Focalizzata (Conoscenze [religioni])','Arma Accurata'],
+  arc:'le creature evocate hanno RD/male pari a metà livello',pot:[[1,'Fuoco celestiale',(L,M)=>`raggio 9 m, 1d4+${Math.floor(L/2)} ai malvagi o cura i buoni, ${3+M.Car} volte al giorno`],[3,'Resistenze celestiali','resistenza ad acido e freddo 5'],[9,'Resistenze celestiali','resistenza ad acido e freddo 10'],[9,'Ali del Paradiso',L=>`volo 18 m per ${L} minuti al giorno`],[15,'Convinzione','1 volta al giorno ritira una prova o un TS'],[20,'Ascensione','immune all\'acido, immune al freddo, immune alla pietrificazione, resistenza 10 a elettricità e fuoco, +4 ai TS contro il veleno']]},
+ Draconica:{ab:'Percezione',inc:['armatura magica','resistere all\'energia','volare','paura','resistenza agli incantesimi','forma di drago I','forma di drago II','forma di drago III','desiderio'],
+  tal:['Abilità Focalizzata (Conoscenze [arcane])','Abilità Focalizzata (Volare)','Attacco Poderoso','Combattere alla Cieca','Incantesimi Rapidi','Iniziativa Migliorata','Robustezza','Tempra Possente'],
+  arc:'+1 danno per dado agli incantesimi dell\'energia del drago',pot:[[1,'Artigli',PG_ARTIGLI("dell'energia del drago")],[3,'Resistenze del drago','resistenza 5 all\'energia del drago, +1 armatura naturale'],[5,'Artigli',PG_ARTIGLI("dell'energia del drago")],[7,'Artigli',PG_ARTIGLI("dell'energia del drago")],[9,'Resistenze del drago','resistenza 10, +2 armatura naturale'],[9,'Soffio',L=>`${L}d6 dell'energia del drago, ${pgV(L>=20?3:L>=17?2:1)} al giorno`],[11,'Artigli',PG_ARTIGLI("dell'energia del drago")],[15,'Resistenze del drago','resistenza 10, +4 armatura naturale'],[15,'Ali','volo 18 m (media)'],[17,'Soffio',L=>`${L}d6 dell'energia del drago, 2 volte al giorno`],[20,'Soffio','20d6 dell\'energia del drago, 3 volte al giorno'],[20,'Potere dei wyrm','immune alla paralisi, immune al sonno, immune all\'energia del drago, vista cieca 18 m']]},
+ Elementale:{ab:'Conoscenze (piani)',inc:['mani brucianti','raggio rovente','protezione dall\'energia','corpo elementale I','corpo elementale II','corpo elementale III','corpo elementale IV','evoca mostri VIII (solo elementali)','sciame elementale'],
+  tal:['Abilità Focalizzata (Conoscenze [piani])','Arma Accurata','Attacco Poderoso','Incantesimi Potenziati','Iniziativa Migliorata','Riflessi Fulminei','Schivare','Tempra Possente'],
+  arc:'può cambiare il tipo di energia di un incantesimo in quello del suo elemento',pot:[[1,'Raggio elementale',(L,M)=>`1d6+${Math.floor(L/2)} dell'energia dell'elemento, ${3+M.Car} volte al giorno`],[3,'Resistenza elementale','resistenza 10 all\'energia dell\'elemento'],[9,'Resistenza elementale','resistenza 20'],[9,'Esplosione elementale',L=>`${L}d6 in un'esplosione di 6 m, 1 volta al giorno`],[17,'Esplosione elementale',L=>`${L}d6 in un'esplosione di 6 m, 2 volte al giorno`],[20,'Esplosione elementale','20d6 in un\'esplosione di 6 m, 3 volte al giorno'],[15,'Movimento elementale','movimento speciale del suo elemento'],[20,'Corpo elementale','immune agli attacchi furtivi, immune ai colpi critici, immune all\'energia del suo elemento']]},
+ Eletta:{ab:'Conoscenze (storia)',inc:['allarme','sfocatura','protezione dall\'energia','libertà di movimento','spezzare incantamento','fuorviare','riflettere incantesimo','momento di prescienza','previsione'],
+  tal:['Abilità Focalizzata (Conoscenze [storia])','Arma Focalizzata','Autorità','Colpo Arcano','Duro a Morire','Incantesimi Massimizzati','Resistenza Fisica','Riflessi Fulminei'],
+  arc:'con un incantesimo a raggio personale ottiene ai TS un bonus pari al livello dell\'incantesimo per 1 round',pot:[[1,'Tocco del destino',(L,M)=>`+${Math.max(1,Math.floor(L/2))} cognitivo a un alleato per 1 round, ${3+M.Car} volte al giorno`],[3,'Destinato',L=>`+${1+Math.floor((L-3)/4)} di fortuna ai TS e alla CA nel round di sorpresa`],[7,'Destinato','+2 di fortuna ai TS e alla CA nel round di sorpresa'],[11,'Destinato','+3 di fortuna ai TS e alla CA nel round di sorpresa'],[15,'Destinato','+4 di fortuna ai TS e alla CA nel round di sorpresa'],[19,'Destinato','+5 di fortuna ai TS e alla CA nel round di sorpresa'],[9,'Predestinato','1 volta al giorno ritira un attacco, un critico o una prova contro la RI'],[17,'Predestinato','2 volte al giorno ritira un attacco, un critico o una prova contro la RI'],[15,'Profetizzato','1 volta al giorno resta in vita quando morirebbe'],[20,'Rivelato','critici confermati in automatico, RI superata con un 20']]},
+ Fatata:{ab:'Conoscenze (natura)',inc:['intralciare','risata spaventosa','sonno profondo','veleno','traslazione arborea','fuorviare','porta in fase','danza irresistibile','trasformazione'],
+  tal:['Abilità Focalizzata (Conoscenze [natura])','Incantesimi Rapidi','Iniziativa Migliorata','Mobilità','Riflessi Fulminei','Schivare','Tiro Preciso','Tiro Ravvicinato'],
+  arc:'+2 alla CD degli incantesimi di compulsione',pot:[[1,'Tocco d\'ilarità',(L,M)=>`la creatura toccata ride per 1 round, ${3+M.Car} volte al giorno`],[3,'Andatura nel bosco','attraversa il sottobosco senza rallentare'],[9,'Fuggevolezza',L=>`invisibile per ${L} round al giorno`],[15,'Magia fatata','ritira le prove di livello contro la RI'],[20,'Anima fatata','immune al veleno, RD 10/ferro freddo, traslazione arborea 1 volta al giorno']]},
+ Infernale:{ab:'Diplomazia',inc:['protezione dal bene','raggio rovente','suggestione','charme sui mostri','dominare persone','legame planare (solo diavoli)','teletrasporto superiore','parola del potere, stordire','sciame di meteore'],
+  tal:['Abilità Focalizzata (Conoscenze [piani])','Combattere alla Cieca','Disarmare Migliorato','Incantesimi Estesi','Incantesimi Inarrestabili','Ingannevole','Maestria in Combattimento','Volontà di Ferro'],
+  arc:'+2 alla CD degli incantesimi di charme',pot:[[1,'Tocco di corruzione',(L,M)=>`rende scossa la creatura toccata, ${3+M.Car} volte al giorno`],[3,'Resistenze infernali','resistenza al fuoco 5, +2 ai TS contro il veleno'],[9,'Resistenze infernali','resistenza al fuoco 10, +4 ai TS contro il veleno'],[9,'Fuoco infernale',L=>`${L}d6 fuoco in un'esplosione di 3 m, 1 volta al giorno`],[17,'Fuoco infernale',L=>`${L}d6 fuoco in un'esplosione di 3 m, 2 volte al giorno`],[20,'Fuoco infernale','20d6 fuoco in un\'esplosione di 3 m, 3 volte al giorno'],[15,'Ali di tenebra','volo 18 m (media)'],[20,'Potere degli inferi','immune al fuoco, immune al veleno, resistenza 10 ad acido e freddo, vede nell\'oscurità 18 m']]},
+ 'Non morta':{ab:'Conoscenze (religioni)',inc:['tocco gelido','vita falsata','tocco del vampiro','animare morti','onde di affaticamento','non morto a morto','dito della morte','orrido avvizzimento','risucchio di energia'],
+  tal:['Abilità Focalizzata (Conoscenze [religioni])','Duro a Morire','Incantare in Combattimento','Incantesimi Focalizzati','Incantesimi Immobili','Resistenza Fisica','Robustezza','Volontà di Ferro'],
+  arc:'alcuni non morti diventano sensibili agli incantesimi di influenza mentale',pot:[[1,'Tocco della tomba',(L,M)=>`rende scossa una creatura vivente, ${3+M.Car} volte al giorno`],[3,'Dono della morte','resistenza al freddo 5, RD 5/— contro i danni non letali'],[9,'Dono della morte','resistenza al freddo 10, RD 10/— contro i danni non letali'],[9,'Presa della morte',L=>`${Math.floor(L/2)}d6 in un'area di 6 m, 1 volta al giorno`],[17,'Presa della morte',L=>`${Math.floor(L/2)}d6 in un'area di 6 m, 2 volte al giorno`],[20,'Presa della morte','10d6 in un\'area di 6 m, 3 volte al giorno'],[15,'Forma incorporea',L=>`incorporeo per ${L} round, 1 volta al giorno`],[20,'Uno di noi','immune al freddo, immune ai danni non letali, immune alla paralisi, immune al sonno, RD 5/—']]},
+ Ombra:{nome:"STIRPE DELL'OMBRA",ab:'Furtività',inc:['Raggio di Indebolimento','Scurovisione','Oscurità Profonda','Ombra di una Evocazione','Ombra di una Invocazione','Camminare nelle Ombre','Parola del Potere, Accecare','Ombra di una Invocazione Superiore','Ombre'],
+  tal:['Abilità Focalizzata (Furtività)','Acrobatico','Arma Accurata','Combattere alla Cieca','Estrazione Rapida','Furtivo','Incantesimi Silenziosi','Schivare'],
+  arc:'con un incantesimo di oscurità o d\'ombra ottiene a Furtività un bonus pari al suo livello per 1d4 round',pot:[[1,'Colpo d\'Ombra',(L,M)=>`1d4+${Math.floor(L/2)} danni non letali e abbagliato per 1 minuto, ${3+M.Car} volte al giorno`],[3,'Occhio Notturno','scurovisione 9 m'],[9,'Occhio Notturno','scurovisione 18 m'],[9,'Pozzo d\'Ombra',PG_POZZO],[17,'Pozzo d\'Ombra',PG_POZZO],[20,'Pozzo d\'Ombra',PG_POZZO],[15,'Oscurità Avvolgente','oscurità profonda in cui vede, chi è dentro è intralciato, 1 volta al giorno'],[20,'Maestro delle Ombre','vede nell\'oscurità anche magica, le illusioni d\'ombra sono più reali']]}};
+const capCase=s=>s.charAt(0).toUpperCase()+s.slice(1);
+// stirpe dal testo della classe o delle capacità (es. «Stregone 1 (Stirpe dell'Ombra)», «STIRPE DRACONICA:»)
+function stirpeDi(pg){const t=`${pg.classe||''} ${pg.capacita||''}`;
+ const m=t.match(/stirpe\s+(?:dell[ao]?\s*['’]?\s*|del\s+)?(aberrante|abissale|arcana|celestiale|draconica|elementale|eletta|fatata|infernale|non\s*morta|ombra)/i)||String(pg.classe||'').match(/\((?:[^)]*\s)?(aberrante|abissale|arcana|celestiale|draconica|elementale|eletta|fatata|infernale|non\s*morta|ombra)\b/i);
+ return m?Object.keys(STIRPI).find(k=>k.toLowerCase()===m[1].toLowerCase().replace(/\s+/g,' ')):null;}
+// capacità, incantesimi e talenti che arrivano al livello L
+function pgNovita(pg,L,k,M){const capacita=[],incantesimi=[],promemoria=[];let talentiStirpe=[];const gruppo=(k||'').toUpperCase(),d=(x,...a)=>typeof x==='function'?x(...a):x;
+ (PROG_CLASSI[k]||[]).forEach(([t,n,x])=>{if(t(L))capacita.push(`${gruppo}: ${n}: ${d(x,L,M)}`);});
+ (SCELTE_CLASSI[k]||[]).forEach(([t,x])=>{if(t(L))promemoria.push(x);});
+ const s=k==='Stregone'&&stirpeDi(pg),S=s&&STIRPI[s];
+ if(S){const g=S.nome||'STIRPE '+s.toUpperCase();
+  if(L===1){capacita.push(`${g}: Abilità di classe della stirpe: ${S.ab}`,`${g}: Arcano della stirpe: ${S.arc}`);}
+  S.pot.forEach(([l,n,x])=>{if(l===L)capacita.push(`${g}: ${n}: ${d(x,L,M)}`);});
+  if(L>=3&&L<=19&&L%2){const v=(L-1)/2;incantesimi.push(`${v}° liv. stirpe: ${capCase(S.inc[v-1])}`);}
+  if([7,13,19].includes(L)){talentiStirpe=S.tal.slice();promemoria.push(`Talento bonus della stirpe (${s}): ${S.tal.join(', ')}`);}}
+ else if(k==='Stregone')promemoria.push('Stirpe non riconosciuta: scrivila nella classe, es. «Stregone (Stirpe Draconica)».');
+ return{stirpe:s||null,capacita,incantesimi,talentiStirpe,promemoria};}
+// passaggio di livello: nuovi BAB e TS base se la classe è nota, PF medi suggeriti (metà dado + 1 + Cos), capacità e incantesimi nuovi, promemoria
+function pgSaliLivello(pg){const k=classeDi(pg),C=CLASSI[k],L=(+pg.liv||1)+1,M=pgCalcola(pg).M,n=[];const nuovo={liv:L};
+ if(C){nuovo.bab=Math.floor(L*C.bab);nuovo.ts={};[['T','Temp'],['R','Rifl'],['V','Vol']].forEach(([s,t])=>nuovo.ts[t]=C.ts.includes(s)?2+Math.floor(L/2):Math.floor(L/3));
+  nuovo.pfPiu=Math.max(1,C.dv/2+1+M.Cos);const g=Math.max(1,C.gr+M.Int);n.push(`${g} ${g>1?'gradi':'grado'} di abilità da assegnare (+1 se umano o col bonus della classe preferita)`);}
+ else n.push('Classe non riconosciuta: aggiorna a mano BAB, TS e PF.');
+ const talento=L%2===1,N=pgNovita(pg,L,k,M);
+ if(talento)n.push('Nuovo talento');if(L%4===0)n.push('+1 a una caratteristica');n.push(...N.promemoria);
+ if(C&&/Bardo|Chierico|Druido|Mago|Paladino|Ranger|Stregone/.test(k))n.push('Aggiorna incantesimi al giorno e conosciuti con la tabella della classe');
+ return{classe:k,nuovo,promemoria:n,capacita:N.capacita,incantesimi:N.incantesimi,talento,talentiStirpe:N.talentiStirpe,stirpe:N.stirpe};}
 
 if(typeof module!=='undefined'&&typeof window==='undefined')module.exports={pianoIncontro,DIFFICOLTA,MAX_NEMICI,generateMonster,statText,CR_LIST,TYPE_LIST,SIZE_NAMES,ROLES,ALIGN,ENV_LIST,SHAPES,ABILITIES,voceModello,vociModelli,dimensioneModello};
 
@@ -2604,7 +2879,7 @@ const Visore2D=(function(){
   ['aberrazione-aracnide',['Aberrazione · '+TA],0.37,0.44,0.42],['aberrazione-quadrupede',['Aberrazione · Quadrupede'],0.50,0.55,0.50],['aberrazione-melma',['Aberrazione · Informe (melma)'],0.65,0.29,0.42],
   ['grifone',['Bestia magica · Quadrupede'],0.59,0.22,0.28],['golem',['Costrutto · Costrutto'],0.46,0.15,0.25],['pegaso',['Esterno · Quadrupede'],0.33,0.27,0.29,{al:'B'}],
   ['folletto',['Folletto · Bipede'],0.51,0.20,0.29],['melma',['Melma · Informe (melma)'],0.75,0.15,0.44],['cavallo-scheletro',['Non morto · Quadrupede'],0.15,0.22,0.39],
-  ['licantropo.svg',['Bestia magica · Bipede'],0.50,0.16,0.26],['segugio-infernale.svg',['Esterno · Quadrupede'],0.22,0.32,0.4,{nonAl:'B'}],
+  ['licantropo',['Bestia magica · Bipede'],0.61,0.17,0.29],['segugio-infernale',['Esterno · Quadrupede'],0.80,0.27,0.34,{nonAl:'B'}],
   ['millepiedi',['Parassita · Serpentino'],0.71,0.17,0.32],['naga',['Umanoide mostruoso · Serpentino'],0.52,0.14,0.24],['pianta-carnivora',['Vegetale · Vegetale'],0.52,0.19,0.32]
  ].map(([f,voci,fx,fy,s,se])=>({url:'immagini/'+(f.includes('.')?f:f+'.jpg'),voci,fx,fy,s,se:se||{},asp:640/560})); // tutte normalizzate a 640×560 su pergamena #e2d3b2
  function dalCatalogo(m){const v=voceModello(m),c=CATALOGO.filter(x=>x.voci.includes(v)&&(!x.se.env||x.se.env===m.env)&&(!x.se.ruolo||x.se.ruolo===m.ruolo)&&(!x.se.al||m.al.includes(x.se.al))&&(!x.se.nonEnv||x.se.nonEnv!==m.env)&&(!x.se.nonAl||!m.al.includes(x.se.nonAl)));return c.length?c[(m.look.seed>>>0)%c.length]:null;}
@@ -2797,8 +3072,8 @@ const Importati=(function(){
 
 </script>
 <script>
-// ===== Glossario: nuvoletta con il nome completo delle sigle di Pathfinder =====
-// Mouse fermo 0,5 s su una sigla = nuvoletta; sul telefono basta toccarla.
+// ===== Glossario: nuvoletta per sigle, talenti e abilità di Pathfinder =====
+// Mouse fermo 0,5 s = nuvoletta (sparisce scorrendo); clic o tocco = resta fissa finché non si clicca altrove.
 const Glossario=(function(){
  const SIGLE={
   CA:'Classe Armatura',GS:'Grado di Sfida',PE:'Punti Esperienza',LMG:'Livello Medio del Gruppo',PF:'Punti Ferita',DV:'Dadi Vita',
@@ -2806,25 +3081,1001 @@ const Glossario=(function(){
   CD:'Classe Difficoltà',TS:'Tiro Salvezza',RI:'Resistenza agli Incantesimi',RD:'Riduzione del Danno',LI:"Livello dell'Incantatore",
   For:'Forza',Des:'Destrezza',Cos:'Costituzione',Int:'Intelligenza',Sag:'Saggezza',Car:'Carisma'
  };
- const ATTESA=500,RE=new RegExp(`(^|[^\\p{L}\\p{N}])(${Object.keys(SIGLE).join('|')})(?![\\p{L}\\p{N}])`,'gu');
- const SALTA=new Set(['SCRIPT','STYLE','TEXTAREA','SELECT','OPTION','INPUT','ABBR','SVG','svg']);
- let nuv=null,timer=0,aperta=null;
- // avvolge le sigle (parole intere, maiuscole rispettate) dei nodi di testo dentro root
- function marca(root){if(!root)return;const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>{for(let p=n.parentNode;p&&p!==root.parentNode;p=p.parentNode)if(SALTA.has(p.nodeName))return NodeFilter.FILTER_REJECT;RE.lastIndex=0;return RE.test(n.nodeValue)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_SKIP;}});
+ // talenti e abilità: riassunti dell'effetto (testo nostro, non copiato dal manuale)
+ const VOCI={
+  'Abilità Focalizzata':"+3 all'abilità scelta, +6 con 10 o più gradi.",
+  'Allerta':'+2 a Percezione e Intuizione, +4 con 10 o più gradi.',
+  'Arma Focalizzata':"+1 ai tiri per colpire con l'arma scelta.",
+  'Arma Naturale Migliorata':"Il danno di un'arma naturale sale di una categoria, come se la creatura fosse di una taglia più grande.",
+  'Attacco Poderoso':'Prima di attaccare in mischia può prendere −1 per colpire (−1 ogni 4 BAB) per +2 ai danni (+3 a due mani).',
+  'Attacco in Volo':'In volo può muoversi e attaccare durante il movimento, come in una carica in picchiata.',
+  'Capacità Magica Potenziata':'3 volte al giorno una capacità magica ha effetti numerici aumentati del 50%.',
+  'Capacità Magica Rapida':'3 volte al giorno usa una capacità magica come azione veloce.',
+  'Critico Migliorato':"Raddoppia l'intervallo di minaccia di critico dell'arma scelta.",
+  'Fluttuare':'Può restare sospeso in volo senza prove e sollevare polvere che ostacola la vista.',
+  'Incalzare':'Se colpisce in mischia, può attaccare un secondo nemico adiacente al primo, con −2 alla CA fino al turno dopo.',
+  'Incantare in Combattimento':'+4 alle prove di concentrazione per lanciare incantesimi sulla difensiva o in lotta.',
+  'Iniziativa Migliorata':"+4 alle prove di iniziativa.",
+  'Maestria in Combattimento':'Può prendere −1 per colpire (−1 ogni 4 BAB) per +1 alla CA schivare.',
+  'Mobilità':'+4 alla CA contro gli attacchi di opportunità provocati muovendosi.',
+  'Riflessi Fulminei':'+2 ai TS su Riflessi.',
+  'Riflessi in Combattimento':'Attacchi di opportunità extra ogni round pari al mod. di Des; può farli anche colto alla sprovvista.',
+  'Robustezza':'+3 PF, più 1 PF per ogni DV oltre il 3°.',
+  'Sbilanciare Migliorato':'Sbilanciare non provoca attacchi di opportunità; +2 al BMC e alla DMC per sbilanciare.',
+  'Schivare':'+1 di schivare alla CA e alla DMC.',
+  'Spingere Migliorato':'Spingere non provoca attacchi di opportunità; +2 al BMC e alla DMC per spingere.',
+  'Tempra Possente':'+2 ai TS su Tempra.',
+  'Volontà di Ferro':'+2 ai TS su Volontà.',
+  'Acrobazia':'(Des) Equilibrio, salti, passare oltre i nemici senza provocare attacchi di opportunità.',
+  'Artista della Fuga':'(Des) Liberarsi da corde, manette e lotta; passare per spazi stretti.',
+  'Conoscenze':'(Int) Sapere su un argomento: arcano, piani, natura, religione, sotterranei…',
+  'Diplomazia':"(Car) Migliorare l'atteggiamento degli altri e raccogliere informazioni.",
+  'Furtività':'(Des) Muoversi senza farsi vedere né sentire.',
+  'Intimidire':'(Car) Spaventare un avversario (scosso) o costringerlo a collaborare.',
+  'Intrattenere':'(Car) Esibirsi con canto, danza, oratoria o strumenti.',
+  'Intuizione':'(Sag) Capire le intenzioni altrui e accorgersi degli inganni.',
+  'Nuotare':'(For) Muoversi in acqua senza affogare.',
+  'Percezione':'(Sag) Notare dettagli, rumori, nemici nascosti e trappole.',
+  'Raggirare':'(Car) Mentire, fingere e depistare.',
+  'Sapienza Magica':'(Int) Riconoscere incantesimi e oggetti magici.',
+  'Scalare':'(For) Arrampicarsi su pareti e pendii.',
+  'Sopravvivenza':'(Sag) Seguire tracce, orientarsi, trovare cibo in natura.',
+  'Volare':'(Des) Manovrare in volo; modificata da taglia e manovrabilità.',
+  'Addestrare Animali':'(Car) Insegnare comandi e trucchi agli animali e guidarli. Solo con addestramento.',
+  'Artigianato':'(Int) Costruire o riparare oggetti di un mestiere.',
+  'Camuffare':'(Car) Cambiare il proprio aspetto per sembrare qualcun altro.',
+  'Cavalcare':'(Des) Guidare una cavalcatura, anche in combattimento.',
+  'Disattivare Congegni':'(Des) Disinnescare trappole e aprire serrature. Solo con addestramento.',
+  'Guarire':'(Sag) Primo soccorso, cura di veleni, malattie e ferite.',
+  'Linguistica':'(Int) Conoscere lingue e decifrare scritti. Solo con addestramento.',
+  'Professione':'(Sag) Praticare un mestiere e guadagnarci. Solo con addestramento.',
+  'Rapidità di Mano':'(Des) Borseggiare, nascondere oggetti, giochi di prestigio. Solo con addestramento.',
+  'Utilizzare Congegni Magici':'(Car) Usare bacchette, pergamene e oggetti magici non pensati per sé. Solo con addestramento.',
+  'Valutare':'(Int) Stimare il valore degli oggetti.',
+  // talenti dei personaggi
+  'Incantesimi Focalizzati':'+1 alla CD dei TS contro gli incantesimi della scuola scelta.',
+  'Escludere Materiali':'Lancia incantesimi senza le componenti materiali di costo trascurabile (fino a 1 mo).',
+  // tratti di razza e di classe dei personaggi
+  'Sangue elfico':'Il mezzelfo conta sia come elfo sia come umano per tutti gli effetti legati alla razza.',
+  'Sensi acuti':'+2 alle prove di Percezione.',
+  'Multitalento':'Sceglie due classi preferite e ottiene il bonus della classe preferita in entrambe.',
+  'Adattabilità':'Talento bonus Abilità Focalizzata al 1° livello.',
+  'Immunità elfiche':'Immune agli effetti di sonno magici; +2 ai TS contro gli ammaliamenti.',
+  'Incantesimi arcani spontanei':'Lancia incantesimi arcani senza prepararli, scegliendo tra quelli conosciuti; la caratteristica è il Carisma.',
+  'Trucchetti':'Incantesimi di livello 0, lanciabili a volontà.',
+  'Armi semplici':'Competenza nelle armi semplici; nessuna competenza nelle armature, che fanno fallire gli incantesimi arcani.',
+  'Abilità di classe':'Abilità con +3 se ha almeno un grado.',
+  'Classe preferita':'A ogni livello nella classe preferita ottiene +1 PF o +1 grado di abilità.'
+ };
+ // parole chiave evidenziate nei testi, come i rimandi della wiki: [nome, forme riconosciute, spiegazione]
+ const TERMINI=[
+  ['Attacco di opportunità','attacc(?:o|hi) di opportunità',"Attacco in mischia gratuito contro un nemico che, nell'area minacciata, si allontana o fa azioni che lo distraggono (lanciare incantesimi, tirare). Di norma uno per round."],
+  ['Colto alla sprovvista','colt[oaie] alla sprovvista',"Chi non ha ancora agito nel combattimento o non vede arrivare l'attacco: perde il bonus di Des alla CA e non fa attacchi di opportunità."],
+  ['Attacco di contatto','attacc(?:o|hi) di contatto|tocco','Basta toccare il bersaglio: contano solo Des, deviazione e taglia (CA di contatto), non armatura, scudo e armatura naturale.'],
+  ['Carica','carica','Azione di round completo: muove fino al doppio della velocità in linea retta e attacca, con +2 per colpire e −2 alla CA fino al turno dopo.'],
+  ['Concentrazione','concentrazione',"d20 + LI + mod. della caratteristica da incantatore: serve per lanciare incantesimi se feriti, disturbati o sulla difensiva."],
+  ['Azione standard','azion[ei] standard',"L'azione principale del turno, per esempio un attacco o un incantesimo. Ogni turno: una standard, una di movimento e una veloce."],
+  ['Azione di movimento','azion[ei] di movimento',"Muoversi fino alla propria velocità o fare qualcosa di simile (alzarsi, estrarre un'arma)."],
+  ['Azione di round completo','azion[ei] di round completo|round completo','Occupa tutto il turno, per esempio un attacco completo o una carica.'],
+  ['Azione veloce','azion[ei] velo(?:ce|ci)','Azione rapidissima, una sola per turno.'],
+  ['Lotta','lotta','Manovra per afferrare un nemico (BMC contro DMC): chi è in lotta non si muove liberamente, ha −4 alla Des e −2 agli attacchi.'],
+  ['Afferrare','afferrare',"Se colpisce con l'attacco indicato, può iniziare una lotta come azione gratuita, senza provocare attacchi di opportunità."],
+  ['Stritolare','stritol\\p{L}*','Mentre è in lotta, infligge danni ogni volta che vince una prova di lotta.'],
+  ['Inghiottire','inghiott\\p{L}*',"Ingoia intero un nemico più piccolo con cui è in lotta; dentro si subiscono danni ogni round e si esce aprendosi un varco."],
+  ['Squartare','squartare','Se colpisce con entrambi gli attacchi indicati nello stesso round, infligge danni extra.'],
+  ['Sbilanciare','sbilanciare','Manovra (BMC contro DMC) che fa cadere il nemico a terra, prono.'],
+  ['Danni non letali','danni non letali','Danni che mettono fuori combattimento senza uccidere: se superano i PF attuali la creatura sviene.'],
+  ['Scurovisione','scurovisione','Vede al buio fino alla distanza indicata, in bianco e nero.'],
+  ['Vista crepuscolare','vista crepuscolare|visione crepuscolare','Con luce scarsa (luna, torce) vede il doppio più lontano di un umano.'],
+  ['Vista cieca','vista cieca',"Percepisce l'ambiente senza vedere (udito, vibrazioni…): entro la distanza invisibilità e oscurità non contano."],
+  ['Percezione cieca','percezione cieca','Si accorge di chi è entro la distanza senza vederlo, ma senza localizzarlo con precisione.'],
+  ['Fiuto','fiuto',"Sente l'odore delle creature vicine e segue le tracce con l'olfatto."],
+  ['Rigenerazione','rigenerazione','Recupera PF ogni round e non muore, tranne che per il tipo di danno indicato, che la ferisce normalmente.'],
+  ['Guarigione rapida','guarigione rapida','Recupera ogni round i PF indicati; non fa ricrescere parti perse.'],
+  ['Incorporeo','incorpore[oaie]','Senza corpo fisico: immune alle armi non magiche, dimezza i danni magici, attraversa gli oggetti solidi.'],
+  ['Risucchio di energia','risucchi\\p{L}* di energia','Infligge livelli negativi al bersaglio.'],
+  ['Livello negativo','livell[oi] negativ[oi]','Ciascuno dà −1 a tiri per colpire, TS e prove e −5 PF; se diventano pari ai DV la creatura muore.'],
+  ['Sanguinamento','sanguinamento','Perde PF a ogni turno finché non viene curato (prova di Guarire o cura magica).'],
+  ['Presenza terrificante','presenza terrificante','Chi la vede attaccare o caricare e fallisce il TS su Volontà diventa scosso per un po\'.'],
+  ['Capacità magica','capacità magich[ei]|capacità magica','Effetto uguale a un incantesimo, usato a volontà senza componenti; si può dissolvere.'],
+  ['Scosso','scoss[oaie]','−2 a tiri per colpire, TS e prove.'],
+  ['Spaventato','spaventat[oaie]','Come scosso, e in più fugge dalla fonte della paura.'],
+  ['In preda al panico','in preda al panico','Come spaventato, ma lascia cadere ciò che tiene e fugge a caso.'],
+  ['Barcollante','barcollant[ei]','Una sola azione per turno, standard o di movimento.'],
+  ['Stordito','stordit[oaie]','Lascia cadere ciò che tiene, non può agire, −2 alla CA e perde il bonus di Des.'],
+  ['Paralizzato','paralizzat[oaie]|paralisi','Immobile e indifeso: For e Des contano 0, non può agire.'],
+  ['Nauseato','nause\\p{L}*',"Può fare solo un'azione di movimento per turno."],
+  ['Infermo','inferm[oaie]','−2 a tiri per colpire, danni, TS e prove.'],
+  ['Affaticato','affaticat[oaie]|affaticamento','Non può correre né caricare; −2 a For e Des.'],
+  ['Esausto','esaust[oaie]|esaurimento','Velocità dimezzata, −6 a For e Des.'],
+  ['Accecato','accecat[oaie]|cecità','−2 alla CA, perde il bonus di Des, −4 a molte prove; tutti i nemici hanno occultamento totale.'],
+  ['Prono','pron[oaie]','A terra: −4 agli attacchi in mischia; +4 alla CA contro quelli a distanza, −4 contro quelli in mischia.'],
+  ['Intralciato','intralciat[oaie]','−2 agli attacchi, −4 alla Des, velocità dimezzata.'],
+  ['Confuso','confus[oaie]|confusione','Ogni round agisce a caso: attacca, borbotta o fugge.'],
+  ['Invisibile','invisibil[ei]|invisibilità','Non si vede: +2 per colpire e il bersaglio perde il bonus di Des alla CA.'],
+  ['Assordato','assordat[oaie]',"−4 all'iniziativa, 20% di fallire gli incantesimi con componente verbale."],
+  ['Indifeso','indifes[oaie]','Des contata 0 (−5 alla CA); si può subire un colpo di grazia.']
+ ];
+ TERMINI.forEach(([n,,d])=>VOCI[n]=d);
+ // ===== Personaggi: talenti, tratti razziali, capacità di classe e stirpi (Manuale di Gioco; Stirpe dell'Ombra dalla wiki). Riassunti nostri =====
+ const PG={
+  // talenti (cap. 5)
+  "Acrobatico":"+2 ad Acrobazia e Volare, +4 con 10 o più gradi.",
+  "Addestramento Arcano nelle Armature":"Con un'azione veloce riduce del 10% il fallimento degli incantesimi arcani dovuto all'armatura.",
+  "Maestria Arcana nelle Armature":"Con un'azione veloce riduce del 20% il fallimento degli incantesimi arcani dovuto all'armatura.",
+  "Addestramento nel Combattimento Difensivo":"Per la DMC usa i Dadi Vita totali al posto del BAB.",
+  "Affinità Animale":"+2 ad Addestrare Animali e Cavalcare, +4 con 10 o più gradi.",
+  "Agile":"+1,5 m alla velocità base con armatura leggera o senza.",
+  "Arma Accurata":"Con le armi leggere (e alcune altre) usa la Des invece della For per colpire.",
+  "Maestria Intimorente":"Quando colpisce con l'arma focalizzata può intimidire un avversario come azione gratuita.",
+  "Spezzare le Difese":"Gli avversari scossi o peggio colpiti da lui perdono il bonus di Des alla CA contro i suoi attacchi.",
+  "Colpo Mortale":"Con un'azione standard un colpo raddoppia i danni e causa sanguinamento alla Cos.",
+  "Arma Focalizzata Superiore":"Altro +1 a colpire con l'arma scelta (si somma ad Arma Focalizzata).",
+  "Arma Specializzata":"+2 ai danni con l'arma scelta.",
+  "Arma Specializzata Superiore":"Altro +2 ai danni con l'arma scelta.",
+  "Colpo Penetrante":"Con l'arma scelta ignora fino a 5 punti di riduzione del danno.",
+  "Colpo Penetrante Superiore":"Con l'arma scelta ignora fino a 10 punti di riduzione del danno.",
+  "Atletico":"+2 a Nuotare e Scalare, +4 con 10 o più gradi.",
+  "Incalzare Potenziato":"Continua a incalzare: ogni colpo andato a segno concede un altro attacco a un nemico adiacente.",
+  "Spingere Superiore":"Chi viene spinto provoca attacchi di opportunità dagli alleati.",
+  "Oltrepassare Migliorato":"Oltrepassare non provoca attacchi di opportunità; +2 al BMC e alla DMC per oltrepassare.",
+  "Oltrepassare Superiore":"Chi viene travolto e cade prono provoca attacchi di opportunità.",
+  "Spezzare Migliorato":"Spezzare non provoca attacchi di opportunità; +2 al BMC e alla DMC per spezzare.",
+  "Spezzare Superiore":"Il danno in eccesso quando spezza un oggetto passa a chi lo impugna.",
+  "Aumentare Evocazione":"Le creature evocate ricevono +4 a For e Cos.",
+  "Autorità":"Attira un gregario e dei seguaci fedeli; come potere del dominio della Nobiltà, dà invece un bonus di morale agli alleati.",
+  "Autosufficiente":"+2 a Guarire e Sopravvivenza, +4 con 10 o più gradi.",
+  "Cogliere di Sorpresa":"Nessuna penalità usando armi da mischia improvvisate; i nemici disarmati sono colti alla sprovvista.",
+  "Colpo Arcano":"Con un'azione veloce infonde energia arcana nelle armi: +1 ai danni (di più ai livelli alti), contano come magiche.",
+  "Colpo di Ritorno":"Può attaccare chi lo colpisce da fuori portata usando un'arma con portata.",
+  "Colpo Senz'Armi Migliorato":"È sempre armato anche a mani nude e può infliggere danni letali senza penalità.",
+  "Deviare Frecce":"Una volta per round devia un attacco a distanza che lo avrebbe colpito.",
+  "Afferrare Frecce":"Invece di deviare un proiettile lo afferra e può rilanciarlo.",
+  "Lottare Migliorato":"Lottare non provoca attacchi di opportunità; +2 al BMC e alla DMC per lottare.",
+  "Lottare Superiore":"Mantenere la lotta richiede solo un'azione di movimento; +2 in più a lottare.",
+  "Stile dello Scorpione":"Un colpo senz'armi riduce la velocità del bersaglio a 1,5 m per alcuni round.",
+  "Pugno della Gorgone":"Un colpo senz'armi su un nemico rallentato lo rende barcollante.",
+  "Collera della Medusa":"Con un attacco completo ottiene due colpi senz'armi extra contro nemici in difficoltà.",
+  "Pugno Stordente":"Un colpo senz'armi può stordire il bersaglio per 1 round (TS su Tempra), alcune volte al giorno.",
+  "Colpo Vitale":"Con un'azione di attacco tira due volte i dadi del danno dell'arma.",
+  "Colpo Vitale Migliorato":"Con un'azione di attacco tira tre volte i dadi del danno dell'arma.",
+  "Colpo Vitale Superiore":"Con un'azione di attacco tira quattro volte i dadi del danno dell'arma.",
+  "Comandare Non Morti":"Usa incanalare energia negativa per controllare i non morti.",
+  "Scacciare Non Morti":"Usa incanalare energia positiva per mettere in fuga i non morti.",
+  "Combattere alla Cieca":"Ritira il 20% di mancare per occultamento e non perde la Des contro chi non vede.",
+  "Combattere con Due Armi":"Riduce le penalità quando combatte con due armi.",
+  "Combattere con Due Armi Migliorato":"Un secondo attacco con la mano secondaria, a −5.",
+  "Combattere con Due Armi Superiore":"Un terzo attacco con la mano secondaria, a −10.",
+  "Doppio Taglio":"Aggiunge l'intero bonus di For ai danni della mano secondaria.",
+  "Attacco Lacerante a Due Armi":"Se colpisce lo stesso nemico con entrambe le armi infligge danni extra.",
+  "Difendere con Due Armi":"+1 di scudo alla CA quando combatte con due armi (+2 in difesa totale).",
+  "Combattere in Sella":"Una volta per round evita un colpo alla cavalcatura con una prova di Cavalcare.",
+  "Tirare in Sella":"Dimezza le penalità degli attacchi a distanza dalla sella.",
+  "Attacco in Sella":"In sella può muoversi prima e dopo l'attacco.",
+  "Carica Devastante":"In carica a cavallo infligge danni doppi (tripli con la lancia).",
+  "Travolgere":"Travolge i nemici con la cavalcatura, che può anche scalciarli.",
+  "Disarcionare":"Con una carica in sella può far cadere da cavallo l'avversario.",
+  "Competenza negli Scudi":"Usa gli scudi senza penalità agli attacchi.",
+  "Competenza negli Scudi Torre":"Usa lo scudo torre senza penalità agli attacchi.",
+  "Attacco con lo Scudo Migliorato":"Mantiene il bonus alla CA dello scudo anche quando colpisce con esso.",
+  "Botta di Scudo":"Quando colpisce con lo scudo può anche spingere il nemico gratis.",
+  "Maestria negli Scudi":"Nessuna penalità per due armi quando attacca con lo scudo e aggiunge il suo potenziamento.",
+  "Scudo Focalizzato":"+1 alla CA con lo scudo.",
+  "Scudo Focalizzato Superiore":"Altro +1 alla CA con lo scudo.",
+  "Competenza nelle Armature Leggere":"Indossa armature leggere senza penalità agli attacchi.",
+  "Competenza nelle Armature Medie":"Indossa armature medie senza penalità agli attacchi.",
+  "Competenza nelle Armature Pesanti":"Indossa armature pesanti senza penalità agli attacchi.",
+  "Competenza nelle Armi Esotiche":"Usa l'arma esotica scelta senza penalità.",
+  "Competenza nelle Armi da Guerra":"Usa l'arma da guerra scelta senza penalità.",
+  "Competenza nelle Armi Semplici":"Usa tutte le armi semplici senza penalità.",
+  "Controincantesimi Migliorato":"Può controincantare con un incantesimo della stessa scuola di livello pari o superiore.",
+  "Correre":"Corre a cinque volte la velocità e mantiene la Des alla CA mentre corre.",
+  "Critico Focalizzato":"+4 ai tiri per confermare i critici.",
+  "Critico Sanguinante":"Un critico fa anche sanguinare il bersaglio per 2d6.",
+  "Critico Accecante":"Un critico acceca il bersaglio (TS per ridurre).",
+  "Critico Assordante":"Un critico rende sordo il bersaglio.",
+  "Critico Debilitante":"Un critico rende infermo il bersaglio per 1 minuto.",
+  "Critico Incapacitante":"Un critico rende barcollante il bersaglio.",
+  "Critico Stordente":"Un critico stordisce il bersaglio.",
+  "Critico Affaticante":"Un critico rende affaticato il bersaglio.",
+  "Critico Inesorabile":"Un critico rende esausto il bersaglio.",
+  "Critico Prodigioso":"Applica due talenti di critico allo stesso colpo critico.",
+  "Dirompente":"Chi lancia incantesimi vicino a lui ha la CD di concentrazione aumentata di 4.",
+  "Spezzaincantesimi":"Chi fallisce un incantesimo sulla difensiva accanto a lui provoca un attacco di opportunità.",
+  "Esibizione Bardica Extra":"6 round in più al giorno di esibizione bardica.",
+  "Estrazione Rapida":"Estrae un'arma come azione gratuita.",
+  "Famiglio Migliorato":"Ottiene un famiglio più potente, anche non animale.",
+  "Furtivo":"+2 ad Artista della Fuga e Furtività, +4 con 10 o più gradi.",
+  "Imposizione delle Mani Extra":"Due usi in più al giorno di imposizione delle mani.",
+  "Incanalare Allineamento":"Incanalare energia cura o ferisce gli esterni di un allineamento.",
+  "Incanalare Elementale":"Incanalare energia cura o ferisce gli elementali di un sottotipo.",
+  "Incanalare Extra":"Due usi in più al giorno di incanalare energia.",
+  "Incanalare Migliorato":"+2 alla CD di incanalare energia.",
+  "Incanalare Punizione":"Con un'azione veloce mette l'energia incanalata in un attacco in mischia.",
+  "Incanalare Selettivo":"Esclude dall'effetto di incanalare un numero di bersagli pari al mod. di Car.",
+  "Incantesimi Focalizzati Superiore":"Altro +1 alla CD della scuola scelta.",
+  "Incantesimi Inarrestabili":"+2 alle prove di livello dell'incantatore per superare la RI.",
+  "Incantesimi Inarrestabili Superiore":"Altro +2 per superare la RI.",
+  "Incantesimi Naturali":"Lancia incantesimi mentre è in forma selvatica.",
+  "Indulgenza Extra":"Un'indulgenza in più da applicare all'imposizione delle mani.",
+  "Ingannevole":"+2 a Camuffare e Raggirare, +4 con 10 o più gradi.",
+  "Inseguire":"Quando un nemico adiacente si allontana di 1,5 m, lo segue con un passo.",
+  "Ira Extra":"6 round in più al giorno di ira.",
+  "Ki Extra":"+2 punti alla riserva ki.",
+  "Lanciare Oggetti":"Nessuna penalità a colpire con armi da lancio improvvisate.",
+  "Attacco Turbinante":"Con un attacco completo colpisce una volta ogni nemico a portata.",
+  "Disarmare Migliorato":"Disarmare non provoca attacchi di opportunità; +2 al BMC e alla DMC per disarmare.",
+  "Disarmare Superiore":"L'arma tolta vola via di qualche metro.",
+  "Fintare Migliorato":"Fintare è un'azione di movimento.",
+  "Fintare Superiore":"Chi subisce la finta perde la Des alla CA fino al turno successivo.",
+  "Sbilanciare Superiore":"Chi viene sbilanciato provoca attacchi di opportunità.",
+  "Maestria nelle Armi Improvvisate":"Le armi improvvisate infliggono più danni e hanno critico migliore.",
+  "Manolesta":"+2 a Disattivare Congegni e Rapidità di Mano, +4 con 10 o più gradi.",
+  "Manovre Agili":"Usa la Des al posto della For per il BMC.",
+  "Mastro Artigiano":"Crea oggetti magici con Artigianato o Professione anche senza essere incantatore.",
+  "Mira Letale":"Prende −1 a colpire a distanza (−1 ogni 4 BAB) per +2 ai danni.",
+  "Padronanza degli Incantesimi":"Prepara alcuni incantesimi scelti senza il libro.",
+  "Passo Leggero":"Ignora 1,5 m di terreno difficile per round; può fare il passo da 1,5 m in terreno difficile.",
+  "Passo Acrobatico":"Ignora fino a 6 m di terreno difficile per round.",
+  "Persuasivo":"+2 a Diplomazia e Intimidire, +4 con 10 o più gradi.",
+  "Prodezza Intimidatrice":"Aggiunge il mod. di For alle prove di Intimidire.",
+  "Ricarica Rapida":"Ricarica più in fretta il tipo di balestra scelto.",
+  "Resistenza Fisica":"+4 alle prove contro fame, sete, fatica, caldo e freddo; dorme in armatura media.",
+  "Duro a Morire":"Sotto 0 PF si stabilizza da solo e resta cosciente (barcollante).",
+  "Riflessi Fulminei Migliorato":"Una volta al giorno ritira un TS su Riflessi.",
+  "Riflessi da Combattimento":"Attacchi di opportunità extra ogni round pari al mod. di Des; può farli anche colto alla sprovvista.",
+  "Immobile":"Un attacco di opportunità che colpisce ferma il movimento del nemico.",
+  "Attacco Rapido":"Con un'azione di attacco si muove prima e dopo il colpo, senza superare la velocità.",
+  "Posizione Velata":"Se si muove di almeno 3 m ha il 20% di occultamento.",
+  "Andatura Fulminea":"Se si muove di almeno 3 m ha il 50% di occultamento.",
+  "Stoccata":"Allunga la portata di 1,5 m per un round in cambio di −2 alla CA.",
+  "Tempra Possente Migliorata":"Una volta al giorno ritira un TS su Tempra.",
+  "Tiro Ravvicinato":"+1 a colpire e ai danni a distanza entro 9 m.",
+  "Tiro Lontano":"Dimezza la penalità per gittata.",
+  "Tiro Preciso":"Nessuna penalità di −4 tirando contro nemici in mischia.",
+  "Tiro Preciso Migliorato":"Ignora copertura e occultamento (non totali) negli attacchi a distanza.",
+  "Mira Inesorabile":"Un attacco a distanza ignora i bonus di armatura e scudo del bersaglio.",
+  "Tiro Rapido":"Un attacco a distanza in più nell'attacco completo, tutti a −2.",
+  "Tiro Multiplo":"Con il primo attacco scocca due frecce insieme.",
+  "Tiro in Movimento":"Si muove e fa un attacco a distanza in un punto qualsiasi del movimento.",
+  "Vocazione Magica":"+2 a Sapienza Magica e Utilizzare Congegni Magici, +4 con 10 o più gradi.",
+  "Volontà di Ferro Migliorata":"Una volta al giorno ritira un TS su Volontà.",
+  "Mescere Pozioni":"Crea pozioni di incantesimi fino al 3° livello.",
+  "Creare Armi e Armature Magiche":"Crea armi, armature e scudi magici.",
+  "Creare Verghe":"Crea verghe magiche.",
+  "Creare Bastoni":"Crea bastoni magici.",
+  "Creare Bacchette":"Crea bacchette di incantesimi fino al 4° livello.",
+  "Creare Oggetti Meravigliosi":"Crea oggetti meravigliosi.",
+  "Forgiare Anelli":"Crea anelli magici.",
+  "Scrivere Pergamene":"Crea pergamene degli incantesimi che conosce.",
+  "Incantesimi Potenziati":"Le variabili numeriche dell'incantesimo aumentano del 50% (slot di 2 livelli più alto).",
+  "Incantesimi Ingranditi":"Raddoppia il raggio d'azione (slot di 1 livello più alto).",
+  "Incantesimi Estesi":"Raddoppia la durata (slot di 1 livello più alto).",
+  "Incantesimi Intensificati":"L'incantesimo conta come di livello più alto, con CD maggiore.",
+  "Incantesimi Massimizzati":"Le variabili numeriche sono al massimo (slot di 3 livelli più alto).",
+  "Incantesimi Rapidi":"Lancia l'incantesimo come azione veloce (slot di 4 livelli più alto).",
+  "Incantesimi Silenziosi":"Lancia senza componente verbale (slot di 1 livello più alto).",
+  "Incantesimi Immobili":"Lancia senza componente somatica (slot di 1 livello più alto).",
+  "Incantesimi Ampliati":"Raddoppia l'area dell'incantesimo (slot di 3 livelli più alto).",
+  // tratti razziali (cap. 2)
+  "Immunità degli elfi":"Immune agli effetti magici di sonno; +2 ai TS contro gli ammaliamenti.",
+  "Magia degli elfi":"+2 alle prove di LI contro la RI e +2 a Sapienza Magica per identificare oggetti magici.",
+  "Familiarità nelle armi":"Competenza nelle armi tradizionali della propria razza; le armi razziali esotiche contano come da guerra.",
+  "Visione crepuscolare":"Vede il doppio di un umano con luce scarsa.",
+  "Taglia Media":"Nessun modificatore di taglia.",
+  "Taglia Piccola":"+1 alla CA e a colpire, −1 a BMC e DMC, +4 a Furtività.",
+  "Velocità normale":"Velocità base 9 m.",
+  "Velocità lenta":"Velocità base 6 m.",
+  "Lenti e saldi":"Velocità 6 m che non cala per armatura o carico.",
+  "Addestramento difensivo":"+4 di schivare alla CA contro i giganti.",
+  "Magia gnomesca":"+1 alla CD delle illusioni; piccole capacità magiche 1 volta al giorno con Car 11 o più.",
+  "Ossessione":"+2 a un'abilità di Artigianato o Professione a scelta.",
+  "Resistenza alle illusioni":"+2 ai TS contro le illusioni.",
+  "Fortuna halfling":"+1 a tutti i TS.",
+  "Piede saldo":"+2 ad Acrobazia e Scalare.",
+  "Temerarietà":"+2 ai TS contro la paura, cumulabile con Fortuna halfling.",
+  "Doti innate":"Sceglie due classi preferite e ottiene il bonus della classe preferita in entrambe.",
+  "Ferocia degli orchi":"Una volta al giorno, sceso sotto 0 PF, resta in piedi per 1 round come inabile.",
+  "Intimidazione":"+2 a Intimidire.",
+  "Sangue orchesco":"Conta come orco e come umano per gli effetti legati alla razza.",
+  "Cupidigia":"+2 a Valutare per il prezzo di oggetti non magici con metalli o gemme.",
+  "Esperto minatore":"+2 a Percezione per notare lavori insoliti nella pietra; controlla da solo passandoci entro 3 m.",
+  "Stabilità":"+4 alla DMC contro spingere e sbilanciare quando è a terra.",
+  "Esperti":"Un grado di abilità in più a ogni livello.",
+  "Talento bonus":"Un talento in più, da scegliere secondo le regole della razza o della classe.",
+  // capacità di classe (cap. 3)
+  "Competenza nelle armi e nelle armature":"Armi e armature che la classe usa senza penalità.",
+  "Movimento veloce":"Velocità aumentata finché non porta armature pesanti né carichi pesanti.",
+  "Poteri d'ira":"Capacità speciali usabili solo in ira, una nuova ogni 2 livelli.",
+  "Potere d'ira":"Capacità speciale usabile solo in ira.",
+  "Schivare prodigioso":"Non è mai colto alla sprovvista né perde la Des alla CA contro avversari invisibili.",
+  "Schivare prodigioso migliorato":"Non può essere attaccato ai fianchi, salvo da un ladro di almeno 4 livelli più alto.",
+  "Percepire trappole":"Bonus ai TS su Riflessi e alla CA contro le trappole.",
+  "Riduzione del danno":"Sottrae un valore fisso ai danni di ogni attacco fisico.",
+  "Ira superiore":"In ira i bonus salgono a +6 For e Cos e +3 alla Volontà.",
+  "Volontà indomita":"In ira +4 ai TS su Volontà contro gli ammaliamenti.",
+  "Ira infaticabile":"Finita l'ira non è più affaticato.",
+  "Ira possente":"In ira i bonus salgono a +8 For e Cos e +4 alla Volontà.",
+  "Accuratezza sorprendente":"Potere d'ira: una volta per ira un bonus di morale a un tiro per colpire.",
+  "Attacco devastante":"Potere d'ira: una volta per ira un bonus ai danni di un colpo.",
+  "Attacco improvviso":"Potere d'ira o dote da ladro: colpisce nemici colti alla sprovvista con un vantaggio extra.",
+  "Balzo difensivo":"Potere d'ira: bonus alla CA contro un attacco per round.",
+  "Collera inarrestabile":"Potere d'ira: il bonus di Cos dell'ira cura anche quando si è sotto 0 PF.",
+  "Colpo possente":"Potere d'ira: una volta per ira aggiunge danni pari a metà livello.",
+  "Furia animale":"Potere d'ira: in ira ottiene un morso come arma naturale.",
+  "Grido terrificante":"Potere d'ira: un grido che rende scossi i nemici vicini.",
+  "Impulso dirompente":"Potere d'ira: bonus a una manovra per spingere o sbilanciare.",
+  "Ira indomita":"Potere d'ira: può entrare in ira anche affaticato.",
+  "Mente lucida":"Potere d'ira: ritira un TS su Volontà; per il monaco, +2 ai TS contro gli ammaliamenti.",
+  "Momento di chiarezza":"Potere d'ira: per 1 round l'ira non dà né bonus né penalità.",
+  "Nessuna fuga":"Potere d'ira: segue un nemico che si ritira raddoppiando la velocità.",
+  "Nuotatore indomabile":"Potere d'ira: bonus a Nuotare pari al livello in ira.",
+  "Piede veloce":"Potere d'ira: +1,5 m di velocità in ira.",
+  "Posizione difensiva":"Potere d'ira: non si sposta facilmente, bonus contro spingere e sbilanciare.",
+  "Respingere gli avversari":"Potere d'ira: colpendo può spingere indietro il nemico.",
+  "Riduzione del danno aumentata":"Potere d'ira: la RD aumenta di 1 durante l'ira.",
+  "Riflessi rapidi":"Potere d'ira: un attacco di opportunità in più per round.",
+  "Saltatore indomabile":"Potere d'ira: bonus ad Acrobazia per saltare pari al livello.",
+  "Scalatore indomabile":"Potere d'ira: bonus a Scalare pari al livello.",
+  "Sguardo intimidatorio":"Potere d'ira: intimidisce un nemico vicino con un'azione di movimento.",
+  "Superstizione":"Potere d'ira: bonus ai TS contro magia, ma non accetta incantesimi alleati.",
+  "Vigore innato":"Potere d'ira: bonus alle prove di Cos e alla stabilizzazione.",
+  "Vigore rinnovato":"Potere d'ira: una volta per ira recupera PF.",
+  "Vista notturna":"Potere d'ira: in ira ottiene scurovisione o vista crepuscolare.",
+  "Conoscenze bardiche":"Bonus a tutte le Conoscenze pari a metà livello e le usa senza addestramento.",
+  "Esibizione bardica":"Per alcuni round al giorno produce effetti magici con musica, canto o recitazione.",
+  "Controcanto":"Esibizione: gli alleati possono usare la sua prova di Intrattenere al posto del TS contro suoni e linguaggio.",
+  "Distrazione":"Esibizione: gli alleati possono usare la sua prova di Intrattenere contro le illusioni visive.",
+  "Affascinare":"Esibizione: le creature che lo ascoltano restano affascinate.",
+  "Ispirare coraggio":"Esibizione: bonus di morale a colpire, danni e TS contro paura e charme degli alleati.",
+  "Ispirare competenza":"Esibizione: un alleato ottiene un bonus alle prove di un'abilità.",
+  "Ispirare grandezza":"Esibizione: alleati con Dadi Vita bonus e bonus a colpire e ai TS su Tempra.",
+  "Ispirare eroismo":"Esibizione: un alleato ottiene +4 ai TS e +4 di schivare alla CA.",
+  "Ispirare terrore":"Esibizione: i nemici vicini restano scossi.",
+  "Avvezzo":"+4 ai TS contro esibizioni bardiche, effetti sonori e linguistici.",
+  "Esecuzione versatile":"Un tipo di Intrattenere sostituisce due abilità collegate.",
+  "Maestro del sapere":"Prende 10 alle Conoscenze e alcune volte al giorno prende 20.",
+  "Suggestione":"Esibizione: impianta una suggestione in una creatura affascinata.",
+  "Suggestione di massa":"Esibizione: suggestione su tutte le creature affascinate.",
+  "Eclettico":"Usa tutte le abilità senza addestramento; dal 16° prende 10 in tutte.",
+  "Musica lenitiva":"Esibizione: cura gli alleati come una cura ad area.",
+  "Accordo spaventoso":"Esibizione: spaventa i nemici che lo ascoltano.",
+  "Musica mortale":"Esibizione: una creatura affascinata può morire di gioia o di dolore.",
+  "Incanalare energia":"Emana energia positiva o negativa per curare o ferire nel raggio di 9 m.",
+  "Incanalare energia positiva":"Il paladino spende due usi di imposizione delle mani per incanalare energia positiva.",
+  "Orazioni":"Incantesimi divini di livello 0, lanciabili a volontà.",
+  "Lancio spontaneo":"Scambia un incantesimo preparato con una cura o infliggi (chierico) o un evoca alleato naturale (druido).",
+  "Legame con la natura":"Un compagno animale oppure un dominio legato alla natura.",
+  "Senso della natura":"+2 a Conoscenze (natura) e Sopravvivenza.",
+  "Empatia selvatica":"Cambia l'atteggiamento degli animali come con Diplomazia.",
+  "Andatura nel bosco":"Attraversa rovi e sottobosco naturali senza rallentare né subire danni.",
+  "Passo senza tracce":"Non lascia tracce in ambienti naturali.",
+  "Resistenza al richiamo della natura":"+4 ai TS contro le capacità magiche dei folletti e la magia vegetale.",
+  "Forma selvatica":"Si trasforma in animale (poi elementale o vegetale) alcune volte al giorno.",
+  "Immunità ai veleni":"Immune a tutti i veleni.",
+  "Mille volti":"Cambia aspetto a volontà come con alterare se stesso.",
+  "Corpo senza tempo":"Non subisce penalità per l'età e non può essere invecchiato con la magia.",
+  "Compagno animale":"Un animale fedele che cresce con il livello.",
+  "Audacia":"Bonus ai TS su Volontà contro la paura.",
+  "Addestramento nelle armature":"Meno penalità di armatura, più Des massima e velocità piena in armatura.",
+  "Addestramento nelle armi":"Bonus a colpire e ai danni con i gruppi di armi scelti.",
+  "Padronanza dell'armatura":"RD 5/— con armatura o scudo.",
+  "Padronanza dell'arma":"Con un'arma scelta i critici sono confermati sempre e non può essere disarmato.",
+  "Attacco furtivo":"Danni extra contro nemici colti alla sprovvista o presi ai fianchi.",
+  "Scoprire trappole":"Bonus pari a metà livello per trovare e disattivare trappole, anche magiche.",
+  "Eludere":"Se supera un TS su Riflessi per dimezzare non subisce danni.",
+  "Eludere migliorato":"Subisce metà danni anche se fallisce il TS su Riflessi.",
+  "Doti da ladro":"Trucchi speciali da ladro, uno nuovo ogni 2 livelli.",
+  "Doti avanzate":"Doti da ladro più potenti, sceglibili dal 10° livello.",
+  "Colpo da maestro":"Un attacco furtivo può addormentare, paralizzare o uccidere (TS su Tempra).",
+  "Acutezza percettiva":"Dote: Percezione contro trappole e porte segrete anche passando vicino.",
+  "Attacco dissolvente":"Dote avanzata: l'attacco furtivo dissolve un incantesimo sul bersaglio.",
+  "Attacco sanguinante":"Dote: l'attacco furtivo fa sanguinare il bersaglio.",
+  "Attutire il colpo":"Dote: una volta al giorno riduce i danni di un colpo che lo porterebbe a 0 PF.",
+  "Colpo menomante":"Dote avanzata: l'attacco furtivo infligge 2 danni alla For.",
+  "Disattivare rapido":"Dote: disattiva trappole in metà tempo.",
+  "Equilibrista":"Dote: non è colto alla sprovvista su superfici strette.",
+  "Furtività rapida":"Dote: si muove a velocità piena con Furtività senza penalità.",
+  "Magia maggiore":"Dote: lancia un incantesimo di 1° livello da mago alcune volte al giorno.",
+  "Magia minore":"Dote: lancia un trucchetto da mago alcune volte al giorno.",
+  "Mente sfuggente":"Dote avanzata: ritira un TS fallito contro un ammaliamento.",
+  "Opportunismo":"Dote avanzata: attacco di opportunità contro chi è appena stato colpito da un alleato.",
+  "Reazioni lente":"Dote: chi subisce l'attacco furtivo non può fare attacchi di opportunità per 1 round.",
+  "Rialzarsi":"Dote: si rialza da prono come azione gratuita.",
+  "Strisciare furtivo":"Dote: striscia a metà velocità senza provocare attacchi di opportunità.",
+  "Legame arcano":"Un famiglio o un oggetto legato con cui lanciare un incantesimo extra al giorno.",
+  "Scuola arcana":"Specializzazione in una scuola (o universalista): poteri della scuola e uno slot in più.",
+  "Libro degli incantesimi":"Il mago prepara gli incantesimi studiando il suo libro.",
+  "Raffica di colpi":"Attacco completo con un colpo senz'armi in più, usando il livello da monaco come BAB.",
+  "Colpo senz'armi":"I pugni del monaco infliggono danni letali crescenti col livello.",
+  "Bonus alla CA":"Senza armatura somma Sag e un bonus di livello alla CA e alla DMC.",
+  "Addestramento alle manovre":"Per il BMC usa il livello da monaco come BAB.",
+  "Riserva ki":"Punti ki per attacchi extra, velocità o CA; rendono i colpi magici, poi legali e adamantini.",
+  "Caduta lenta":"Riduce i danni da caduta se è vicino a una parete.",
+  "Salto sublime":"Somma il livello ad Acrobazia per saltare; un punto ki dà +20.",
+  "Purezza del corpo":"Immune a tutte le malattie.",
+  "Integrità del corpo":"Con 2 punti ki si cura PF pari al livello.",
+  "Corpo adamantino":"Immune a tutti i veleni.",
+  "Passo abbondante":"Con 2 punti ki si sposta come con porta dimensionale.",
+  "Anima adamantina":"Resistenza agli incantesimi pari a 10 + livello.",
+  "Palmo tremante":"Una volta al giorno un colpo che può uccidere il bersaglio quando vuole (TS su Tempra).",
+  "Lingua del sole e della luna":"Parla con qualsiasi creatura vivente.",
+  "Corpo vuoto":"Con 3 punti ki diventa etereo per 1 minuto.",
+  "Perfezione interiore":"Diventa un esterno e ottiene RD 10/caotico.",
+  "Aura di bene":"Aura di bene potente in base al livello.",
+  "Individuazione del male":"Individua il male a volontà.",
+  "Punire il male":"Contro un nemico malvagio aggiunge Car a colpire e livello ai danni, più CA deviazione.",
+  "Grazia divina":"Aggiunge il mod. di Car a tutti i TS.",
+  "Imposizione delle mani":"Cura PF toccando, o ferisce i non morti, alcune volte al giorno.",
+  "Indulgenza":"Un'imposizione delle mani rimuove anche una condizione scelta.",
+  "Aura di coraggio":"Immune alla paura; alleati vicini +4 contro la paura.",
+  "Salute divina":"Immune a tutte le malattie, anche magiche.",
+  "Legame divino":"Arma sacra potenziata a comando o cavalcatura celestiale.",
+  "Aura di fermezza":"Immune agli charme; alleati vicini +4 contro gli charme.",
+  "Aura di giustizia":"Con 2 usi di punire il male lo concede agli alleati vicini.",
+  "Aura di fede":"Le armi sue e degli alleati vicini contano come buone.",
+  "Aura di rettitudine":"RD 5/male e immunità alle compulsioni; alleati vicini +4 contro le compulsioni.",
+  "Campione sacro":"RD 10/male, incanalare massimizzato e punire il male che può esiliare.",
+  "Nemico prescelto":"Bonus a colpire, danni e alcune abilità contro i tipi di nemico scelti.",
+  "Seguire tracce":"Bonus pari a metà livello a Sopravvivenza per seguire tracce.",
+  "Stile di combattimento":"Tiro con l'arco o due armi: talenti bonus dello stile senza prerequisiti.",
+  "Ambiente prescelto":"Bonus a iniziativa e abilità di terreno negli ambienti scelti.",
+  "Legame del cacciatore":"Compagno animale o bonus condiviso con gli alleati contro un nemico prescelto.",
+  "Rapido segugio":"Segue tracce a velocità normale senza penalità.",
+  "Preda migliorata":"Sceglie la preda come azione gratuita e il bonus a colpire sale.",
+  "Mimetismo":"Usa Furtività senza copertura negli ambienti prescelti.",
+  "Nascondersi in piena vista":"Usa Furtività anche osservato negli ambienti prescelti.",
+  "Maestro cacciatore":"Con un attacco può uccidere o stordire un nemico prescelto.",
+  "Abilità di classe della stirpe":"Un'abilità che diventa di classe per lo stregone di questa stirpe.",
+  "Arcano della stirpe":"Effetto che la stirpe aggiunge agli incantesimi dello stregone.",
+  "Magia della stirpe":"Effetto che la stirpe aggiunge agli incantesimi dello stregone.",
+  "Poteri della stirpe":"Capacità che la stirpe concede all'1°, 3°, 9°, 15° e 20° livello.",
+  "Incantesimo della stirpe":"Incantesimo conosciuto in più, ogni 2 livelli dal 3°.",
+  "Talento della stirpe":"Talento bonus scelto dalla lista della stirpe al 7°, 13° e 19° livello.",
+  // poteri dei domini (chierico) e delle scuole (mago)
+  "Dardo di ghiaccio":"Dominio dell'Acqua: raggio di freddo 1d6 + metà livello.",
+  "Resistenza al freddo":"Ignora ogni volta un certo numero di danni da freddo (dominio dell'Acqua: cresce con il livello).",
+  "Parlare con gli animali":"Dominio Animale: parla con gli animali alcuni round al giorno.",
+  "Arco di fulmini":"Dominio dell'Aria: raggio di elettricità 1d6 + metà livello.",
+  "Resistenza di elettricità":"Ignora ogni volta un certo numero di danni da elettricità (dominio dell'Aria: cresce con il livello).",
+  "Tocco dell'artificiere":"Dominio dell'Artificio: danni ai costrutti e agli oggetti con un tocco.",
+  "Armi danzanti":"Dominio dell'Artificio: rende danzante un'arma per alcuni round.",
+  "Tocco del bene":"Dominio del Bene: bonus sacro a prove e TS per un alleato toccato.",
+  "Lancia sacra":"Dominio del Bene: rende sacra un'arma.",
+  "Tocco del caos":"Dominio del Caos: il bersaglio tira due volte e tiene il risultato peggiore.",
+  "Lama del caos":"Dominio del Caos: rende anarchica un'arma.",
+  "Tocco frastornante":"Frastorna una creatura toccata per 1 round.",
+  "Sorriso affascinante":"Dominio dello Charme: charme su una creatura alcuni round al giorno.",
+  "Sorriso incantevole":"Scuola di ammaliamento: bonus a Diplomazia, Intimidire e Raggirare; poi riflette gli ammaliamenti.",
+  "Tocco calmante":"Dominio della Comunità: cura danni non letali e rimuove alcune condizioni.",
+  "Custode di sapere":"Dominio della Conoscenza: con un tocco scopre le capacità di una creatura.",
+  "Visione remota":"Dominio della Conoscenza: chiaroudienza/chiaroveggenza alcuni round al giorno.",
+  "Punizione distruttiva":"Dominio della Distruzione: bonus ai danni di un attacco in mischia.",
+  "Aura distruttiva":"Dominio della Distruzione: alleati vicini con bonus ai danni e critici confermati.",
+  "Briciolo di fortuna":"Dominio della Fortuna: un alleato tira due volte e tiene il meglio.",
+  "Buona fortuna":"Dominio della Fortuna: ritira un tiro alcune volte al giorno.",
+  "Dardo di fuoco":"Dominio del Fuoco: raggio di fuoco 1d6 + metà livello.",
+  "Resistenza al fuoco":"Ignora ogni volta un certo numero di danni da fuoco (dominio del Fuoco: cresce con il livello).",
+  "Tocco di gloria":"Dominio della Gloria: bonus a una prova di Carisma di un alleato.",
+  "Presenza divina":"Dominio della Gloria: santuario sugli alleati vicini alcuni round al giorno.",
+  "Allontanare la morte":"Dominio della Guarigione: con un tocco cura chi è sotto 0 PF.",
+  "Benedizione del guaritore":"Dominio della Guarigione: le sue cure guariscono il 50% in più.",
+  "Ira della battaglia":"Dominio della Guerra: bonus ai danni in mischia per un alleato toccato.",
+  "Maestro di armi":"Dominio della Guerra: usa un talento di combattimento che non ha per alcuni round.",
+  "Imitatore pedissequo":"Dominio dell'Inganno: crea un'immagine illusoria di sé che confonde gli attacchi.",
+  "Illusione prodigiosa":"Dominio dell'Inganno: maschera l'aspetto suo e degli alleati.",
+  "Tocco della legge":"Dominio della Legge: l'alleato toccato considera 11 i tiri di d20.",
+  "Bastone dell'ordine":"Dominio della Legge: rende assiomatica un'arma.",
+  "Liberazione":"Dominio della Liberazione: ignora gli impedimenti al movimento alcuni round al giorno.",
+  "Chiamata della libertà":"Dominio della Liberazione: aura che libera da paralisi, paura e charme.",
+  "Mano dell'accolito":"Dominio della Magia: lancia a distanza la propria arma da mischia.",
+  "Tocco dissolutore":"Dominio della Magia: dissolve un incantesimo con un tocco.",
+  "Tocco del male":"Dominio del Male: rende infermo il bersaglio toccato.",
+  "Falce del male":"Dominio del Male: rende sacrilega un'arma.",
+  "Tocco sanguinante":"Dominio della Morte: fa sanguinare la creatura toccata.",
+  "Abbraccio della morte":"Dominio della Morte: l'energia negativa incanalata lo cura.",
+  "Parola d'ispirazione":"Dominio della Nobiltà: bonus di morale a un alleato.",
+  "Tocco dell'oscurità":"Dominio dell'Oscurità: il bersaglio toccato ha occultamento contro tutti (vede male).",
+  "Occhi dell'oscurità":"Dominio dell'Oscurità: vede normalmente nella penombra e nell'oscurità.",
+  "Tocco resistente":"Dominio della Protezione: cede a un alleato il proprio bonus ai TS.",
+  "Aura di protezione":"Dominio della Protezione: bonus alla CA e resistenza all'energia agli alleati vicini.",
+  "Riposo delicato":"Dominio del Riposo: rende infermo o barcollante il bersaglio toccato.",
+  "Barriera contro la morte":"Dominio del Riposo: protegge dagli effetti di morte e risucchio.",
+  "Runa esplosiva":"Dominio delle Rune: traccia una runa che esplode di energia.",
+  "Runa incantata":"Dominio delle Rune: lancia un incantesimo dentro una runa trappola.",
+  "Benedizione del sole":"Dominio del Sole: incanalare ignora la resistenza dei non morti allo scacciare.",
+  "Nube di luce":"Dominio del Sole: luce diurna che danneggia i non morti.",
+  "Signore del fulmine":"Dominio del Tempo atmosferico: fulmini dal cielo alcune volte al giorno.",
+  "Dardo acido":"Dardo di acido 1d6 + metà livello (dominio della Terra e scuola di evocazione).",
+  "Resistenza all'acido":"Ignora ogni volta un certo numero di danni da acido (dominio della Terra: cresce con il livello).",
+  "Pugno di legno":"Dominio Vegetale: i pugni diventano armi di legno con bonus ai danni.",
+  "Armatura di rovi":"Dominio Vegetale: chi lo colpisce in mischia si ferisce sulle spine.",
+  "Piedi agili":"Dominio del Viaggio: +3 m di velocità e ignora il terreno difficile per 1 round.",
+  "Balzo dimensionale":"Dominio del Viaggio: si teletrasporta di alcuni metri al giorno.",
+  "Visione di follia":"Dominio della Follia: bonus a un tiro e penalità a un altro per il bersaglio.",
+  "Aura di follia":"Dominio della Follia: aura che confonde i nemici.",
+  "Impulso di forza":"Dominio della Forza: bonus di potenziamento a un'azione di Forza dell'alleato.",
+  "Forza degli déi":"Dominio della Forza: bonus a tutte le prove e manovre basate sulla Forza.",
+  "Resistenza all'energia":"Ignora ogni volta un certo numero di danni di un tipo di energia (scuola di abiurazione: cresce con il livello).",
+  "Interdizione protettiva":"Scuola di abiurazione: scudo che dà un bonus di deviazione alla CA degli alleati.",
+  "Assorbimento di energia":"Scuola di abiurazione: assorbe ogni giorno alcuni danni da energia.",
+  "Aura di disperazione":"Scuola di ammaliamento: −2 a prove e TS dei nemici vicini.",
+  "Prevenuto":"Scuola di divinazione: bonus all'iniziativa e non è mai sorpreso.",
+  "Fortuna del divinatore":"Scuola di divinazione: bonus di fortuna a prove e TS di un alleato.",
+  "Adepto scrutatore":"Scuola di divinazione: sa quando viene scrutato e scruta meglio.",
+  "Fascino dell'evocatore":"Scuola di evocazione: le creature evocate durano più a lungo.",
+  "Passo dimensionale":"Scuola di evocazione: si teletrasporta di alcuni metri al giorno.",
+  "Illusioni estese":"Scuola di illusione: le illusioni durano alcuni round in più.",
+  "Raggio accecante":"Scuola di illusione: raggio che acceca o abbaglia.",
+  "Campo di invisibilità":"Scuola di illusione: invisibilità superiore alcuni round al giorno.",
+  "Incantesimi intensi":"Scuola di invocazione: danni extra pari a metà livello agli incantesimi di danno.",
+  "Dardo di forza":"Scuola di invocazione: dardo di forza 1d4 + livello dell'incantesimo.",
+  "Muro elementale":"Scuola di invocazione: muro di energia per alcuni round al giorno.",
+  "Potere sui non morti":"Scuola di necromanzia: controllare o scacciare i non morti come un chierico.",
+  "Tocco della tomba":"Rende scossa (o spaventata) una creatura vivente toccata.",
+  "Visione della vita":"Scuola di necromanzia: percepisce le creature viventi nel raggio.",
+  "Potenziamento fisico":"Scuola di trasmutazione: bonus a una caratteristica fisica.",
+  "Pugno telecinetico":"Scuola di trasmutazione: colpo telecinetico a distanza 1d4 + metà livello.",
+  "Cambiare forma":"Scuola di trasmutazione: si trasforma come con forma bestiale alcuni round al giorno.",
+  "Mano dell'apprendista":"Scuola universale: scaglia telecineticamente la sua arma da mischia.",
+  "Padronanza metamagica":"Scuola universale: applica metamagia senza aumentare lo slot alcune volte al giorno.",
+  // stirpi dello stregone (cap. 3) e Stirpe dell'Ombra (wiki)
+  "Raggio acido":"Stirpe Aberrante: raggio di acido 1d6 + metà livello.",
+  "Arti lunghi":"Stirpe Aberrante: portata più lunga negli attacchi di contatto.",
+  "Anatomia insolita":"Stirpe Aberrante: probabilità di ignorare critici e attacchi furtivi.",
+  "Resistenza aliena":"Stirpe Aberrante: RI pari a 10 + livello da stregone.",
+  "Forma aberrante":"Stirpe Aberrante: immune a critici e furtivi, vista cieca e RD 5/—.",
+  "Resistenze demoniache":"Stirpe Abissale: resistenza all'elettricità e bonus ai TS contro il veleno.",
+  "Forza dell'Abisso":"Stirpe Abissale: bonus intrinseco alla Forza (+2, poi +4 e +6).",
+  "Evocazioni aggiuntive":"Stirpe Abissale: evoca mostri richiama una creatura in più.",
+  "Potenza demoniaca":"Stirpe Abissale: immunità a elettricità e veleno, resistenze e telepatia.",
+  "Adepto di metamagia":"Stirpe Arcana: applica metamagia senza allungare il tempo di lancio.",
+  "Nuovi arcani":"Stirpe Arcana: impara incantesimi in più dalla lista del mago.",
+  "Potere della scuola":"Stirpe Arcana: +2 alla CD degli incantesimi di una scuola.",
+  "Apoteosi arcana":"Stirpe Arcana: usa gli slot di incantesimo per alimentare gli oggetti magici.",
+  "Fuoco celestiale":"Stirpe Celestiale: raggio che ferisce i malvagi o cura i buoni.",
+  "Resistenze celestiali":"Stirpe Celestiale: resistenza ad acido e freddo.",
+  "Ali del Paradiso":"Stirpe Celestiale: ali piumate per volare alcuni minuti al giorno.",
+  "Convinzione":"Stirpe Celestiale: una volta al giorno ritira una prova o un TS.",
+  "Ascensione":"Stirpe Celestiale: diventa simile a un celestiale, con immunità e resistenze.",
+  "Resistenze del drago":"Stirpe Draconica: resistenza all'energia del drago e armatura naturale.",
+  "Potere dei wyrm":"Stirpe Draconica: immunità di drago e vista cieca.",
+  "Raggio elementale":"Stirpe Elementale: raggio dell'energia dell'elemento 1d6 + metà livello.",
+  "Resistenza elementale":"Stirpe Elementale: resistenza all'energia del proprio elemento.",
+  "Esplosione elementale":"Stirpe Elementale: esplosione dell'elemento, 1d6 per livello.",
+  "Movimento elementale":"Stirpe Elementale: scavare, volare, nuotare o velocità aumentata secondo l'elemento.",
+  "Corpo elementale":"Stirpe Elementale: immune a critici, furtivi e all'energia dell'elemento.",
+  "Tocco del destino":"Stirpe Eletta: bonus cognitivo pari a metà livello a un alleato per 1 round.",
+  "Destinato":"Stirpe Eletta: bonus di fortuna ai TS e alla CA quando è sorpreso.",
+  "Predestinato":"Stirpe Eletta: ritira un attacco, un critico o una prova contro la RI.",
+  "Profetizzato":"Stirpe Eletta: una volta al giorno può sopravvivere a un colpo mortale.",
+  "Rivelato":"Stirpe Eletta: i suoi critici si confermano sempre e supera la RI con un 20.",
+  "Tocco d'ilarità":"Stirpe Fatata: la creatura toccata ride per 1 round e quasi non agisce.",
+  "Fuggevolezza":"Stirpe Fatata: invisibilità per alcuni round al giorno.",
+  "Magia fatata":"Stirpe Fatata: ritira le prove contro la resistenza agli incantesimi.",
+  "Anima fatata":"Stirpe Fatata: immune al veleno, RD/ferro freddo e viaggio tra gli alberi.",
+  "Tocco di corruzione":"Stirpe Infernale: rende scossa la creatura toccata.",
+  "Resistenze infernali":"Stirpe Infernale: resistenza al fuoco e bonus ai TS contro il veleno.",
+  "Fuoco infernale":"Stirpe Infernale: colonna di fuoco infernale, 1d6 per livello.",
+  "Ali di tenebra":"Stirpe Infernale: ali da pipistrello, volo 18 m.",
+  "Potere degli inferi":"Stirpe Infernale: immune a fuoco e veleno, resistenze e vista nell'oscurità.",
+  "Dono della morte":"Stirpe Non morta: resistenza al freddo e RD contro i danni non letali.",
+  "Presa della morte":"Stirpe Non morta: mani scheletriche dal terreno che colpiscono in un'area.",
+  "Forma incorporea":"Stirpe Non morta: diventa incorporeo per alcuni round al giorno.",
+  "Uno di noi":"Stirpe Non morta: immunità tipiche dei non morti e RD 5/—.",
+  "Colpo d'Ombra":"Stirpe dell'Ombra: un tocco infligge danni non letali e abbaglia.",
+  "Occhio Notturno":"Stirpe dell'Ombra: scurovisione 9 m dal 3°, 18 m dal 9° (si somma a quella che ha).",
+  "Pozzo d'Ombra":"Stirpe dell'Ombra: vicino alle ombre si nasconde anche osservato e scambia posto con un alleato.",
+  "Oscurità Avvolgente":"Stirpe dell'Ombra: crea oscurità profonda in cui lui vede e gli altri restano intralciati.",
+  "Maestro delle Ombre":"Stirpe dell'Ombra: vede in ogni oscurità e rende più reali le illusioni d'ombra."
+ };
+ // nomi brevi o generici: valgono solo se coincidono con la voce (non dentro altri testi)
+ const ESATTE={
+  "odio":"Nani: +1 a colpire contro orchi e goblinoidi. Gnomi: +1 a colpire contro umanoidi rettili e goblinoidi.",
+  "resistenza":"Nani: +2 ai TS contro veleni, incantesimi e capacità magiche. Dominio della Protezione: +1 di resistenza ai TS che cresce col livello.",
+  "legame":"Legame del druido, del paladino o del mago: vedi la capacità di classe.",
+  "domini":"Due domini della divinità: poteri concessi e uno slot di incantesimo di dominio per livello.",
+  "stirpe":"Origine magica dello stregone: abilità di classe, incantesimi e talenti bonus, arcano e poteri.",
+  "soffio":"Stirpe Draconica: arma a soffio dell'energia del drago, 1d6 per livello.",
+  "artigli":"Stirpe Abissale o Draconica: due artigli come armi naturali per alcuni round al giorno.",
+  "ali":"Stirpe Draconica: ali da drago, volo 18 m.",
+  "preda":"Contro un bersaglio scelto segue tracce prendendo 10 e ha bonus a colpire.",
+  "unità":"Dominio della Comunità: gli alleati vicini usano il suo tiro salvezza.",
+  "tempesta":"Dominio del Tempo atmosferico: nube di vento e pioggia attorno a un nemico.",
+  "recupero":"Dote avanzata: ritira un tiro di abilità appena fallito.",
+  "ira":"Per alcuni round al giorno: +4 For e Cos, +2 ai TS su Volontà, −2 alla CA; niente abilità di concentrazione.",
+  "aura":"Aura dell'allineamento della divinità, rilevabile con gli incantesimi."
+ };
+ Object.keys(PG).forEach(k=>{if(!(k in VOCI))VOCI[k]=PG[k];});
+ // immunità (nomi come in regole-mostri.js, minuscoli)
+ const IMM={
+  'acido':'Non subisce danni da acido.','elettricità':'Non subisce danni da elettricità.','freddo':'Non subisce danni da freddo.','fuoco':'Non subisce danni da fuoco.',
+  'affaticamento':'Non diventa mai affaticato.','esaurimento':'Non diventa mai esausto.',
+  'attacchi ai fianchi':'Non si può prendere ai fianchi: due nemici ai lati opposti non ottengono il +2 per colpire.',
+  'colpi critici':'Colpi critici e attacchi furtivi gli infliggono solo i danni normali.',
+  'danni di precisione':"Ignora i danni extra di precisione, come quelli dell'attacco furtivo.",
+  'danni a For, Des e Cos':'Le sue For, Des e Cos non subiscono danni né penalità.','danni alle caratteristiche':'Le sue caratteristiche non subiscono danni né penalità.',
+  'risucchi di caratteristiche':'Le sue caratteristiche non possono essere risucchiate.',
+  'danni non letali':'Non subisce danni non letali.','risucchio di energia':'Non riceve livelli negativi.',
+  'effetti con TS su Tempra':'Immune agli effetti che concedono un TS su Tempra, salvo quelli che agiscono anche sugli oggetti o sono innocui.',
+  'illusioni visive':'Non si lascia ingannare dalle illusioni che agiscono sulla vista.',
+  'influenza mentale':'Charme, compulsioni, paura, morale e altri effetti sulla mente non hanno effetto.',
+  'labirinto':"Non resta intrappolato dall'incantesimo labirinto.",
+  'magia':'Quasi tutti gli incantesimi e le capacità magiche soggetti a RI non hanno effetto; alcuni la influenzano in modo speciale.',
+  'malattie':'Non contrae malattie, né normali né magiche.','maledizioni':'Le maledizioni non hanno effetto.',
+  'metamorfosi':'Non può essere trasformata contro la sua volontà.','morte':'Gli effetti di morte, che uccidono direttamente, non hanno effetto.',
+  'necromanzia':'Gli incantesimi di necromanzia non hanno effetto.','paralisi':'Non può essere paralizzata.','pietrificazione':'Non può essere trasformata in pietra.',
+  'sanguinamento':'Non subisce danni da sanguinamento.','sguardi':'Gli attacchi con lo sguardo non hanno effetto.',
+  'sonno':'La magia non può addormentarla.','veleni':'I veleni non hanno effetto.','paura':'Gli effetti di paura non hanno effetto.','charme':'Gli effetti di charme non hanno effetto.',
+  'compulsioni':'Gli effetti di compulsione non hanno effetto.','attacchi furtivi':"Non subisce i danni extra dell'attacco furtivo.",'energia del drago':"Non subisce danni dall'energia del suo tipo di drago.",
+  'energia del suo elemento':"Non subisce danni dall'energia del suo elemento.",'sonno magico':'La magia non può addormentarla.','stordimento':'Non può essere stordita.','veleno':'I veleni non hanno effetto.'
+ };
+ // capacità speciali della Guidata (id come in ABILITIES): descrizione generica, i numeri dipendono dal GS
+ const CAP={
+  soffio:'Come azione standard soffia un cono o una linea di energia; TS Riflessi dimezza. Poi deve attendere 1d4 round.',
+  veleno:'Un attacco naturale avvelena: TS su Tempra ogni round per un certo numero di round, o danni a una caratteristica.',
+  afferrare:"Se colpisce con l'attacco indicato può iniziare una lotta come azione gratuita.",
+  stritolare:'Quando vince una prova di lotta infligge danni contundenti alla creatura afferrata.',
+  rd:"Riduce i danni di ogni attacco con armi, salvo armi del materiale o dell'allineamento indicato.",
+  ri:"Gli incantesimi la influenzano solo se l'incantatore supera la sua RI con d20 + LI.",
+  resist:'Ignora una parte dei danni di un tipo di energia (fuoco, freddo, acido…) a ogni attacco.',
+  rigen:'Recupera PF ogni round e non muore, tranne che per il tipo di danno indicato.',
+  guarigione:'Recupera PF a ogni suo turno.',
+  sguardo:'Chi incrocia il suo sguardo da vicino deve superare un TS o subirne gli effetti.',
+  presenza:'Quando attacca o carica, le creature vicine con meno DV devono superare un TS su Volontà o restare scosse.',
+  magia:'Usa incantesimi come capacità magiche, a volontà o un certo numero di volte al giorno.',
+  risucchio:'I suoi colpi infliggono livelli negativi.',
+  paralisi:'Chi viene colpito deve superare un TS su Tempra o resta paralizzato per qualche round.',
+  acido:'I suoi attacchi fanno danni da acido extra e corrodono armi e armature.',
+  divisione:'Colpita da armi taglienti o perforanti si divide in due creature con metà dei PF ciascuna.',
+  ragnatela:'Lancia ragnatele che intralciano; liberarsi richiede Artista della Fuga o una prova di For.',
+  mimetismo:'Grosso bonus a Furtività nel suo ambiente; può nascondersi anche se osservata.',
+  travolgere:'Come azione di round completo passa sopra le creature più piccole e le schiaccia (Riflessi dimezza).',
+  ruggito:'Un ruggito spaventa chi è vicino (TS su Volontà o scosso).',
+  ferocia:'Continua a combattere con PF negativi, finché non muore.',
+  mutaforma:"Assume l'aspetto di altre creature.",
+  aura:'Chi resta vicino a lei subisce danni o effetti a ogni turno.',
+  telepatia:'Comunica con la mente con qualsiasi creatura vicina che abbia un linguaggio.',
+  immunemagia:'Quasi tutta la magia soggetta a RI non ha effetto; alcuni incantesimi la influenzano in modo speciale.',
+  incorporeo:'Senza corpo fisico: solo armi magiche, incantesimi o forza la feriscono, a metà danni; attraversa i solidi.',
+  saltoombra:"Nella penombra si teletrasporta da un'ombra all'altra.",
+  malattia:'Un attacco trasmette una malattia: TS su Tempra a intervalli, o danni alle caratteristiche.',
+  squartare:'Se due attacchi naturali colpiscono lo stesso bersaglio nel round, infligge danni extra.',
+  inghiottire:'Ingoia una preda più piccola che tiene in lotta; dentro si subiscono danni ogni round.',
+  sbilanciare:"Se colpisce con l'attacco indicato può sbilanciare il bersaglio come azione gratuita.",
+  scagliarocce:'Lancia massi a grande distanza infliggendo forti danni.',
+  afferrarocce:'Può afferrare al volo le rocce lanciate contro di lei.',
+  bruciare:'Chi colpisce, o chi la colpisce a mani nude, può prendere fuoco (TS su Riflessi).',
+  fetore:'Le creature vicine devono superare un TS su Tempra o restano inferme.',
+  avvolgere:'Ingloba le creature della sua taglia o più piccole (Riflessi per evitarlo).',
+  trasparente:'Quando sta ferma è difficile da notare; chi ci finisce dentro viene avvolto.',
+  spine:'Lancia raffiche di spine a distanza un certo numero di volte al giorno.',
+  caricapossente:'In carica il suo attacco infligge danni maggiori.',
+  astuzia:'Immune a labirinto, non si perde mai e non è mai colta alla sprovvista.',
+  visione360:'Vede in ogni direzione: non si può prendere ai fianchi.',
+  disperazione:'Chi la vede deve superare un TS su Volontà o resta paralizzato dalla paura per qualche round.',
+  rescanalare:'Bonus ai TS contro incanalare energia.',
+  progenie:'Gli umanoidi che uccide risorgono come sue copie più deboli, ai suoi ordini.',
+  dominare:'Soggioga un umanoide che fallisce un TS su Volontà.',
+  risuchsangue:'Mentre tiene una preda in lotta le beve il sangue, danneggiandone la Cos e curandosi.',
+  spasmo:'Alla morte esplode e ferisce chi è vicino (Riflessi dimezza).',
+  corpofuoco:'Chi la tocca o è in lotta con lei subisce danni da fuoco.',
+  occhiata:'Con uno sguardo stordisce un bersaglio che fallisce un TS su Tempra.',
+  bellezza:'Chi la fissa da vicino deve superare un TS su Tempra o resta accecato.',
+  robelettrica:"L'elettricità non la ferisce e anzi la rafforza per un po'.",
+  anfibio:"Respira sia in acqua sia all'aria aperta.",
+  balzare:'Quando carica può fare un attacco completo.',
+  cecitaluce:'La luce intensa la acceca per un round e poi la abbaglia.',
+  sensibluce:'È abbagliata alla luce del sole o di luce diurna.',
+  distrazione:'Chi subisce danni da lei può restare nauseato (TS su Tempra).',
+  evocare:'Una volta al giorno può tentare di chiamare in aiuto altre creature della sua specie.',
+  maledire:'Il suo attacco lancia una maledizione (TS su Volontà).',
+  tellurica:'Sente le vibrazioni del terreno e individua chi lo tocca entro una certa distanza.',
+  sanguinamento:'Le sue ferite sanguinano: danni a ogni turno finché non vengono curate.',
+  sperone:'Se inizia il turno in lotta, ottiene attacchi extra con gli artigli posteriori.',
+  spingere:"Se colpisce con l'attacco indicato può spingere via il bersaglio come azione gratuita.",
+  trascinare:"Se colpisce con l'attacco indicato può trascinare a sé il bersaglio come azione gratuita."
+ };
+ const ATTESA=500,LETT='[^\\p{L}\\p{N}]',
+  RE=new RegExp(`(^|${LETT})(${Object.keys(SIGLE).join('|')})(?![\\p{L}\\p{N}])`,'gu'),
+  RT=new RegExp(`(^|${LETT})(${TERMINI.map(t=>t[1]).join('|')})(?![\\p{L}\\p{N}])`,'giu'),
+  nomeT=s=>(TERMINI.find(t=>new RegExp(`^(?:${t[1]})$`,'iu').test(s))||[])[0];
+ const SALTA=new Set(['SCRIPT','STYLE','TEXTAREA','SELECT','OPTION','INPUT','ABBR','SVG','svg']),TITOLI=new Set(['B','H1','H2','H3']); // nei titoli niente parole chiave
+ let nuv=null,timer=0,aperta=null,fissa=false,attivo=true;
+ // glossario personale: descrizioni scritte dall'utente (localStorage forgia-glossario), valgono più di quelle dell'app
+ const GK='forgia-glossario';let MIEI={};try{MIEI=JSON.parse(localStorage.getItem(GK)||'{}');}catch(e){}
+ const chiave=n=>base(String(n)).trim().toLowerCase(),mio=n=>MIEI[chiave(n)],avvisi=[];
+ const salvaMiei=()=>{try{localStorage.setItem(GK,JSON.stringify(MIEI));}catch(e){}avvisi.forEach(f=>f());};
+ const base=n=>n.replace(/ \(.*\)$/,''),voce=n=>mio(n)||VOCI[base(n)]||ESATTE[base(n).toLowerCase()]||IMM[n];
+ // avvolge con crea() le corrispondenze di re nei nodi di testo dentro root
+ function passa(root,re,crea,tit){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>{for(let p=n.parentNode;p&&p!==root.parentNode;p=p.parentNode)if(SALTA.has(p.nodeName)||tit&&TITOLI.has(p.nodeName)||p.dataset&&p.dataset.gv)return NodeFilter.FILTER_REJECT;re.lastIndex=0;return re.test(n.nodeValue)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_SKIP;}});
   const nodi=[];while(w.nextNode())nodi.push(w.currentNode);
-  nodi.forEach(n=>{const t=n.nodeValue,f=document.createDocumentFragment();let i=0;RE.lastIndex=0;let r;
-   while((r=RE.exec(t))){const a=r.index+r[1].length;if(a>i)f.appendChild(document.createTextNode(t.slice(i,a)));const ab=document.createElement('abbr');ab.className='sg';ab.dataset.sg=r[2];ab.textContent=r[2];f.appendChild(ab);i=a+r[2].length;}
+  nodi.forEach(n=>{const t=n.nodeValue,flex=/flex|grid/.test(getComputedStyle(n.parentNode).display),f=flex?document.createElement('span'):document.createDocumentFragment(); // nei contenitori flex (label) uno span tiene il testo su una riga
+   let i=0,r;re.lastIndex=0;
+   while((r=re.exec(t))){const a=r.index+r[1].length;if(a>i)f.appendChild(document.createTextNode(t.slice(i,a)));f.appendChild(crea(r[2]));i=a+r[2].length;}
    if(i<t.length)f.appendChild(document.createTextNode(t.slice(i)));n.parentNode.replaceChild(f,n);});}
- function mostra(ab,x,y){if(!nuv){nuv=document.createElement('div');nuv.className='nuv';nuv.setAttribute('role','tooltip');document.body.appendChild(nuv);}
-  const k=ab.dataset.sg;nuv.innerHTML='';const b=document.createElement('b');b.textContent=k;nuv.append(b,' '+SIGLE[k]);nuv.classList.add('on');aperta=ab;
-  const r=nuv.getBoundingClientRect(),W=document.documentElement.clientWidth;let L=Math.max(8,Math.min(W-r.width-8,x-r.width/2)),T=y-r.height-12;if(T<8)T=y+22;nuv.style.left=L+'px';nuv.style.top=T+'px';}
- function nascondi(){clearTimeout(timer);if(nuv)nuv.classList.remove('on');aperta=null;}
- const sigla=e=>e.target.closest&&e.target.closest('abbr.sg');
- document.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;const ab=sigla(e);clearTimeout(timer);
-  if(!ab){if(aperta)nascondi();return;}if(aperta===ab)return;if(aperta)nascondi();const x=e.clientX,y=e.clientY;timer=setTimeout(()=>mostra(ab,x,y),ATTESA);});
- document.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'){nascondi();return;}const ab=sigla(e);if(!ab||ab===aperta){nascondi();return;}const r=ab.getBoundingClientRect();clearTimeout(timer);mostra(ab,r.left+r.width/2,r.top);});
- document.addEventListener('pointerleave',nascondi);window.addEventListener('scroll',nascondi,true);window.addEventListener('blur',nascondi);
- return{marca,SIGLE};
+ const nodo=(tag,cls,k,s)=>{const e=document.createElement(tag);e.className=cls;e.dataset[k]=k==='gv'?nomeT(s):s;e.textContent=s;return e;};
+ // sigle (maiuscole rispettate) e parole chiave (qualsiasi maiuscola) dentro root
+ function marca(root){if(!root)return;passa(root,RE,s=>nodo('abbr','sg','sg',s));passa(root,RT,s=>nodo('span','gv','gv',s),1);}
+ function posiziona(el){const a=el.getBoundingClientRect(),r=nuv.getBoundingClientRect(),W=document.documentElement.clientWidth,H=innerHeight;
+  if(a.bottom<0||a.top>H)return nascondi();
+  let T=a.top-r.height-8;if(T<8)T=a.bottom+8;nuv.style.left=Math.max(8,Math.min(W-r.width-8,a.left+a.width/2-r.width/2))+'px';nuv.style.top=T+'px';}
+ // anc: elemento a cui resta agganciata (serve quando si segue un rimando dentro la nuvoletta)
+ function mostra(el,fix,anc){if(!nuv){nuv=document.createElement('div');nuv.className='nuv';nuv.setAttribute('role','tooltip');document.body.appendChild(nuv);}
+  const k=el.dataset.sg,v=el.dataset.gv,b=document.createElement('b');b.textContent=k||v[0].toUpperCase()+v.slice(1);nuv.innerHTML='';
+  if(k)nuv.append(b,' '+SIGLE[k]);else{const t=mio(v)||el.dataset.txt||voce(v);nuv.append(b,document.createElement('br'),t||'Nessuna descrizione: puoi scriverla tu.');marca(nuv);
+   if(fix){const s=document.createElement('button');s.type='button';s.className='nuvscrivi';s.textContent=mio(v)?'✎ Modifica la tua descrizione':'✎ Scrivi la tua descrizione';s.dataset.nome=v;s.dataset.testo=t||'';nuv.append(s);}}
+  nuv.classList.toggle('voce',!k);nuv.classList.toggle('fissa',!!fix);nuv.classList.add('on');aperta=anc||el;fissa=!!fix;posiziona(aperta);}
+ function nascondi(){clearTimeout(timer);if(nuv)nuv.classList.remove('on','fissa');aperta=null;fissa=false;}
+ const bersaglio=e=>e.target.closest&&e.target.closest('abbr.sg,[data-gv]');
+ document.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse'||fissa||!attivo)return;const el=bersaglio(e);clearTimeout(timer);
+  if(!el){if(aperta)nascondi();return;}if(aperta===el)return;if(aperta)nascondi();timer=setTimeout(()=>mostra(el),ATTESA);});
+ // clic o tocco: fissa la nuvoletta; dentro di essa un rimando ne cambia il contenuto; di nuovo sullo stesso nome o altrove: chiude
+ // nelle capacità della Guidata il clic seleziona: si ispeziona con Cmd/Ctrl+clic o, sul telefono, tenendo premuto
+ let lungo=0,tenuto=false;const ferma=()=>clearTimeout(lungo);
+ document.addEventListener('pointerdown',e=>{if(!attivo)return;const el=bersaglio(e);clearTimeout(timer);ferma();tenuto=false;
+  if(nuv&&fissa&&nuv.contains(e.target)){const s=e.target.closest('.nuvscrivi');if(s){e.preventDefault();scrivi(s.dataset.nome,s.dataset.testo);}else if(el)mostra(el,true,aperta);return;}
+  if(el&&el.closest('.chips')&&!(e.metaKey||e.ctrlKey)){nascondi();if(e.pointerType!=='mouse')lungo=setTimeout(()=>{tenuto=true;mostra(el,true);},ATTESA);return;}
+  if(!el||(el===aperta&&fissa)){nascondi();return;}mostra(el,true);});
+ ['pointerup','pointercancel'].forEach(t=>document.addEventListener(t,ferma));
+ document.addEventListener('contextmenu',e=>{if(e.target.closest&&e.target.closest('.chips [data-gv]'))e.preventDefault();}); // Ctrl+clic su Mac, pressione lunga sul telefono
+ document.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')ferma();},{passive:true});
+ window.addEventListener('scroll',()=>{if(fissa&&aperta)posiziona(aperta);else nascondi();},true);
+ document.addEventListener('pointerleave',()=>{if(!fissa)nascondi();});window.addEventListener('blur',()=>{if(!fissa)nascondi();});
+ // spiegazione di un nome qualsiasi (talento, abilità, tratto, immunità, parola chiave): nome esatto, poi la voce più lunga contenuta nel nome
+ const spiega=t=>{const b=base(String(t).replace(/\s*[+−-]\d+$/,'').trim()),l=b.toLowerCase();
+  return mio(t)||voce(b)||IMM[l]||VOCI[nomeT(b)||'']||VOCI[Object.keys(VOCI).filter(k=>k.length>5&&l.includes(k.toLowerCase())).sort((a,c)=>c.length-a.length)[0]]||'';};
+ // finestra per scrivere una descrizione (testo vuoto = torna quella dell'app)
+ function scrivi(nome,testo){nascondi();const d=document.getElementById('gloDlg');document.getElementById('gloNome').textContent=nome;const t=document.getElementById('gloTesto');t.value=mio(nome)||testo||'';d.showModal();t.focus();
+  document.getElementById('gloOk').onclick=()=>{const v=t.value.trim(),k=chiave(nome);v?MIEI[k]=v:delete MIEI[k];salvaMiei();d.close();};}
+ // impostazioni: elenco, esportazione e importazione del glossario personale
+ function disegnaMiei(){const el=document.getElementById('sGloLista'),n=Object.keys(MIEI);document.getElementById('sGloN').textContent=n.length?`${n.length} ${n.length>1?'voci':'voce'}`:'nessuna voce';
+  el.innerHTML='';n.sort().forEach(k=>{const r=document.createElement('div');r.className='glovoce';const b=document.createElement('b');b.textContent=k.charAt(0).toUpperCase()+k.slice(1);
+   const x=document.createElement('button');x.type='button';x.className='btn';x.textContent='✕';x.setAttribute('aria-label','Elimina '+k);
+   x.onclick=()=>{if(!x.dataset.conf){x.dataset.conf=1;x.textContent='Elimina?';setTimeout(()=>{delete x.dataset.conf;x.textContent='✕';},4000);return;}delete MIEI[k];salvaMiei();};
+   r.append(b,' '+MIEI[k],x);el.append(r);});}
+ avvisi.push(()=>{if(document.getElementById('sGloLista'))disegnaMiei();});
+ function initMiei(){disegnaMiei();
+  document.getElementById('sGloEsp').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify({tipo:'forgia-glossario',voci:MIEI},null,1)],{type:'application/json'}));a.download='glossario-forgia.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);};
+  document.getElementById('sGloImp').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;const m=document.getElementById('sGloM');
+   try{const j=JSON.parse(await f.text()),v=j.voci||j;let n=0;for(const k in v)if(typeof v[k]==='string'&&v[k].trim()){MIEI[chiave(k)]=v[k].trim();n++;}salvaMiei();m.textContent=`Importate ${n} voci.`;}catch(_){m.textContent='File non valido.';}};}
+ return{marca,SIGLE,voce,spiega,initMiei,cambiato:f=>avvisi.push(f),imm:t=>IMM[String(t).toLowerCase()]||'',cap:id=>CAP[id]||'',attiva:b=>{attivo=b;if(!b)nascondi();},trattenuto:()=>tenuto};
+})();
+
+</script>
+<script>
+// ===== Lettore della scheda del personaggio (Wyrd, Pathfinder GdR, 2 pagine) =====
+// PDF compilato al computer: legge il testo che sta nei riquadri. PDF scansionato o foto: riconoscimento ottico (Tesseract)
+// dei soli riquadri, allineati alle etichette stampate. pdf.js e Tesseract si scaricano dal CDN solo al primo uso.
+const LettoreScheda=(function(){
+ const PDFJS='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/',TESS='https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js';
+ const carica=src=>new Promise((ok,no)=>{const s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=()=>no(new Error('Libreria non scaricata: serve internet.'));document.head.appendChild(s);});
+ let pronto=null;const librerie=()=>pronto=pronto||Promise.all([carica(PDFJS+'pdf.min.js').then(()=>{pdfjsLib.GlobalWorkerOptions.workerSrc=PDFJS+'pdf.worker.min.js';}),carica(TESS)]);
+ // riquadri in punti PDF (pagina 621×801, origine in alto a sinistra): [campo, pagina, x0, y0, x1, y1, tipo] — n numero, t testo, r righe
+ const R=[['nome',1,251,53,378,70,'t'],['all',1,380,53,429,70,'t'],['giocatore',1,431,53,600,70,'t'],['livello',1,251,72,429,89,'t'],['divinita',1,431,72,510,89,'t'],['origini',1,512,72,600,89,'t'],
+  ['razza',1,251,91,334,108,'t'],['taglia',1,335,91,367,108,'t'],['sesso',1,368,91,401,108,'t'],['eta',1,402,91,429,108,'n'],['altezza',1,430,91,467,108,'t'],['peso',1,468,91,504,108,'t'],['capelli',1,505,91,541,108,'t'],['occhi',1,542,91,600,108,'t'],
+  ...['For','Des','Cos','Int','Sag','Car'].map((c,i)=>['car.'+c,1,79,127+17.4*i,101,143+17.4*i,'n']),
+  ['pf',1,228,117,278,136,'n'],['vel',1,358,115,446,137,'n'],['initVar',1,296,214,330,230,'n'],
+  ['ca',1,64,241,101,258,'n'],['caCont',1,76,269,106,286,'n'],['caImpr',1,154,269,186,286,'n'],
+  ['ts.Temp',1,140,302,162,318,'n'],['ts.Rifl',1,140,319,162,335,'n'],['ts.Vol',1,140,336,162,352,'n'],['bab',1,172,360,222,377,'n'],['ri',1,286,360,312,377,'t'],
+  // armi: 5 blocchi, ognuno con nome, attacco, critico (prima riga) e tipo, gittata, munizioni, danno (seconda)
+  ...[446,509,572,634,697].flatMap((y,i)=>[['nome',40,215,3,23],['att',215,284,3,23],['crit',284,322,3,23],['tipo',40,72,29,46],['gitt',72,118,29,46],['mun',118,215,29,46],['danno',215,322,29,46]].map(([k,x0,x1,a,b])=>[`arma${i}.${k}`,1,x0,y+a,x1,y+b,'t'])),
+  ['lingue',1,327,710,600,748,'r'],['note',1,327,660,600,702,'r'],
+  ['talenti',2,245,203,425,394,'r'],['capacita',2,245,411,425,712,'r'],['equip',2,40,203,155,592,'r'],['incantesimi',2,436,312,600,745,'r'],
+  ['mr',2,62,682,170,696,'n'],['ma',2,62,696,170,710,'n'],['mo',2,62,710,170,724,'n'],['mp',2,62,724,170,738,'n'],['pe',2,200,726,340,750,'n']];
+ const ABIL=['Acrobazia','Addestrare Animali','Artigianato','Artigianato','Artigianato','Artista della Fuga','Camuffare','Cavalcare',...['arcane','dungeon','geografia','ingegneria','locali','natura','nobiltà','piani','religioni','storia'].map(s=>`Conoscenze (${s})`),
+  'Diplomazia','Disattivare Congegni','Furtività','Guarire','Intimidire','Intuizione','Intrattenere','Intrattenere','Linguistica','Nuotare','Percezione','Professione','Professione','Raggirare','Rapidità di Mano','Sapienza Magica','Scalare','Sopravvivenza','Utilizzare Congegni Magici','Valutare','Volare'];
+ ABIL.forEach((n,i)=>{const y=213+11.4*i;R.push(['abil:'+n,1,437,y-9,467,y+2,'n']);});
+ // etichette stampate per allineare una scansione: [testo, pagina, x, linea di base]
+ const ANCORE=[['FOR',1,43,138],['DES',1,44,155],['COS',1,43,173],['INT',1,44,190],['SAG',1,44,208],['CAR',1,43,225],['CA',1,47,252],['CONTATTO',1,37,280],['IMPREPARATO',1,109,280],['TEMPRA',1,50,313],['RIFLESSI',1,49,331],
+  ['VOLONTÀ',1,46,348],['BMC',1,71,390],['DMC',1,71,418],['INIZIATIVA',1,191,225],['PF',1,201,129],['VEL',1,337,129],['RESISTENZA',1,225,366],['INCANTESIMI',1,231,373],
+  ...[446,509,572,634,697].flatMap((y,i)=>[['ARMA',1,112,y],['CRITICO',1,289,y+1],['DANNO',1,258,y+27],['MUNIZIONI',1,148,y+27],['GITTATA',1,80,y+27]]),
+  ['TALENTI',2,283,197],['EQUIPAGGIAMENTO',2,55,197],['DENARO',2,87,674],['INCANTESIMI',2,472,64],['OGGETTI',2,57,64],['DIFENSIVI',2,101,64],['TOTALI',2,107,172],['SPECIALI',2,312,404],['ESPERIENZA',2,268,719],['PESO',2,83,599],['LIVELLO',2,499,81]];
+ const norm=s=>s.toUpperCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^A-Z]/g,'');
+
+ // pagine come immagini (PDF scansionato o foto) oppure come testo (PDF compilato al computer)
+ async function pagine(file,stato){const out=[];
+  if(/^image\//.test(file.type)){const i=await new Promise((ok,no)=>{const im=new Image();im.onload=()=>ok(im);im.onerror=()=>no(new Error('Immagine non leggibile.'));im.src=URL.createObjectURL(file);});
+   const c=document.createElement('canvas'),s=Math.min(1,2400/i.width);c.width=i.width*s;c.height=i.height*s;c.getContext('2d').drawImage(i,0,0,c.width,c.height);return[{canvas:c}];}
+  const doc=await pdfjsLib.getDocument({data:await file.arrayBuffer()}).promise;
+  for(let n=1;n<=Math.min(2,doc.numPages);n++){stato(`Leggo la pagina ${n}…`);const pg=await doc.getPage(n),v=pg.getViewport({scale:1}),k=621/v.width,tc=await pg.getTextContent(),testi=[];
+   tc.items.forEach(i=>{const s=i.str.trim();if(s)testi.push({s,x:(i.transform[4]+i.width/2)*k,y:(v.height-i.transform[5]-i.height/3)*k});});
+   (await pg.getAnnotations()).forEach(a=>{const s=String(a.fieldValue??a.contentsObj?.str??a.contents??'').trim();if(s&&a.rect)testi.push({s,x:(a.rect[0]+a.rect[2])/2*k,y:(v.height-(a.rect[1]+a.rect[3])/2)*k});});
+   const vp=pg.getViewport({scale:2200/v.width}),c=document.createElement('canvas');c.width=vp.width;c.height=vp.height;await pg.render({canvasContext:c.getContext('2d'),viewport:vp}).promise;
+   out.push({testi,canvas:c});}
+  return out;}
+
+ // etichette stampate della scheda vuota che cadono dentro i riquadri (pagina, x, y): si ignorano
+ const EX='1,392,665;1,288,68;1,448,68;1,403,68;1,291,87;1,445,87;1,525,87;1,260,106;1,444,106;1,347,106;1,378,106;1,409,106;1,476,106;1,518,106;1,553,106;1,242,124;1,405,132;1,441,132;1,438,326;1,443,337;1,441,621;1,270,470;1,168,470;1,94,471;1,53,471;1,270,533;1,168,533;1,94,534;1,53,534;1,270,597;1,168,597;1,94,597;1,53,597;1,270,659;1,168,659;1,94,659;1,53,659;1,270,722;1,168,722;1,94,722;1,53,722;2,102,204;2,168,204;2,441,324;2,441,389;2,441,506;2,441,452;2,441,556;2,441,597;2,441,631;2,441,667;2,441,701;2,441,728'.split(';').map(s=>s.split(',').map(Number));
+ const etichetta=(n,o)=>EX.some(([p,x,y])=>p===n&&Math.abs(o.x-x)<=3&&Math.abs(o.y-y)<=3);
+ // testo digitato: tutto ciò che cade in un riquadro, tranne le etichette della scheda
+ function daTesto(pg,n,campi){for(const [k,p,x0,y0,x1,y1] of R)if(p===n){const t=pg.testi.filter(o=>o.x>=x0&&o.x<=x1&&o.y>=y0&&o.y<=y1&&!etichetta(n,o)).sort((a,b)=>a.y-b.y||a.x-b.x);
+  if(t.length)campi[k]=t.map(o=>o.s).join(R.find(r=>r[0]===k)[6]==='r'?'\n':' ');}}
+
+ // scansione: trasformazione punti → pixel dalle etichette riconosciute (minimi quadrati, scartando le peggiori)
+ // le etichette si ripetono (es. «Int» nella colonna delle abilità): si cerca la trasformazione che mette d'accordo più coppie (RANSAC)
+ function allinea(parole,n){const c=[];ANCORE.filter(a=>a[1]===n).forEach(([t,,x,y])=>parole.forEach(w=>{if(w.confidence>60&&norm(w.text)===norm(t))c.push({x,y,X:w.bbox.x0,Y:w.bbox.y1});}));
+  const fit=c=>{const f=(a,b)=>{const m=c.length,sa=c.reduce((s,o)=>s+o[a],0),sb=c.reduce((s,o)=>s+o[b],0),saa=c.reduce((s,o)=>s+o[a]*o[a],0),sab=c.reduce((s,o)=>s+o[a]*o[b],0),k=(m*sab-sa*sb)/(m*saa-sa*sa);return[k,(sb-k*sa)/m];};return{x:f('x','X'),y:f('y','Y')};};
+  const dentro=T=>c.filter(o=>Math.hypot(T.x[0]*o.x+T.x[1]-o.X,T.y[0]*o.y+T.y[1]-o.Y)<T.x[0]*8);let best=[];
+  for(let i=0;i<c.length;i++)for(let j=i+1;j<c.length;j++){const a=c[i],b=c[j];if(Math.abs(a.x-b.x)<40||Math.abs(a.y-b.y)<40)continue;
+   const sx=(a.X-b.X)/(a.x-b.x),sy=(a.Y-b.Y)/(a.y-b.y);if(sx<=0||sy<=0||sx/sy<.75||sx/sy>1.33)continue;
+   const d=dentro({x:[sx,a.X-sx*a.x],y:[sy,a.Y-sy*a.y]});if(d.length>best.length)best=d;}
+  return best.length>=4?fit(best):null;}
+ async function daScansione(pg,n,campi,w,stato){stato(`Riconosco il testo della pagina ${n} (può richiedere un minuto)…`);
+  await w.setParameters({tessedit_pageseg_mode:'3',tessedit_char_whitelist:''});const T=allinea((await w.recognize(pg.canvas)).data.words,n);if(!T)return false;
+  const sc=T.x[0]/3.5; // riquadri ingranditi fino a ~3,5 px per punto
+  for(const [k,p,x0,y0,x1,y1,tipo] of R){if(p!==n)continue;const X=T.x[0]*x0+T.x[1],Y=T.y[0]*y0+T.y[1],W=T.x[0]*(x1-x0),H=T.y[0]*(y1-y0),z=Math.max(1,1/sc),c=document.createElement('canvas');
+   c.width=W*z+30;c.height=H*z+30;const g=c.getContext('2d');g.fillStyle='#fff';g.fillRect(0,0,c.width,c.height);g.drawImage(pg.canvas,X+2,Y+2,W-4,H-4,15,15,(W-4)*z,(H-4)*z);
+   await w.setParameters({tessedit_pageseg_mode:tipo==='r'?'6':'7',tessedit_char_whitelist:tipo==='n'?'0123456789+-':''});
+   const r=(await w.recognize(c)).data,t=r.text.trim();if(t&&r.confidence>55)campi[k]=t;}
+  return true;}
+
+ // dai riquadri ai campi del personaggio
+ function campiPg(c){const pg={car:{},ts:{}},num=s=>{const m=String(s||'').match(/[+-]?\d+/);return m?+m[0]:'';},letti=[];
+  const metti=(k,v)=>{if(v===''||v==null||/^[—–-]+$/.test(v))return;const p=k.split('.');p.length>1?pg[p[0]][p[1]]=v:pg[k]=v;letti.push(k);};
+  for(const k in c){const v=c[k];if(k.startsWith('abil:')||/^(arma\d|m[rapo]$|livello$)/.test(k))continue;const tipo=R.find(r=>r[0]===k)[6];metti(k,tipo==='n'&&k!=='vel'?num(v):tipo==='r'?v.trim():String(k==='vel'?num(v):v).replace(/\s+/g,' ').trim());}
+  if(c.livello){const l=num(c.livello),cl=c.livello.replace(/\d+/g,'').replace(/\s+/g,' ').trim();if(l!=='')metti('liv',l);if(cl)metti('classe',cl);}
+  const ab=[];ABIL.forEach(n=>{const v=c['abil:'+n];if(v!=null&&num(v)!=='')ab.push(n+' '+(num(v)<0?'':'+')+num(v));});if(ab.length)metti('abilita',ab.join('\n'));
+  // una riga per arma: Nome | Attacco | Danno | Critico | Tipo | Gittata | Munizioni
+  const armi=[0,1,2,3,4].map(i=>['nome','att','danno','crit','tipo','gitt','mun'].map(k=>{const v=(c[`arma${i}.${k}`]||'').replace(/\s+/g,' ').trim();return /^[—–-]+$/.test(v)?'':v;})).filter(a=>a[0]).map(a=>a.join(' | '));if(armi.length)metti('armi',armi.join('\n'));
+  const den=[['mr','MR'],['ma','MA'],['mo','MO'],['mp','MP']].filter(([k])=>num(c[k])!=='').map(([k,u])=>num(c[k])+' '+u);if(den.length)metti('denaro',den.join(', '));
+  return{pg,letti};}
+
+ async function leggi(file,stato=()=>{}){stato('Preparo il lettore…');await librerie();const P=await pagine(file,stato),c={};let w=null,scans=0,ok=0;
+  try{for(let i=0;i<P.length;i++){const n=P.length===1&&/^image\//.test(file.type)?1:i+1;
+    if(P[i].testi&&P[i].testi.length>40){daTesto(P[i],n,c);ok++;continue;} // la scheda vuota ha già ~300 etichette: un PDF a immagini non ne ha
+    if(!w){stato('Scarico il riconoscimento del testo (solo la prima volta)…');w=await Tesseract.createWorker('ita');}
+    scans++;if(await daScansione(P[i],n,c,w,stato))ok++;}}
+  finally{if(w)await w.terminate();}
+  const r=campiPg(c);r.scansione=scans>0;r.allineate=ok;return r;}
+ return{leggi};
+})();
+
+</script>
+<script>
+// ===== Party: schede dei personaggi nel Diario =====
+// Dati in localStorage (forgia-party); immagine e PDF della scheda in IndexedDB (forgia-party-file), mai nel sito.
+const Party=(function(){
+ const $=id=>document.getElementById(id),K='forgia-party',esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+ const sgn=v=>(v<0?'−':'+')+Math.abs(v),CAR=['For','Des','Cos','Int','Sag','Car'];
+ // campi del modulo, nello stesso ordine della scheda cartacea: [chiave, etichetta, tipo]
+ const CAMPI=[['Identità',[['nome','Nome del personaggio'],['giocatore','Giocatore'],['classe','Classe (es. Stregone)'],['liv','Livello','n'],['razza','Razza'],['all','Allineamento'],
+   ['divinita','Divinità'],['origini','Origini'],['taglia','Taglia'],['sesso','Sesso'],['eta','Età'],['altezza','Altezza'],['peso','Peso'],['capelli','Capelli'],['occhi','Occhi']]],
+  ['Caratteristiche',CAR.map(c=>['car.'+c,c,'n'])],
+  ['Combattimento',[['pf','PF totali','n'],['vel','Velocità (m)'],['ca','CA','n'],['caCont','CA di contatto','n'],['caImpr','CA impreparato','n'],['bab','Bonus di attacco base','n'],
+   ['ts.Temp','TS base Tempra','n'],['ts.Rifl','TS base Riflessi','n'],['ts.Vol','TS base Volontà','n'],['initVar','Iniziativa: modif. vari','n'],['rd','RD'],['ri','Resistenza agli incantesimi']]],
+  ['Testi',[['armi','Armi: una per riga, «Nome | Attacco | Danno | Critico | Tipo | Gittata | Munizioni»','t'],['abilita','Abilità (es. Furtività +5)','t'],['talenti','Talenti (uno per riga)','t'],['capacita','Capacità speciali','t'],
+   ['incantesimi','Incantesimi','t'],['equip','Equipaggiamento','t'],['lingue','Linguaggi'],['denaro','Denaro (es. 70 MR)'],['pe','Punti esperienza','n'],['note','Note','t']]]];
+ let lista=[],sel=null,mod=null;
+ const carica=()=>{try{lista=JSON.parse(localStorage.getItem(K)||'[]');}catch(e){lista=[];}};
+ const salva=()=>{try{localStorage.setItem(K,JSON.stringify(lista));return true;}catch(e){alert('Spazio del browser esaurito: il personaggio non è stato salvato.');return false;}};
+ const trova=id=>lista.find(p=>p.id===id);
+ const leggi=(o,k)=>k.split('.').reduce((a,x)=>a&&a[x],o),scrivi=(o,k,v)=>{const p=k.split('.');p.slice(0,-1).forEach(x=>o=o[x]=o[x]||{});o[p[p.length-1]]=v;};
+ // file allegati (immagine, PDF)
+ const db=new Promise((ok,no)=>{try{const r=indexedDB.open('forgia-party-file',1);r.onupgradeneeded=()=>r.result.createObjectStore('f');r.onsuccess=()=>ok(r.result);r.onerror=()=>no(r.error);}catch(e){no(e);}});
+ const file=(modo,fn)=>db.then(d=>new Promise((ok,no)=>{const q=fn(d.transaction('f',modo).objectStore('f'));q.onsuccess=()=>ok(q.result);q.onerror=()=>no(q.error);}));
+ const fGet=k=>file('readonly',s=>s.get(k)).catch(()=>null),fPut=(k,b)=>file('readwrite',s=>s.put(b,k)),fDel=k=>file('readwrite',s=>s.delete(k)).catch(()=>{});
+ const urls={};const url=async k=>{if(urls[k])return urls[k];const b=await fGet(k);return b?(urls[k]=URL.createObjectURL(b)):'';};
+ const libera=k=>{if(urls[k]){URL.revokeObjectURL(urls[k]);delete urls[k];}};
+ // immagine ridotta a 600 px per non riempire il browser
+ const riduci=f=>new Promise(ok=>{const i=new Image();i.onload=()=>{const s=Math.min(1,600/Math.max(i.width,i.height)),c=document.createElement('canvas');c.width=i.width*s;c.height=i.height*s;c.getContext('2d').drawImage(i,0,0,c.width,c.height);URL.revokeObjectURL(i.src);c.toBlob(ok,'image/jpeg',.85);};i.onerror=()=>ok(f);i.src=URL.createObjectURL(f);});
+
+ async function disegnaLista(){const el=$('pgLista');
+  if(!lista.length){el.innerHTML='<div class="small">Nessun personaggio. Crea la scheda del tuo personaggio con «Nuovo personaggio».</div>';return;}
+  el.innerHTML=lista.map(p=>`<button class="pgit${p.id===sel?' on':''}" data-id="${p.id}"><span class="pgfoto" data-foto="${p.id}"></span><span><b>${esc(p.nome||'Senza nome')}</b><span class="small">${esc([p.classe,p.liv&&'liv. '+p.liv,p.razza].filter(Boolean).join(' · '))}</span></span></button>`).join('');
+  for(const p of lista)if(p.img){const u=await url(p.id+':img'),f=el.querySelector(`[data-foto="${p.id}"]`);if(u&&f)f.style.backgroundImage=`url("${u}")`;}}
+
+ const linee=t=>String(t||'').split(/\n+/).map(s=>s.trim()).filter(Boolean),cap1=s=>s.charAt(0).toUpperCase()+s.slice(1);
+ // riquadri con nuvoletta: {n: nome, d: testo proprio, cerca: nome da cercare nel glossario}; i nomi senza descrizione finiscono in «mancano»
+ const chips=(a,mancano)=>`<div class="tg">${a.map(({n,d,cerca})=>{const g=Glossario.spiega(cerca||n),t=[g,d&&d!==g?d:''].filter(Boolean).join(' — ');if(!g&&!d)mancano.push(n);
+  return `<span data-gv="${esc(n)}"${t?` data-txt="${esc(t)}"`:' class="senza"'}>${esc(n)}</span>`;}).join('')}</div>`; // senza descrizione: si scrive dalla nuvoletta
+ // armi: una riga «Nome | Attacco | Danno | Critico | Tipo | Gittata | Munizioni» (le righe vecchie senza «|» restano testo)
+ const TIPI={P:'perforante',T:'tagliente',C:'contundente'};
+ const armiH=t=>{const a=linee(t);return a.length?'<h3>Armi</h3>'+a.map(l=>{const c=l.split('|').map(s=>s.trim());if(c.length<2)return `<p>${esc(l)}</p>`;
+  const [n,att,dan,cr,tipo,gi,mu]=c,det=[['Danno',dan],['Critico',cr],['Tipo',(tipo||'').replace(/\b[PTC]\b/g,x=>TIPI[x])],['Gittata',gi],['Munizioni',mu]].filter(([,v])=>v);
+  return `<div class="atk pgarma"><b>${esc(n)}</b><span class="hit">${esc(att||'')}</span><span class="dm">${det.map(([k,v])=>`<i>${k}</i> ${esc(v)}`).join(' · ')}</span></div>`;}).join(''):'';};
+ // capacità: righe spezzate dal PDF ricucite, gruppi «RAZZA:» / «CLASSE:», voci separate da «•» o «;»; le immunità vanno nella loro sezione
+ function tratti(p){const r=[];linee(p.capacita).forEach(l=>{const q=r[r.length-1];if(q&&(/^[a-zà-ù(]/.test(l)||/[a-zà-ù,]$/.test(q)&&q.length>=45&&!/^[^:]{2,30}:/.test(l)))r[r.length-1]+=' '+l;else r.push(l);});
+  const cap=[],imm=[],visti=new Set();let gr='';
+  const immunita=(testo,fonte)=>{for(const m of testo.matchAll(/immun[ei]\s+(?:(?:alle|allo|alla|agli|al|ai|a)\s+|all['’])?([^,;.+]+)/gi)){const n=m[1].trim().toLowerCase();if(visti.has(n))continue;visti.add(n);imm.push({n:cap1(n),d:fonte});}};
+  r.forEach(l=>{const h=l.match(/^([A-ZÀ-Ù][A-ZÀ-Ù' ]{3,}):\s*(.*)$/);if(h){gr=cap1(h[1].toLowerCase());l=h[2];}
+   l.split(/\s+•\s+|;\s+/).forEach(it=>{let n=it.trim(),d='';if(!n)return;const c=n.match(/^([^:]{2,40}):\s*(.+)$/);if(c){n=c[1];d=c[2];}
+    const lv=n.match(/^al (\d+)° liv\.?$/i);if(lv){const o=d.match(/^([^(]+)\((.*)\)\s*$/);n=o?o[1].trim():d;d=`Dal ${lv[1]}° livello`+(o?': '+o[2]:'');}
+    else if(!d){const o=n.match(/^([^(]+)\((.+)\)$/);if(o){n=o[1].trim();d=o[2];}}
+    if(/immunit/i.test(n)){immunita(d,`${n}${gr?' ('+gr+')':''}: ${d}`);return;} // es. «Immunità elfiche: immune al sonno magico…»
+    if(/immun/i.test(d))immunita(d,n);cap.push({gr,n:cap1(n),d});});});
+  linee(p.note).forEach(l=>immunita(l,'Note'));
+  return{imm,cap};}
+
+ // scheda del personaggio nel riquadro della scheda (stesso stile dei mostri)
+ async function mostra(id,fermo){sel=id;const p=trova(id);disegnaLista();$('pgAz').classList.toggle('hidden',!p);if(!p)return;
+  const D=pgCalcola(p),st=(l,v,c)=>`<div class="st${c?' '+c:''}"><span>${l}</span><b>${esc(v===''||v==null?'—':v)}</b></div>`,num=v=>v===''||v==null?'':+v;
+  const righe=(t,tit)=>{const a=linee(p[t]);return a.length?`<h3>${tit}</h3>`+a.map(x=>`<p>${esc(x)}</p>`).join(''):'';};
+  // talenti: «Nome — nota»; abilità: «Nome +N»
+  const tal=linee(p.talenti).map(l=>{const [n,...r]=l.split(/\s+[—–]\s+/);return{n,d:r.join(' — ')};}),abi=linee(p.abilita).map(n=>({n,cerca:n.replace(/\s*[+−-]\d+$/,'')}));
+  const {imm,cap}=tratti(p),mancano=[];
+  const gruppo=(tit,a)=>a.length?`<h3>${tit}</h3>`+chips(a,mancano):'';
+  const capH=cap.length?'<h3>Capacità speciali</h3>'+[...new Set(cap.map(c=>c.gr))].map(g=>(g?`<p class="rw"><b>${esc(g)}</b></p>`:'')+chips(cap.filter(c=>c.gr===g),mancano)).join(''):'';
+  if(mancano.length)console.info('Forgia dei Mostri: voci senza descrizione nel glossario →',mancano.join(', '));
+  const rw=(l,v)=>v||v===0?`<p class="rw"><b>${l}</b> ${esc(v)}</p>`:'';
+  const foto=p.img?await url(p.id+':img'):'';
+  let h=`<div class="hd">${foto?`<img class="pgritr" src="${foto}" alt="Ritratto di ${esc(p.nome)}">`:''}<div class="nm">${esc(p.nome||'Senza nome')}</div>
+   <div class="ep">${esc([p.classe&&p.classe+' '+(p.liv||''),p.razza,p.all].filter(Boolean).join(' · '))}</div>${p.giocatore?`<div class="id">Giocatore: ${esc(p.giocatore)}</div>`:''}</div>
+   <div class="hp">Punti ferita <b>${esc(num(p.pf)||'—')}</b>${p.rd?` <span>RD ${esc(p.rd)}</span>`:''}</div>
+   <div class="g g6">${CAR.map(c=>{const v=leggi(p,'car.'+c);return `<div class="st"><span>${c}</span><b>${v===''||v==null?'—':esc(v)}</b><i>${v===''||v==null?'':sgn(D.M[c])}</i></div>`;}).join('')}</div>
+   <h3>Difesa</h3><div class="g g3">${st('CA',num(p.ca),'bg')}${st('Contatto',num(p.caCont))}${st('Impreparato',num(p.caImpr))}</div>
+   <div class="g g3">${st('Tempra',sgn(D.ts.Temp))}${st('Riflessi',sgn(D.ts.Rifl))}${st('Volontà',sgn(D.ts.Vol))}</div>${rw('Resistenza agli incantesimi',p.ri)}
+   <h3>Offesa</h3><div class="g g3">${st('BAB',sgn(+p.bab||0))}${st('BMC',sgn(D.bmc))}${st('DMC',D.dmc)}</div>${rw('Iniziativa',sgn(D.init))}${rw('Velocità',p.vel&&(/m/.test(p.vel)?p.vel:p.vel+' m'))}
+   ${armiH(p.armi)}${gruppo('Immunità',imm)}${gruppo('Abilità',abi)}${gruppo('Talenti',tal)}${capH}${righe('incantesimi','Incantesimi')}${righe('equip','Equipaggiamento')}
+   ${p.lingue||p.denaro||p.pe?'<h3>Altro</h3>':''}${rw('Linguaggi',p.lingue)}${rw('Denaro',p.denaro)}${rw('Punti esperienza',p.pe)}${righe('note','Note')}
+   ${(p.storia||[]).length?'<h3>Diario dei livelli</h3>'+p.storia.map(s=>`<p class="rw"><b>Livello ${s.liv}</b> ${esc(s.data)} · ${esc(s.testo)}</p>`).join(''):''}`;
+  document.body.classList.add('vistapg');$('sheet').innerHTML=h;Glossario.marca($('sheet'));$('pgAnnulla').classList.toggle('hidden',!(p.storia||[]).some(s=>s.prima));
+  if(innerWidth<900&&!fermo)$('sheet').scrollIntoView({behavior:'smooth',block:'start'});}
+
+ // modulo di compilazione
+ function apriModulo(id){mod=id?JSON.parse(JSON.stringify(trova(id))):{id:'pg'+Date.now().toString(36),liv:1,car:{},ts:{}};
+  $('pgModT').textContent=id?'Modifica '+(mod.nome||'personaggio'):'Nuovo personaggio';
+  $('pgCampi').innerHTML=CAMPI.map(([g,c])=>`<fieldset><legend>${g}</legend><div class="${g==='Testi'?'':'grid'}">${c.map(([k,l,t])=>{const v=leggi(mod,k)??'';
+   return `<label${t==='t'?' class="pgtx"':''}>${l}${t==='t'?`<textarea data-k="${k}" rows="3">${esc(v)}</textarea>`:`<input data-k="${k}" ${t==='n'?'type="number" inputmode="numeric"':'type="text"'} value="${esc(v)}">`}</label>`;}).join('')}</div></fieldset>`).join('');
+  $('pgImgT').textContent=mod.img?'Cambia immagine':'Carica immagine';$('pgFileM').textContent='';
+  $('pgMod').showModal();}
+ async function salvaModulo(){$('pgCampi').querySelectorAll('[data-k]').forEach(i=>{const v=i.value.trim();scrivi(mod,i.dataset.k,i.type==='number'&&v!==''?+v:v);});
+  const nuovi={},fi=$('pgImg').files[0];if(fi)nuovi.img=await riduci(fi);
+  try{for(const k in nuovi){await fPut(mod.id+':'+k,nuovi[k]);libera(mod.id+':'+k);mod[k]=true;}}catch(e){$('pgFileM').textContent='Non riesco a salvare il file in questo browser.';return;}
+  const i=lista.findIndex(p=>p.id===mod.id);i<0?lista.push(mod):lista[i]=mod;if(!salva())return;$('pgImg').value='';$('pgMod').close();mostra(mod.id);}
+
+ // lettura della scheda (PDF compilato o scansione): un nuovo personaggio si salva subito, altrimenti si riempie il modulo aperto; il file non si conserva
+ async function leggiScheda(f,nuovo){const out=$(nuovo?'pgStato':'pgFileM'),st=t=>out.textContent=t;
+  let r;try{r=await LettoreScheda.leggi(f,st);}catch(e){console.error(e);st(e.message||'Non riesco a leggere il file.');return;}
+  const n=r.letti.length,poco=r.scansione?' Dalle schede scritte a mano si legge poco: completa il resto a mano.':'';
+  if(!n){st('Non ho trovato dati nella scheda.'+(poco||' Serve la scheda Pathfinder (Wyrd) compilata al computer.'));return;}
+  if(nuovo){const p=Object.assign({id:'pg'+Date.now().toString(36),liv:1},r.pg);lista.push(p);if(!salva())return;mostra(p.id);st(`Ho letto ${n} campi di ${p.nome||'un personaggio'} e l'ho salvato: controllalo con «Modifica».${poco}`);return;}
+  r.letti.forEach(k=>{const i=$('pgCampi').querySelector(`[data-k="${k}"]`);if(i){i.value=leggi(r.pg,k);i.classList.add('letto');}});
+  st(`Aggiornati ${n} campi dalla scheda (evidenziati): controllali e premi «Salva».${poco}`);}
+
+ // passaggio di livello: anteprima delle modifiche, conferma, voce nel diario dei livelli (annullabile)
+ // capacità e incantesimi nuovi del livello: confronto per nome senza maiuscole; stesso nome con testo diverso = aggiornamento della voce
+ const nomeVoce=t=>{const m=String(t).replace(/^[A-ZÀ-Ù][A-ZÀ-Ù' ]{3,}:\s*/,'').match(/^([^:(]{2,40}?)\s*(?:[:(]|[+−-]\d|$)/);return m?m[1].trim().toLowerCase():'';};
+ function aggiunte(p,r){const voci=[];linee(p.capacita).forEach(l=>l.replace(/^[A-ZÀ-Ù][A-ZÀ-Ù' ]{3,}:\s*/,'').split(/\s+•\s+|;\s+/).forEach(v=>v.trim()&&voci.push(v.trim())));
+  const cap=(r.capacita||[]).map(riga=>{const n=nomeVoce(riga),v=riga.replace(/^[A-ZÀ-Ù][A-ZÀ-Ù' ]{3,}:\s*/,''),d=v.slice(v.indexOf(':')+1).trim().toLowerCase(),c=voci.find(x=>nomeVoce(x)===n);
+   if(!c&&n&&voci.some(x=>x.toLowerCase().includes(n)))return{riga,v,fare:'presente'}; // già annunciata, es. «Al 3° liv.: Occhio Notturno (…)»
+   return{riga,v,vecchia:c,fare:!c?'aggiungi':c.toLowerCase().includes(d)?'presente':'aggiorna'};});
+  const inc=(r.incantesimi||[]).map(riga=>{const n=riga.slice(riga.indexOf(':')+1).trim().toLowerCase();return{riga,fare:String(p.incantesimi||'').toLowerCase().includes(n)?'presente':'aggiungi'};});
+  return{cap,inc};}
+ function apriLivello(){const p=trova(sel);if(!p)return;const r=pgSaliLivello(p),n=r.nuovo;mod={p,r};
+  $('pgLivT').textContent=`${p.nome||'Personaggio'}: livello ${n.liv}`;
+  $('pgLivC').innerHTML=(r.classe?`<p>Classe riconosciuta: <b>${r.classe}</b>.</p><ul><li>BAB ${sgn(+p.bab||0)} → <b>${sgn(n.bab)}</b></li><li>TS base: Tempra ${n.ts.Temp}, Riflessi ${n.ts.Rifl}, Volontà ${n.ts.Vol}</li></ul>`:'')
+   +`<label>PF guadagnati (media del dado; cambiali se tiri il dado)<input type="number" id="pgLivPf" inputmode="numeric" value="${n.pfPiu??''}"></label><h4>Da fare</h4><ul>${r.promemoria.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`;
+  const a=aggiunte(p,r),voce=x=>`<li>${esc(x.fare==='aggiorna'?`${x.vecchia} → ${x.v}`:x.riga)}${x.fare==='presente'?' <i>(già sulla scheda)</i>':x.fare==='aggiorna'?' <i>(aggiornata)</i>':''}</li>`;
+  if(a.cap.length)$('pgLivC').innerHTML+=`<h4>Capacità che verranno aggiunte</h4><ul>${a.cap.map(voce).join('')}</ul>`;
+  if(a.inc.length)$('pgLivC').innerHTML+=`<h4>Incantesimi bonus</h4><ul>${a.inc.map(voce).join('')}</ul>`;
+  if(r.talentiStirpe&&r.talentiStirpe.length)$('pgLivC').innerHTML+=`<h4>Talenti bonus della stirpe (scegline uno)</h4><ul>${r.talentiStirpe.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`;
+  Glossario.marca($('pgLivC'));$('pgLiv').showModal();}
+ function confermaLivello(){const {p,r}=mod,n=r.nuovo,piu=+$('pgLivPf').value||0,prima=JSON.parse(JSON.stringify(p));delete prima.storia;
+  p.liv=n.liv;if(n.bab!=null){p.bab=n.bab;p.ts=n.ts;}p.pf=(+p.pf||0)+piu;
+  const a=aggiunte(p,r),nuove=[];a.cap.forEach(x=>{if(x.fare==='aggiungi')nuove.push(x.riga);else if(x.fare==='aggiorna')p.capacita=String(p.capacita).replace(x.vecchia,x.v);});
+  if(nuove.length)p.capacita=[String(p.capacita||'').trim(),...nuove].filter(Boolean).join('\n');
+  const inc=a.inc.filter(x=>x.fare==='aggiungi').map(x=>x.riga);if(inc.length)p.incantesimi=[String(p.incantesimi||'').trim(),...inc].filter(Boolean).join('\n');
+  (p.storia=p.storia||[]).push({liv:n.liv,data:new Date().toLocaleDateString('it-IT'),testo:`+${piu} PF`+(n.bab!=null?`, BAB ${sgn(n.bab)}, TS ${n.ts.Temp}/${n.ts.Rifl}/${n.ts.Vol}`:'')+[...nuove,...inc].map(x=>', '+x.replace(/^[^:]*:\s*/,'')).join(''),prima});
+  salva();$('pgLiv').close();mostra(p.id);apriModulo(p.id);}// subito il modulo, per talenti, gradi e capacità nuove
+ // conferma sul pulsante (secondo clic entro 4 s): confirm() in alcuni browser integrati risponde "no" senza mostrare nulla
+ const conferma=(b,testo)=>{if(b.dataset.conf)return true;const t=b.querySelector('span'),v=t.textContent;b.dataset.conf=1;b.classList.add('conf');t.textContent=testo;
+  setTimeout(()=>{delete b.dataset.conf;b.classList.remove('conf');t.textContent=v;},4000);return false;};
+ function annullaLivello(e){const p=trova(sel),s=(p.storia||[]).slice().reverse().find(x=>x.prima);if(!s||!conferma(e.currentTarget,`Conferma: torna al livello ${s.liv-1}`))return;
+  const st=p.storia.filter(x=>x!==s),f={img:p.img};Object.keys(p).forEach(k=>delete p[k]);Object.assign(p,s.prima,f,{storia:st});salva();mostra(p.id);} // gli allegati restano
+ async function elimina(e){const p=trova(sel);if(!p||!conferma(e.currentTarget,`Conferma: elimina ${p.nome||'il personaggio'}`))return;
+  ['img','pdf'].forEach(k=>{fDel(p.id+':'+k);libera(p.id+':'+k);});lista=lista.filter(x=>x!==p);salva();sel=null;$('pgAz').classList.add('hidden');document.body.classList.remove('vistapg');disegnaLista();if(lista[0])mostra(lista[0].id,1);}
+
+ function init(){carica();disegnaLista();
+  $('pgNuovo').addEventListener('click',()=>apriModulo());$('pgLista').addEventListener('click',e=>{const b=e.target.closest('[data-id]');if(b)mostra(b.dataset.id);});
+  $('pgModifica').addEventListener('click',()=>apriModulo(sel));$('pgSali').addEventListener('click',apriLivello);$('pgElimina').addEventListener('click',elimina);$('pgAnnulla').addEventListener('click',annullaLivello);
+  $('pgModOk').addEventListener('click',salvaModulo);$('pgModX').addEventListener('click',()=>$('pgMod').close());
+  $('pgLivOk').addEventListener('click',confermaLivello);$('pgLivX').addEventListener('click',()=>$('pgLiv').close());
+  $('pgImg').addEventListener('change',e=>{const f=e.target.files[0];if(f)$('pgFileM').textContent='Pronto: '+f.name+' (salvato con «Salva»)';});
+  $('pgLeggi').addEventListener('change',e=>{const f=e.target.files[0];e.target.value='';if(f)leggiScheda(f,true);});
+  $('pgLeggiF').addEventListener('change',e=>{const f=e.target.files[0];e.target.value='';if(f)leggiScheda(f,false);});}
+ // esci: torna ai mostri tenendo la selezione; riapri: di nuovo nel Party (il primo personaggio se nessuno è scelto)
+ return{init,disegnaLista,esci:()=>document.body.classList.remove('vistapg'),riapri:()=>{const p=trova(sel)||lista[0];if(p)mostra(p.id,1);}};
 })();
 
 </script>
@@ -2854,12 +4105,20 @@ const Glossario=(function(){
  const AN=['For','Des','Cos','Int','Sag','Car'];
  $('gAb').innerHTML=AN.map((a,i)=>`<label style="align-items:center">${a}<input type="text" inputmode="numeric" id="ab${i}" placeholder="auto" maxlength="2"></label>`).join('');
  const chosen=new Set();
- $('gChips').innerHTML=ABILITIES.map(a=>`<button class="chip" data-id="${a.id}">${a.nome}</button>`).join('');
- $('gChips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;const id=b.dataset.id;chosen.has(id)?chosen.delete(id):chosen.add(id);b.classList.toggle('on');});
+ $('gChips').innerHTML=ABILITIES.map(a=>`<button class="chip" data-id="${a.id}" data-gv="${a.nome}" data-txt="${Glossario.cap(a.id)}">${a.nome}</button>`).join('');
+ $('gChips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b||e.metaKey||e.ctrlKey||Glossario.trattenuto())return;/* Cmd/Ctrl+clic o pressione lunga: solo nuvoletta */const id=b.dataset.id;chosen.has(id)?chosen.delete(id):chosen.add(id);b.classList.toggle('on');});
 
  // schede
  const tabs={tR:'pR',tG:'pG',tS:'pS'};
- Object.keys(tabs).forEach(t=>$(t).addEventListener('click',()=>{Object.keys(tabs).forEach(k=>{$(k).classList.toggle('on',k===t);$(tabs[k]).classList.toggle('hidden',k!==t);});if(t==='tS')renderSaved();}));
+ Object.keys(tabs).forEach(t=>$(t).addEventListener('click',()=>{Object.keys(tabs).forEach(k=>{$(k).classList.toggle('on',k===t);$(tabs[k]).classList.toggle('hidden',k!==t);});if(t==='tS')renderSaved();vista();}));
+ // Diario: Party o Bestiario
+ [['dP','dParty'],['dB','dBes']].forEach(([b,p],i,a)=>$(b).addEventListener('click',()=>a.forEach(([b2,p2])=>{const on=b2===b;$(b2).classList.toggle('on',on);$(b2).setAttribute('aria-pressed',on);$(p2).classList.toggle('hidden',!on);vista();})));
+ // nel Party si vede solo il personaggio, altrove solo il mostro
+ const inParty=()=>!$('pS').classList.contains('hidden')&&!$('dParty').classList.contains('hidden');
+ function vista(){const p=inParty();document.body.classList.toggle('diario-party',p);if(p)Party.riapri();else if(document.body.classList.contains('vistapg')&&cur)render(cur);}
+ // glossario personale: dopo ogni descrizione scritta si ridisegna la scheda aperta
+ Glossario.cambiato(()=>{if(document.body.classList.contains('vistapg'))Party.riapri();else if(cur)render(cur);});Glossario.initMiei();
+ Party.init();
 
  const viewerOk=typeof THREE!=='undefined'&&Viewer.init($('cv'));
  if(!viewerOk){$('nogl').style.display='flex';$('hint').style.display='none';}
@@ -2871,15 +4130,15 @@ const Glossario=(function(){
   if(azione){const b=document.createElement('button');b.textContent=azione.label;b.addEventListener('click',()=>{clearTimeout(toast.h);chiudi();azione.fn();});el.appendChild(b);}
   toast.h=setTimeout(chiudi,azione?6000:(t.length>40?3500:1600));
  }
- const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+ const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
  // ===== scheda del mostro =====
  const KIND={Str:'Straordinaria',Sop:'Soprannaturale',Mag:'Magica'};
  const stat=(l,v,c)=>`<div class="st${c?' '+c:''}"><span>${esc(l)}</span><b>${esc(String(v))}</b></div>`;
  const row=(l,v)=>v?`<p class="rw"><b>${esc(l)}</b> ${esc(String(v))}</p>`:'';
  const band=(t,h)=>h?`<h3>${esc(t)}</h3>${h}`:'';
- const chips=a=>`<div class="tg">${a.map(x=>`<span>${esc(x)}</span>`).join('')}</div>`;
+ const chips=(a,v,t)=>`<div class="tg">${a.map((x,i)=>`<span${v&&(t&&t[i]||Glossario.voce(v[i]))?` data-gv="${esc(v[i])}"${t?` data-txt="${esc(t[i])}"`:''}`:''}>${esc(x)}</span>`).join('')}</div>`; // v: nomi con nuvoletta, t: testo proprio
  const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
- function render(m){
+ function render(m){Party.esci();
   const T=TYPES[m.tipo],S=SIZES[m.sizeIdx],AN=['For','Des','Cos','Int','Sag','Car'];
   const tipo=m.tipo+(m.razza&&m.razza!=='Umano'?` (${m.razza.toLowerCase()})`:m.razza?' (umano)':'');
   const tall=['bipede','costrutto','vegetale','tentacolare'].includes(m.shape);
@@ -2895,18 +4154,18 @@ const Glossario=(function(){
   <p class="hp">Punti ferita <b>${esc(String(m.hp))}</b> <span>(${esc(m.hpFormula)})</span></p>
   <div class="g g3">${stat('Taglia',m.taglia)}${stat('Velocità',m.speed.split(',')[0])}${stat('Iniziativa',sgn(m.init))}</div>
   <div class="g g6">${abs}</div>`;
-  h+=band('Effetti e sensi',(eff.length?chips(eff):'')+row('Sensi',(m.sensi.length?m.sensi.join(', ')+'; ':'')+'Percezione '+sgn(m.perc))+row('Aura',m.aura.join(', ')));
+  h+=band('Effetti e sensi',(eff.length?chips(eff,eff,m.specials.map(x=>x.desc)):'')+row('Sensi',(m.sensi.length?m.sensi.join(', ')+'; ':'')+'Percezione '+sgn(m.perc))+row('Aura',m.aura.join(', ')));
   h+=band('Difesa',`<div class="g g3">${stat('CA',m.ac,'bg')}${stat('Alla sprovvista',m.ff)}${stat('Contatto',m.touch)}</div>
    ${acp.length?`<p class="nt">Composizione: ${esc(acp.join(', '))}</p>`:''}
    <div class="g g3">${stat('Tempra',sgn(m.saves.Temp))}${stat('Riflessi',sgn(m.saves.Rifl))}${stat('Volontà',sgn(m.saves.Vol))}</div>
    ${m.def.ri?`<p class="ri">Resistenza agli incantesimi <b>${esc(String(m.def.ri))}</b></p>`:''}
    ${row('Riduzione del danno',m.def.rd)}${row('Resistenze',m.def.res.join(', '))}${row('Punti deboli',(m.def.vuln||[]).join(', '))}${row('Rigenerazione / guarigione',m.def.reg)}${row('Capacità difensive',m.def.extra.join(', '))}${row('Tratti',T.traits)}`);
   const iT=[...new Set(m.def.immTipo||[])],iS=(m.def.immSott||[]).filter(x=>!iT.includes(x)),iP=[...new Set(m.def.imm)].filter(x=>!iT.includes(x)&&!iS.includes(x));
-  h+=band('Immunità',iT.length||iS.length||iP.length?(iT.length?`<p class="rw"><b>Del tipo ${esc(m.tipo.toLowerCase())}</b></p>${chips(iT)}`:'')+(iS.length?`<p class="rw"><b>Del sottotipo ${esc(String(m.sottotipo).toLowerCase())}</b></p>${chips(iS)}`:'')+(iP.length?`<p class="rw"><b>Proprie</b></p>${chips(iP)}`:''):'<p class="rw">Nessuna</p>');
+  h+=band('Immunità',iT.length||iS.length||iP.length?(iT.length?`<p class="rw"><b>Del tipo ${esc(m.tipo.toLowerCase())}</b></p>${chips(iT,iT)}`:'')+(iS.length?`<p class="rw"><b>Del sottotipo ${esc(String(m.sottotipo).toLowerCase())}</b></p>${chips(iS,iS)}`:'')+(iP.length?`<p class="rw"><b>Proprie</b></p>${chips(iP,iP)}`:''):'<p class="rw">Nessuna</p>');
   h+=band('Offesa',`<div class="atks">${atk}</div>${row('Velocità',m.speed)}${row('Spazio',S.sp+' · Portata '+(tall?S.reT:S.re))}${row('Attacchi speciali',m.attSpec.join(', '))}${spells}`);
   h+=band('Statistiche',`<div class="g g3">${stat('BAB',sgn(m.bab))}${stat('BMC',sgn(m.cmb))}${stat('DMC',m.cmd)}</div>
-   ${m.feats.length?'<p class="rw"><b>Talenti</b></p>'+chips(m.feats):''}
-   ${m.skills.length?'<p class="rw"><b>Abilità</b></p>'+chips(m.skills.map(x=>x[0]+' '+sgn(x[1]))):''}
+   ${m.feats.length?'<p class="rw"><b>Talenti</b></p>'+chips(m.feats,m.feats):''}
+   ${m.skills.length?'<p class="rw"><b>Abilità</b></p>'+chips(m.skills.map(x=>x[0]+' '+sgn(x[1])),m.skills.map(x=>x[0])):''}
    ${m.racialStealth?'<p class="nt">Modificatore razziale: +8 Furtività</p>':''}${row('Linguaggi',m.lang)}`);
   if(m.specials.length)h+=band('Capacità speciali',m.specials.map(x=>`<div class="ab"><div><b>${esc(x.nome)}</b><span>${esc(KIND[x.k]||x.k)}</span></div><p>${esc(x.desc)}</p></div>`).join(''));
   h+=band('Ecologia',row('Ambiente',m.env)+row('Organizzazione',m.org)+row('Tesoro',m.tesoro));
@@ -3097,6 +4356,25 @@ const Glossario=(function(){
   const e=r.pick(EYES);L.eye=e[0];L.eyen=e[1];cur.descr=describe(cur,r);render(cur);mostra3D(cur);});
  make({crRange:[1,8]});
  try{if(localStorage.getItem(MK)==='2')modo(true);}catch(e){}
+ // impostazioni (ingranaggio): restano in questo browser
+ const SK='forgia-impostazioni',imp={nuv:true,testo:false,d3:false};try{Object.assign(imp,JSON.parse(localStorage.getItem(SK)||'{}'));}catch(e){}
+ const CAMPI={sNuv:'nuv',sTesto:'testo',s3d:'d3'};
+ function applica(){Glossario.attiva(imp.nuv);document.body.classList.toggle('testogrande',imp.testo);document.body.classList.toggle('no3d',!imp.d3);
+  if(!imp.d3){if($('forgia').classList.contains('hidden'))$('navF').click();if(!in2D)modo(true);}
+  for(const id in CAMPI)$(id).checked=imp[CAMPI[id]];try{localStorage.setItem(SK,JSON.stringify(imp));}catch(e){}}
+ for(const id in CAMPI)$(id).addEventListener('change',e=>{imp[CAMPI[id]]=e.target.checked;applica();if(id==='s3d'&&imp.d3)modo(false);});
+ $('bImp').addEventListener('click',()=>$('dImp').showModal());$('dImpX').addEventListener('click',()=>$('dImp').close());
+ applica();
+ // maniglia del visore: trascinando cambia altezza (e larghezza su schermo largo); doppio clic ripristina
+ const DK='forgia-visore-dim';let dimV=null;try{dimV=JSON.parse(localStorage.getItem(DK));}catch(e){}
+ const largo=()=>innerWidth>=900;
+ function dim(){$('viewer').style.height=dimV&&dimV.h?dimV.h+'px':'';$('forgia').style.gridTemplateColumns=dimV&&dimV.w&&largo()?dimV.w+'px minmax(0,1fr)':'';}
+ const salvaDim=()=>{try{dimV?localStorage.setItem(DK,JSON.stringify(dimV)):localStorage.removeItem(DK);}catch(e){}};
+ $('vGrip').addEventListener('pointerdown',e=>{e.preventDefault();e.stopPropagation();const g=e.currentTarget,r=$('viewer').getBoundingClientRect(),x0=e.clientX,y0=e.clientY;try{g.setPointerCapture(e.pointerId);}catch(_){}
+  const mv=ev=>{dimV={h:Math.round(Math.max(300,Math.min(innerHeight*.9,r.height+ev.clientY-y0))),w:largo()?Math.round(Math.max(320,Math.min($('forgia').clientWidth-380,r.width+ev.clientX-x0))):null};dim();};
+  g.addEventListener('pointermove',mv);g.addEventListener('lostpointercapture',()=>{g.removeEventListener('pointermove',mv);salvaDim();},{once:true});});
+ const ripristina=()=>{dimV=null;dim();salvaDim();};
+ $('vGrip').addEventListener('dblclick',ripristina);$('sDim').addEventListener('click',ripristina);addEventListener('resize',dim);dim();
 })();
 
 </script>
